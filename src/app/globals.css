@@ -1,26 +1,577 @@
 @import "tailwindcss";
 
+/* ===================================================================
+   Joyous Podcast — Global Styles
+   Premium editorial magazine aesthetic
+   =================================================================== */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Core palette */
+  --joyous-charcoal: #0B1120;
+  --joyous-cream: #F7F3ED;
+  --joyous-gold: #C9A96E;
+  --joyous-gold-light: #D4BA85;
+  --joyous-gold-dark: #A8893F;
+  --joyous-rose: #B76E79;
+  --joyous-rose-light: #CB8B94;
+  --joyous-rose-dark: #9A5560;
+  --joyous-text-light: #F5F0E8;
+  --joyous-text-dark: #1A1A2E;
+  --joyous-surface: #111827;
+  --joyous-surface-elevated: #1C2536;
+  --joyous-border: rgba(201, 169, 110, 0.15);
+  --joyous-border-strong: rgba(201, 169, 110, 0.3);
+
+  /* Typography scale (modular, ratio ~1.25) */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+  --text-5xl: 3rem;
+  --text-6xl: 3.75rem;
+  --text-7xl: 4.5rem;
+
+  /* Spacing rhythm */
+  --section-gap: 6rem;
+
+  /* Transitions */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+  --duration-glacial: 800ms;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-charcoal: #0B1120;
+  --color-cream: #F7F3ED;
+  --color-gold: #C9A96E;
+  --color-gold-light: #D4BA85;
+  --color-gold-dark: #A8893F;
+  --color-rose: #B76E79;
+  --color-rose-light: #CB8B94;
+  --color-rose-dark: #9A5560;
+  --color-text-light: #F5F0E8;
+  --color-text-dark: #1A1A2E;
+  --color-surface: #111827;
+  --color-surface-elevated: #1C2536;
+  --color-border: rgba(201, 169, 110, 0.15);
+  --color-border-strong: rgba(201, 169, 110, 0.3);
+
+  --font-display: var(--font-playfair), "Georgia", serif;
+  --font-body: var(--font-dm-sans), "Helvetica Neue", sans-serif;
+
+  --animate-gradient-shift: gradient-shift 8s ease infinite;
+  --animate-fade-in: fade-in 0.6s var(--ease-out-expo) forwards;
+  --animate-fade-in-up: fade-in-up 0.6s var(--ease-out-expo) forwards;
+  --animate-pulse-soft: pulse-soft 4s ease-in-out infinite;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ===================================================================
+   Smooth scrolling & base styles
+   =================================================================== */
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--joyous-charcoal);
+  color: var(--joyous-text-light);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+::selection {
+  background-color: rgba(201, 169, 110, 0.3);
+  color: var(--joyous-text-light);
+}
+
+/* ===================================================================
+   Grain / noise texture overlay
+   =================================================================== */
+
+.grain-overlay {
+  position: relative;
+}
+
+.grain-overlay::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.035;
+  pointer-events: none;
+  z-index: 1;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+}
+
+.grain-overlay-strong::after {
+  opacity: 0.06;
+}
+
+/* ===================================================================
+   Hero gradient animation
+   =================================================================== */
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.hero-gradient {
+  background: linear-gradient(
+    135deg,
+    var(--joyous-charcoal) 0%,
+    #0F1729 20%,
+    #151E33 40%,
+    rgba(201, 169, 110, 0.08) 60%,
+    rgba(183, 110, 121, 0.06) 80%,
+    var(--joyous-charcoal) 100%
+  );
+  background-size: 200% 200%;
+  animation: gradient-shift 8s ease infinite;
+}
+
+/* Radial glow variant */
+.hero-glow {
+  position: relative;
+}
+
+.hero-glow::before {
+  content: "";
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 50%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(201, 169, 110, 0.08) 0%,
+    rgba(183, 110, 121, 0.04) 40%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ===================================================================
+   Entrance animations
+   =================================================================== */
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-soft {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* ===================================================================
+   Typography utilities
+   =================================================================== */
+
+.heading-display {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+}
+
+.heading-editorial {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+}
+
+.body-refined {
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: 1.7;
+  letter-spacing: 0.01em;
+}
+
+.label-caps {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+/* ===================================================================
+   Light section styles
+   =================================================================== */
+
+.section-light {
+  background-color: var(--joyous-cream);
+  color: var(--joyous-text-dark);
+}
+
+.section-light ::selection {
+  background-color: rgba(183, 110, 121, 0.25);
+  color: var(--joyous-text-dark);
+}
+
+/* ===================================================================
+   Dividers & borders
+   =================================================================== */
+
+.divider-gold {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--joyous-gold) 50%,
+    transparent 100%
+  );
+  opacity: 0.3;
+}
+
+.divider-fade {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(245, 240, 232, 0.15) 50%,
+    transparent 100%
+  );
+}
+
+/* ===================================================================
+   Custom audio player styles
+   =================================================================== */
+
+.audio-player {
+  background: var(--joyous-surface-elevated);
+  border: 1px solid var(--joyous-border);
+  border-radius: 16px;
+  padding: 1.25rem 1.5rem;
+  backdrop-filter: blur(12px);
+  transition: border-color var(--duration-normal) var(--ease-out-expo),
+              box-shadow var(--duration-normal) var(--ease-out-expo);
+}
+
+.audio-player:hover {
+  border-color: var(--joyous-border-strong);
+  box-shadow: 0 0 0 1px rgba(201, 169, 110, 0.05),
+              0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* Progress bar track */
+.audio-progress {
+  appearance: none;
+  width: 100%;
+  height: 4px;
+  border-radius: 9999px;
+  background: rgba(245, 240, 232, 0.1);
+  outline: none;
+  cursor: pointer;
+  transition: height var(--duration-normal) var(--ease-out-expo);
+}
+
+.audio-progress:hover {
+  height: 6px;
+}
+
+.audio-progress::-webkit-slider-thumb {
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--joyous-gold);
+  cursor: pointer;
+  box-shadow: 0 0 0 3px rgba(201, 169, 110, 0.2);
+  transition: transform var(--duration-normal) var(--ease-out-expo),
+              box-shadow var(--duration-normal) var(--ease-out-expo);
+}
+
+.audio-progress::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 0 5px rgba(201, 169, 110, 0.25);
+}
+
+.audio-progress::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--joyous-gold);
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 0 0 3px rgba(201, 169, 110, 0.2);
+}
+
+.audio-progress::-webkit-slider-runnable-track {
+  border-radius: 9999px;
+}
+
+.audio-progress::-moz-range-track {
+  height: 4px;
+  border-radius: 9999px;
+  background: rgba(245, 240, 232, 0.1);
+}
+
+/* Play button */
+.audio-play-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--joyous-gold);
+  color: var(--joyous-charcoal);
+  border: none;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: transform var(--duration-normal) var(--ease-out-expo),
+              background-color var(--duration-normal) var(--ease-out-expo),
+              box-shadow var(--duration-normal) var(--ease-out-expo);
+}
+
+.audio-play-btn:hover {
+  transform: scale(1.08);
+  background: var(--joyous-gold-light);
+  box-shadow: 0 0 24px rgba(201, 169, 110, 0.3);
+}
+
+.audio-play-btn:active {
+  transform: scale(0.96);
+}
+
+/* Volume slider */
+.audio-volume {
+  appearance: none;
+  width: 80px;
+  height: 3px;
+  border-radius: 9999px;
+  background: rgba(245, 240, 232, 0.15);
+  outline: none;
+  cursor: pointer;
+}
+
+.audio-volume::-webkit-slider-thumb {
+  appearance: none;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--joyous-text-light);
+  cursor: pointer;
+}
+
+.audio-volume::-moz-range-thumb {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--joyous-text-light);
+  border: none;
+}
+
+/* Time display */
+.audio-time {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  color: rgba(245, 240, 232, 0.5);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.05em;
+}
+
+/* ===================================================================
+   Card & surface styles
+   =================================================================== */
+
+.card-elevated {
+  background: var(--joyous-surface-elevated);
+  border: 1px solid var(--joyous-border);
+  border-radius: 16px;
+  transition: transform var(--duration-normal) var(--ease-out-expo),
+              border-color var(--duration-normal) var(--ease-out-expo),
+              box-shadow var(--duration-normal) var(--ease-out-expo);
+}
+
+.card-elevated:hover {
+  transform: translateY(-2px);
+  border-color: var(--joyous-border-strong);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+}
+
+/* ===================================================================
+   Button styles
+   =================================================================== */
+
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 2rem;
+  background: var(--joyous-gold);
+  color: var(--joyous-charcoal);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all var(--duration-normal) var(--ease-out-expo);
+}
+
+.btn-gold:hover {
+  background: var(--joyous-gold-light);
+  box-shadow: 0 0 32px rgba(201, 169, 110, 0.3);
+  transform: translateY(-1px);
+}
+
+.btn-gold:active {
+  transform: translateY(0);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 2rem;
+  background: transparent;
+  color: var(--joyous-gold);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border: 1px solid var(--joyous-border-strong);
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all var(--duration-normal) var(--ease-out-expo);
+}
+
+.btn-outline:hover {
+  border-color: var(--joyous-gold);
+  background: rgba(201, 169, 110, 0.08);
+}
+
+/* ===================================================================
+   Link styles
+   =================================================================== */
+
+a {
+  transition: color var(--duration-normal) var(--ease-out-expo);
+}
+
+.link-gold {
+  color: var(--joyous-gold);
+  text-decoration: none;
+  position: relative;
+}
+
+.link-gold::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--joyous-gold);
+  transition: width var(--duration-normal) var(--ease-out-expo);
+}
+
+.link-gold:hover::after {
+  width: 100%;
+}
+
+/* ===================================================================
+   Scrollbar styling
+   =================================================================== */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--joyous-charcoal);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(201, 169, 110, 0.2);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(201, 169, 110, 0.35);
+}
+
+/* ===================================================================
+   Focus styles for accessibility
+   =================================================================== */
+
+:focus-visible {
+  outline: 2px solid var(--joyous-gold);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ===================================================================
+   Responsive helpers
+   =================================================================== */
+
+@media (max-width: 768px) {
+  :root {
+    --section-gap: 3.5rem;
+  }
+
+  .audio-player {
+    padding: 1rem;
+    border-radius: 12px;
+  }
+
+  .audio-play-btn {
+    width: 40px;
+    height: 40px;
+  }
+
+  .audio-volume {
+    display: none;
+  }
 }
