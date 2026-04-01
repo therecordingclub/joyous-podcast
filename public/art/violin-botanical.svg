@@ -1,28 +1,217 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="400" height="600" viewBox="0 0 400 600" fill="none">
-  <!-- Violin with botanical vines growing from it -->
-  <path d="M200 100 C230 100 260 130 260 170 C260 200 240 220 240 250 C240 280 265 310 265 350 C265 400 240 440 200 460 C160 440 135 400 135 350 C135 310 160 280 160 250 C160 220 140 200 140 170 C140 130 170 100 200 100Z" stroke="currentColor" stroke-width="1.5" fill="none" opacity="0.15"/>
-  <path d="M175 260 Q170 280 175 300" stroke="currentColor" stroke-width="1" fill="none" opacity="0.12" stroke-linecap="round"/>
-  <path d="M225 260 Q230 280 225 300" stroke="currentColor" stroke-width="1" fill="none" opacity="0.12" stroke-linecap="round"/>
-  <line x1="170" y1="330" x2="230" y2="330" stroke="currentColor" stroke-width="1" opacity="0.1"/>
-  <line x1="185" y1="130" x2="185" y2="430" stroke="currentColor" stroke-width="0.4" opacity="0.08"/>
-  <line x1="195" y1="125" x2="195" y2="435" stroke="currentColor" stroke-width="0.4" opacity="0.08"/>
-  <line x1="205" y1="125" x2="205" y2="435" stroke="currentColor" stroke-width="0.4" opacity="0.08"/>
-  <line x1="215" y1="130" x2="215" y2="430" stroke="currentColor" stroke-width="0.4" opacity="0.08"/>
-  <line x1="195" y1="100" x2="195" y2="50" stroke="currentColor" stroke-width="1.2" opacity="0.12"/>
-  <line x1="205" y1="100" x2="205" y2="50" stroke="currentColor" stroke-width="1.2" opacity="0.12"/>
-  <path d="M195 50 Q190 35 185 30 Q175 25 180 40" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.12" stroke-linecap="round"/>
-  <path d="M260 180 Q280 170 300 160 Q320 155 340 165 Q360 175 350 190" stroke="currentColor" stroke-width="1" fill="none" opacity="0.1" stroke-linecap="round"/>
-  <path d="M340 165 Q345 155 350 148" stroke="currentColor" stroke-width="0.8" fill="none" opacity="0.08" stroke-linecap="round"/>
-  <path d="M350 148 Q355 140 348 142 Q358 138 350 148" fill="currentColor" opacity="0.08"/>
-  <path d="M350 190 Q345 195 348 188 Q342 198 350 190" fill="currentColor" opacity="0.08"/>
-  <path d="M140 200 Q120 190 100 195 Q80 200 70 220 Q65 240 80 250" stroke="currentColor" stroke-width="1" fill="none" opacity="0.1" stroke-linecap="round"/>
-  <path d="M100 195 Q95 185 90 178" stroke="currentColor" stroke-width="0.8" fill="none" opacity="0.08" stroke-linecap="round"/>
-  <path d="M90 178 Q85 172 88 180 Q82 174 90 178" fill="currentColor" opacity="0.08"/>
-  <path d="M80 250 Q85 255 78 252 Q88 258 80 250" fill="currentColor" opacity="0.08"/>
-  <path d="M200 460 Q200 480 210 500 Q220 520 210 540 Q200 555 190 560" stroke="currentColor" stroke-width="0.8" fill="none" opacity="0.1" stroke-linecap="round"/>
-  <path d="M210 500 Q220 495 228 498" stroke="currentColor" stroke-width="0.6" fill="none" opacity="0.07"/>
-  <path d="M228 498 Q234 494 230 500 Q236 496 228 498" fill="currentColor" opacity="0.06"/>
-  <circle cx="300" cy="160" r="3" fill="currentColor" opacity="0.06"/>
-  <circle cx="80" cy="220" r="2.5" fill="currentColor" opacity="0.06"/>
-  <circle cx="210" cy="540" r="2" fill="currentColor" opacity="0.05"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 700" width="500" height="700">
+  <defs>
+    <style>
+      .violin-stroke { fill: none; stroke: #3D2B1F; stroke-linecap: round; stroke-linejoin: round; }
+      .vine-stroke { fill: none; stroke: #7D8B6A; stroke-linecap: round; stroke-linejoin: round; }
+      .leaf { fill: #7D8B6A; opacity: 0.35; stroke: #2D4A3E; stroke-width: 0.6; }
+      .leaf-dark { fill: #2D4A3E; opacity: 0.2; stroke: #2D4A3E; stroke-width: 0.5; }
+      .amber { fill: #C4956A; opacity: 0.15; }
+    </style>
+  </defs>
+
+  <!-- VIOLIN BODY -->
+  <!-- Main body outline -->
+  <path d="M250,120
+    C285,120 310,140 318,165
+    C326,190 320,210 308,225
+    C296,240 282,248 278,260
+    C274,272 280,285 290,300
+    C310,330 325,360 325,400
+    C325,440 310,475 290,500
+    C270,525 250,535 250,540
+    C250,535 230,525 210,500
+    C190,475 175,440 175,400
+    C175,360 190,330 210,300
+    C220,285 226,272 222,260
+    C218,248 204,240 192,225
+    C180,210 174,190 182,165
+    C190,140 215,120 250,120Z"
+    fill="#FAF6F0" opacity="0.3" stroke="#3D2B1F" stroke-width="1.8"/>
+
+  <!-- Upper bouts curve detail -->
+  <path d="M250,120 C275,118 295,128 305,145" class="violin-stroke" stroke-width="0.5" opacity="0.3"/>
+  <path d="M250,120 C225,118 205,128 195,145" class="violin-stroke" stroke-width="0.5" opacity="0.3"/>
+
+  <!-- C-bouts (waist curves) -->
+  <path d="M222,260 C218,248 205,242 195,232 C188,224 186,216 190,208"
+    class="violin-stroke" stroke-width="0.8" opacity="0.5"/>
+  <path d="M278,260 C282,248 295,242 305,232 C312,224 314,216 310,208"
+    class="violin-stroke" stroke-width="0.8" opacity="0.5"/>
+
+  <!-- F-holes -->
+  <g transform="translate(220, 280)">
+    <path d="M0,0 Q-4,-15 -2,-30 Q0,-40 5,-45 Q8,-42 6,-35 Q3,-20 4,-5 Q5,10 8,25 Q10,35 6,40 Q2,38 4,30 Q5,20 3,5Z"
+      class="violin-stroke" stroke-width="1.2"/>
+    <!-- F-hole notches -->
+    <circle cx="5" cy="-42" r="2" fill="#3D2B1F" opacity="0.3"/>
+    <circle cx="5" cy="37" r="2" fill="#3D2B1F" opacity="0.3"/>
+  </g>
+  <g transform="translate(280, 280) scale(-1,1)">
+    <path d="M0,0 Q-4,-15 -2,-30 Q0,-40 5,-45 Q8,-42 6,-35 Q3,-20 4,-5 Q5,10 8,25 Q10,35 6,40 Q2,38 4,30 Q5,20 3,5Z"
+      class="violin-stroke" stroke-width="1.2"/>
+    <circle cx="5" cy="-42" r="2" fill="#3D2B1F" opacity="0.3"/>
+    <circle cx="5" cy="37" r="2" fill="#3D2B1F" opacity="0.3"/>
+  </g>
+
+  <!-- Bridge -->
+  <path d="M228,350 L232,340 Q240,335 250,335 Q260,335 268,340 L272,350"
+    class="violin-stroke" stroke-width="1" opacity="0.4"/>
+  <path d="M232,340 L232,350" class="violin-stroke" stroke-width="0.5" opacity="0.3"/>
+  <path d="M268,340 L268,350" class="violin-stroke" stroke-width="0.5" opacity="0.3"/>
+
+  <!-- Tailpiece -->
+  <path d="M240,390 L240,440 Q240,450 250,452 Q260,450 260,440 L260,390"
+    class="violin-stroke" stroke-width="0.8" opacity="0.35"/>
+  <!-- Fine tuners -->
+  <circle cx="244" cy="395" r="1.5" fill="#3D2B1F" opacity="0.25"/>
+  <circle cx="250" cy="393" r="1.5" fill="#3D2B1F" opacity="0.25"/>
+  <circle cx="256" cy="395" r="1.5" fill="#3D2B1F" opacity="0.25"/>
+
+  <!-- Chin rest -->
+  <path d="M250,452 Q240,460 235,475 Q232,490 240,498 Q250,504 260,498 Q268,490 265,475"
+    class="violin-stroke" stroke-width="0.8" opacity="0.3"/>
+
+  <!-- Strings -->
+  <line x1="242" y1="145" x2="244" y2="390" stroke="#3D2B1F" stroke-width="0.4" opacity="0.25"/>
+  <line x1="248" y1="143" x2="249" y2="388" stroke="#3D2B1F" stroke-width="0.4" opacity="0.25"/>
+  <line x1="252" y1="143" x2="251" y2="388" stroke="#3D2B1F" stroke-width="0.4" opacity="0.25"/>
+  <line x1="258" y1="145" x2="256" y2="390" stroke="#3D2B1F" stroke-width="0.4" opacity="0.25"/>
+
+  <!-- Neck -->
+  <path d="M240,120 L240,65 Q240,55 245,50 L255,50 Q260,55 260,65 L260,120"
+    fill="#FAF6F0" opacity="0.2" stroke="#3D2B1F" stroke-width="1.2"/>
+
+  <!-- Pegbox -->
+  <path d="M238,50 L238,22 Q238,15 242,12 L258,12 Q262,15 262,22 L262,50"
+    class="violin-stroke" stroke-width="1.2"/>
+  <!-- Pegs -->
+  <ellipse cx="236" cy="25" rx="5" ry="2" fill="#3D2B1F" opacity="0.2" stroke="#3D2B1F" stroke-width="0.6" transform="rotate(-15,236,25)"/>
+  <ellipse cx="264" cy="28" rx="5" ry="2" fill="#3D2B1F" opacity="0.2" stroke="#3D2B1F" stroke-width="0.6" transform="rotate(15,264,28)"/>
+  <ellipse cx="236" cy="38" rx="5" ry="2" fill="#3D2B1F" opacity="0.2" stroke="#3D2B1F" stroke-width="0.6" transform="rotate(-15,236,38)"/>
+  <ellipse cx="264" cy="41" rx="5" ry="2" fill="#3D2B1F" opacity="0.2" stroke="#3D2B1F" stroke-width="0.6" transform="rotate(15,264,41)"/>
+
+  <!-- Scroll -->
+  <path d="M250,12 Q250,5 248,0 Q245,-5 240,-6 Q234,-5 232,-1 Q230,4 232,8 Q235,12 240,13 Q244,13 246,10 Q247,7 245,5 Q243,3 241,5"
+    class="violin-stroke" stroke-width="1.3"/>
+
+  <!-- Amber highlight on body -->
+  <path d="M195,200 Q210,180 240,170 Q260,175 275,190 Q280,210 270,230
+    Q255,250 240,255 Q225,250 215,235 Q200,218 195,200Z" class="amber"/>
+
+  <!-- ============================================ -->
+  <!-- BOTANICAL ELEMENTS — vines growing around -->
+  <!-- ============================================ -->
+
+  <!-- LEFT VINE — growing up from lower bout -->
+  <g>
+    <path d="M175,420 Q160,400 155,370 Q150,340 158,310 Q165,280 160,250 Q155,220 148,195 Q142,170 150,145 Q158,120 165,100 Q172,80 168,55"
+      class="vine-stroke" stroke-width="1.3"/>
+
+    <!-- Leaves along left vine -->
+    <path d="M158,390 Q140,385 132,375 Q128,368 135,365 Q142,364 150,372 Q156,380 158,390Z" class="leaf"/>
+    <path d="M158,390 Q142,378 136,370" fill="none" stroke="#2D4A3E" stroke-width="0.3" opacity="0.3"/>
+
+    <path d="M155,345 Q168,338 176,328 Q180,322 174,320 Q168,320 160,327 Q154,335 155,345Z" class="leaf"/>
+
+    <path d="M160,300 Q142,295 134,285 Q130,278 137,276 Q144,275 152,283 Q158,291 160,300Z" class="leaf"/>
+    <path d="M160,300 Q144,290 138,282" fill="none" stroke="#2D4A3E" stroke-width="0.3" opacity="0.3"/>
+
+    <path d="M158,260 Q170,252 178,242 Q182,236 175,234 Q168,234 160,242 Q155,250 158,260Z" class="leaf"/>
+
+    <path d="M150,220 Q132,215 124,205 Q120,198 127,196 Q134,195 142,203 Q148,211 150,220Z" class="leaf"/>
+
+    <path d="M148,190 Q162,182 170,172 Q174,166 167,164 Q160,164 152,172 Q146,180 148,190Z" class="leaf-dark"/>
+
+    <!-- Tendril curls -->
+    <path d="M155,355 Q148,352 145,348 Q143,345 146,344 Q149,345 150,349" class="vine-stroke" stroke-width="0.6"/>
+    <path d="M160,270 Q153,267 150,263 Q148,260 151,259 Q154,260 155,264" class="vine-stroke" stroke-width="0.6"/>
+    <path d="M150,155 Q143,152 140,148 Q138,145 141,144 Q144,145 145,149" class="vine-stroke" stroke-width="0.6"/>
+
+    <!-- Small buds -->
+    <circle cx="152" cy="175" r="3" fill="#C4956A" opacity="0.2" stroke="#3D2B1F" stroke-width="0.4"/>
+    <path d="M152,172 Q150,170 152,168 Q154,170 152,172Z" fill="#7D8B6A" opacity="0.3" stroke="#2D4A3E" stroke-width="0.3"/>
+
+    <!-- Large leaf near scroll -->
+    <path d="M165,100 Q145,92 135,80 Q130,72 138,68 Q146,66 155,75 Q162,84 165,95Z" class="leaf"/>
+    <path d="M165,100 Q148,88 140,78" fill="none" stroke="#2D4A3E" stroke-width="0.3" opacity="0.3"/>
+    <path d="M165,100 Q150,95 143,88" fill="none" stroke="#2D4A3E" stroke-width="0.2" opacity="0.2"/>
+
+    <path d="M168,65 Q152,58 148,48 Q146,42 152,42 Q158,44 162,52 Q166,60 168,65Z" class="leaf-dark"/>
+  </g>
+
+  <!-- RIGHT VINE — growing up from lower bout -->
+  <g>
+    <path d="M325,400 Q340,375 345,345 Q348,315 340,285 Q332,255 338,225 Q344,195 350,170 Q356,145 348,115 Q340,90 335,65"
+      class="vine-stroke" stroke-width="1.3"/>
+
+    <!-- Leaves along right vine -->
+    <path d="M340,370 Q358,365 366,355 Q370,348 363,346 Q356,346 348,353 Q342,361 340,370Z" class="leaf"/>
+    <path d="M340,370 Q356,360 362,352" fill="none" stroke="#2D4A3E" stroke-width="0.3" opacity="0.3"/>
+
+    <path d="M345,330 Q328,325 320,315 Q316,308 323,306 Q330,305 338,313 Q344,321 345,330Z" class="leaf"/>
+
+    <path d="M338,290 Q356,285 364,275 Q368,268 361,266 Q354,266 346,273 Q340,281 338,290Z" class="leaf"/>
+
+    <path d="M340,250 Q322,245 314,235 Q310,228 317,226 Q324,225 332,233 Q338,241 340,250Z" class="leaf-dark"/>
+
+    <path d="M345,210 Q362,205 370,195 Q374,188 367,186 Q360,186 352,193 Q346,201 345,210Z" class="leaf"/>
+    <path d="M345,210 Q360,200 366,192" fill="none" stroke="#2D4A3E" stroke-width="0.3" opacity="0.3"/>
+
+    <path d="M350,170 Q332,165 324,155 Q320,148 327,146 Q334,145 342,153 Q348,161 350,170Z" class="leaf"/>
+
+    <!-- Tendrils -->
+    <path d="M340,340 Q347,337 350,333 Q352,330 349,329 Q346,330 345,334" class="vine-stroke" stroke-width="0.6"/>
+    <path d="M340,260 Q347,257 350,253 Q352,250 349,249 Q346,250 345,254" class="vine-stroke" stroke-width="0.6"/>
+
+    <!-- Bud -->
+    <circle cx="348" cy="140" r="3" fill="#C4956A" opacity="0.2" stroke="#3D2B1F" stroke-width="0.4"/>
+    <path d="M348,137 Q346,135 348,133 Q350,135 348,137Z" fill="#7D8B6A" opacity="0.3" stroke="#2D4A3E" stroke-width="0.3"/>
+
+    <!-- Large leaves near top -->
+    <path d="M345,115 Q362,108 370,98 Q374,90 367,88 Q360,88 352,96 Q346,105 345,115Z" class="leaf"/>
+    <path d="M345,115 Q360,104 366,95" fill="none" stroke="#2D4A3E" stroke-width="0.3" opacity="0.3"/>
+
+    <path d="M338,80 Q355,72 360,62 Q362,56 356,56 Q350,58 345,65 Q340,73 338,80Z" class="leaf-dark"/>
+  </g>
+
+  <!-- BOTTOM VINE — across endpin area -->
+  <g>
+    <path d="M210,520 Q220,540 235,550 Q250,555 265,550 Q280,540 290,520"
+      class="vine-stroke" stroke-width="1"/>
+    <path d="M235,548 Q228,560 218,565 Q212,566 214,560 Q218,555 225,550Z" class="leaf"/>
+    <path d="M265,548 Q272,560 282,565 Q288,566 286,560 Q282,555 275,550Z" class="leaf"/>
+    <!-- Small hanging berry -->
+    <circle cx="250" cy="560" r="2.5" fill="#C4956A" opacity="0.2" stroke="#3D2B1F" stroke-width="0.4"/>
+    <path d="M250,555 L250,557" class="vine-stroke" stroke-width="0.5"/>
+  </g>
+
+  <!-- TOP — vine tendril around scroll -->
+  <g>
+    <path d="M168,55 Q165,40 170,28 Q175,18 185,15 Q195,14 200,22"
+      class="vine-stroke" stroke-width="0.8"/>
+    <path d="M175,30 Q168,24 165,18 Q164,14 168,14 Q172,16 174,22Z" class="leaf-dark"/>
+
+    <path d="M335,65 Q332,48 336,35 Q340,25 330,18 Q320,14 310,20"
+      class="vine-stroke" stroke-width="0.8"/>
+    <path d="M332,40 Q340,34 344,28 Q346,24 342,24 Q338,26 336,32Z" class="leaf-dark"/>
+  </g>
+
+  <!-- Small flowers scattered -->
+  <g transform="translate(135, 145)" opacity="0.6">
+    <circle cx="0" cy="0" r="5" fill="none" stroke="#C4956A" stroke-width="0.5"/>
+    <path d="M0,-5 Q2,-8 0,-10 Q-2,-8 0,-5Z" fill="#C4956A" opacity="0.2" stroke="#C4956A" stroke-width="0.3"/>
+    <path d="M5,0 Q8,2 10,0 Q8,-2 5,0Z" fill="#C4956A" opacity="0.2" stroke="#C4956A" stroke-width="0.3"/>
+    <path d="M0,5 Q2,8 0,10 Q-2,8 0,5Z" fill="#C4956A" opacity="0.2" stroke="#C4956A" stroke-width="0.3"/>
+    <path d="M-5,0 Q-8,2 -10,0 Q-8,-2 -5,0Z" fill="#C4956A" opacity="0.2" stroke="#C4956A" stroke-width="0.3"/>
+    <circle cx="0" cy="0" r="2" fill="#C4956A" opacity="0.3"/>
+  </g>
+
+  <g transform="translate(365, 160)" opacity="0.5">
+    <circle cx="0" cy="0" r="4" fill="none" stroke="#C4956A" stroke-width="0.5"/>
+    <path d="M0,-4 Q1.5,-6.5 0,-8 Q-1.5,-6.5 0,-4Z" fill="#C4956A" opacity="0.2" stroke="#C4956A" stroke-width="0.3"/>
+    <path d="M4,0 Q6.5,1.5 8,0 Q6.5,-1.5 4,0Z" fill="#C4956A" opacity="0.2" stroke="#C4956A" stroke-width="0.3"/>
+    <path d="M0,4 Q1.5,6.5 0,8 Q-1.5,6.5 0,4Z" fill="#C4956A" opacity="0.2" stroke="#C4956A" stroke-width="0.3"/>
+    <path d="M-4,0 Q-6.5,1.5 -8,0 Q-6.5,-1.5 -4,0Z" fill="#C4956A" opacity="0.2" stroke="#C4956A" stroke-width="0.3"/>
+    <circle cx="0" cy="0" r="1.5" fill="#C4956A" opacity="0.3"/>
+  </g>
 </svg>

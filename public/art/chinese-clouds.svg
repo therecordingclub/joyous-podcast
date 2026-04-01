@@ -1,13 +1,127 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="300" viewBox="0 0 800 300" fill="none">
-  <path d="M80 120 Q100 100 130 105 Q150 90 175 100 Q195 85 215 100 Q235 90 250 108 Q260 120 245 135 Q255 150 235 155 Q240 170 220 168 Q215 180 195 172 Q185 182 170 170 Q155 178 145 165 Q130 175 120 158 Q105 165 95 148 Q80 152 80 135 Q70 125 80 120Z" stroke="currentColor" stroke-width="0.8" fill="none" opacity="0.1"/>
-  <path d="M100 125 Q115 118 135 122 Q155 110 170 120" stroke="currentColor" stroke-width="0.5" fill="none" opacity="0.06"/>
-  <path d="M80 135 Q65 140 60 155 Q58 165 65 170 Q72 168 68 160" stroke="currentColor" stroke-width="0.6" fill="none" opacity="0.08" stroke-linecap="round"/>
-  <path d="M350 80 Q370 60 400 65 Q420 50 445 60 Q465 45 485 60 Q505 50 520 68 Q530 80 515 95 Q525 110 505 115 Q510 130 490 128 Q485 140 465 132 Q455 142 440 130 Q425 138 415 125 Q400 135 390 118 Q375 125 365 108 Q350 112 350 95 Q340 85 350 80Z" stroke="currentColor" stroke-width="0.8" fill="none" opacity="0.12"/>
-  <path d="M370 85 Q390 78 410 82 Q430 72 450 80 Q465 70 480 80" stroke="currentColor" stroke-width="0.5" fill="none" opacity="0.07"/>
-  <path d="M350 95 Q335 100 330 115 Q328 125 335 130 Q342 128 338 120" stroke="currentColor" stroke-width="0.6" fill="none" opacity="0.08" stroke-linecap="round"/>
-  <path d="M620 150 Q635 135 655 140 Q670 128 690 138 Q705 130 715 145 Q725 155 712 165 Q720 175 705 178 Q700 188 685 182 Q675 190 665 178 Q655 182 648 172 Q635 178 632 162 Q620 165 620 150Z" stroke="currentColor" stroke-width="0.6" fill="none" opacity="0.08"/>
-  <path d="M620 162 Q608 168 605 178 Q604 185 608 188" stroke="currentColor" stroke-width="0.5" fill="none" opacity="0.06" stroke-linecap="round"/>
-  <path d="M150 220 Q165 212 180 218 Q195 210 205 220" stroke="currentColor" stroke-width="0.4" fill="none" opacity="0.06"/>
-  <path d="M500 200 Q515 192 530 198 Q545 190 555 200" stroke="currentColor" stroke-width="0.4" fill="none" opacity="0.05"/>
-  <path d="M700 100 Q710 95 720 100" stroke="currentColor" stroke-width="0.3" fill="none" opacity="0.04"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300" width="800" height="300">
+  <defs>
+    <style>
+      .cloud-stroke { fill: none; stroke: #7D8B6A; stroke-linecap: round; stroke-linejoin: round; }
+      .cloud-fill { fill: #7D8B6A; }
+    </style>
+  </defs>
+
+  <!-- CLOUD 1 — Large left cloud (traditional xiangyun style) -->
+  <g transform="translate(60, 80)">
+    <!-- Main cloud body with layered spiral motifs -->
+    <path d="M0,60 Q-5,45 5,35 Q15,25 30,30 Q35,15 50,12 Q65,10 75,20
+             Q85,10 100,12 Q115,15 118,30 Q130,22 142,28 Q155,35 150,50
+             Q155,60 145,70 Q135,78 120,75 Q110,82 95,80 Q80,82 70,75
+             Q55,82 40,78 Q25,80 15,72 Q5,68 0,60Z"
+      class="cloud-fill" opacity="0.12"/>
+    <path d="M0,60 Q-5,45 5,35 Q15,25 30,30 Q35,15 50,12 Q65,10 75,20
+             Q85,10 100,12 Q115,15 118,30 Q130,22 142,28 Q155,35 150,50
+             Q155,60 145,70 Q135,78 120,75 Q110,82 95,80 Q80,82 70,75
+             Q55,82 40,78 Q25,80 15,72 Q5,68 0,60Z"
+      class="cloud-stroke" stroke-width="1.2"/>
+
+    <!-- Inner spiral details (characteristic of Chinese cloud art) -->
+    <!-- Left spiral -->
+    <path d="M25,55 Q20,48 25,42 Q32,38 38,42 Q42,48 38,54 Q33,58 28,55"
+      class="cloud-stroke" stroke-width="0.8" opacity="0.5"/>
+    <path d="M30,52 Q28,48 31,45 Q35,44 37,47 Q38,50 35,52"
+      class="cloud-stroke" stroke-width="0.5" opacity="0.35"/>
+
+    <!-- Center spiral -->
+    <path d="M65,52 Q58,44 65,38 Q74,33 82,38 Q88,45 82,52 Q76,58 68,54"
+      class="cloud-stroke" stroke-width="0.8" opacity="0.5"/>
+    <path d="M70,50 Q67,45 71,42 Q76,40 79,44 Q81,48 77,50"
+      class="cloud-stroke" stroke-width="0.5" opacity="0.35"/>
+
+    <!-- Right spiral -->
+    <path d="M110,55 Q105,48 110,42 Q117,38 123,42 Q127,48 123,54 Q118,58 113,55"
+      class="cloud-stroke" stroke-width="0.8" opacity="0.5"/>
+    <path d="M115,52 Q113,48 116,45 Q120,44 122,47 Q123,50 120,52"
+      class="cloud-stroke" stroke-width="0.5" opacity="0.35"/>
+
+    <!-- Trailing wisps (bottom) -->
+    <path d="M40,78 Q35,88 28,95 Q22,100 18,98 Q16,94 22,90 Q28,86 35,82"
+      class="cloud-stroke" stroke-width="0.8" opacity="0.4"/>
+    <path d="M95,80 Q92,90 85,98 Q80,104 76,102 Q74,98 80,92 Q86,86 92,82"
+      class="cloud-stroke" stroke-width="0.8" opacity="0.4"/>
+
+    <!-- Upper swirl accent -->
+    <path d="M50,15 Q48,8 52,5 Q58,3 60,8 Q62,14 58,16"
+      class="cloud-stroke" stroke-width="0.6" opacity="0.3"/>
+    <path d="M100,14 Q98,8 102,5 Q108,3 110,8 Q112,14 108,16"
+      class="cloud-stroke" stroke-width="0.6" opacity="0.3"/>
+  </g>
+
+  <!-- CLOUD 2 — Medium upper right -->
+  <g transform="translate(450, 40)">
+    <path d="M0,50 Q-3,38 5,30 Q15,22 28,26 Q32,14 45,10 Q58,8 68,16
+             Q76,8 88,10 Q100,14 100,28 Q108,22 118,26 Q128,32 125,45
+             Q130,52 122,58 Q112,65 100,62 Q90,68 78,66 Q65,68 55,62
+             Q42,66 32,62 Q20,65 12,58 Q3,54 0,50Z"
+      class="cloud-fill" opacity="0.1"/>
+    <path d="M0,50 Q-3,38 5,30 Q15,22 28,26 Q32,14 45,10 Q58,8 68,16
+             Q76,8 88,10 Q100,14 100,28 Q108,22 118,26 Q128,32 125,45
+             Q130,52 122,58 Q112,65 100,62 Q90,68 78,66 Q65,68 55,62
+             Q42,66 32,62 Q20,65 12,58 Q3,54 0,50Z"
+      class="cloud-stroke" stroke-width="1" opacity="0.8"/>
+
+    <!-- Inner spirals -->
+    <path d="M22,45 Q18,40 22,36 Q28,33 32,37 Q35,42 31,46 Q27,48 24,45"
+      class="cloud-stroke" stroke-width="0.7" opacity="0.4"/>
+    <path d="M58,42 Q54,36 58,32 Q64,29 68,33 Q72,38 68,43 Q63,46 60,43"
+      class="cloud-stroke" stroke-width="0.7" opacity="0.4"/>
+    <path d="M95,45 Q91,40 95,36 Q101,33 105,37 Q108,42 104,46 Q100,48 97,45"
+      class="cloud-stroke" stroke-width="0.7" opacity="0.4"/>
+
+    <!-- Trailing wisp -->
+    <path d="M55,66 Q50,76 44,82 Q40,86 37,84 Q36,80 40,76 Q46,72 52,68"
+      class="cloud-stroke" stroke-width="0.7" opacity="0.35"/>
+  </g>
+
+  <!-- CLOUD 3 — Small right cloud -->
+  <g transform="translate(650, 120)">
+    <path d="M0,40 Q-2,30 5,24 Q14,18 24,22 Q28,12 40,10 Q52,9 58,16
+             Q66,10 76,14 Q84,20 80,32 Q86,38 80,44 Q72,50 62,48
+             Q52,52 42,50 Q32,52 24,48 Q14,50 8,44 Q2,42 0,40Z"
+      class="cloud-fill" opacity="0.08"/>
+    <path d="M0,40 Q-2,30 5,24 Q14,18 24,22 Q28,12 40,10 Q52,9 58,16
+             Q66,10 76,14 Q84,20 80,32 Q86,38 80,44 Q72,50 62,48
+             Q52,52 42,50 Q32,52 24,48 Q14,50 8,44 Q2,42 0,40Z"
+      class="cloud-stroke" stroke-width="0.9" opacity="0.6"/>
+
+    <!-- Inner spirals -->
+    <path d="M18,36 Q15,32 18,29 Q23,27 26,30 Q28,34 25,37 Q22,38 19,36"
+      class="cloud-stroke" stroke-width="0.6" opacity="0.3"/>
+    <path d="M48,34 Q45,30 48,27 Q53,25 56,28 Q58,32 55,35 Q52,36 49,34"
+      class="cloud-stroke" stroke-width="0.6" opacity="0.3"/>
+
+    <!-- Small trailing wisp -->
+    <path d="M42,50 Q38,56 34,60 Q32,62 30,60 Q30,58 33,55 Q37,52 40,50"
+      class="cloud-stroke" stroke-width="0.5" opacity="0.25"/>
+  </g>
+
+  <!-- CLOUD 4 — Tiny accent cloud, far left -->
+  <g transform="translate(20, 180)">
+    <path d="M0,28 Q-1,20 5,16 Q12,12 20,15 Q24,8 34,7 Q44,7 48,14
+             Q54,10 62,14 Q68,18 65,28 Q70,32 65,36 Q58,40 50,38
+             Q42,42 34,40 Q26,42 20,38 Q12,40 7,36 Q2,34 0,28Z"
+      class="cloud-fill" opacity="0.06"/>
+    <path d="M0,28 Q-1,20 5,16 Q12,12 20,15 Q24,8 34,7 Q44,7 48,14
+             Q54,10 62,14 Q68,18 65,28 Q70,32 65,36 Q58,40 50,38
+             Q42,42 34,40 Q26,42 20,38 Q12,40 7,36 Q2,34 0,28Z"
+      class="cloud-stroke" stroke-width="0.8" opacity="0.45"/>
+
+    <!-- Single spiral -->
+    <path d="M30,28 Q26,24 30,21 Q35,19 38,22 Q40,26 37,29 Q34,30 31,28"
+      class="cloud-stroke" stroke-width="0.5" opacity="0.25"/>
+  </g>
+
+  <!-- Scattered decorative dots (traditional cloud accompaniment) -->
+  <circle cx="200" cy="55" r="1.5" fill="#7D8B6A" opacity="0.15"/>
+  <circle cx="210" cy="48" r="1" fill="#7D8B6A" opacity="0.12"/>
+  <circle cx="380" cy="95" r="1.2" fill="#7D8B6A" opacity="0.1"/>
+  <circle cx="420" cy="115" r="1" fill="#7D8B6A" opacity="0.08"/>
+  <circle cx="590" cy="70" r="1.5" fill="#7D8B6A" opacity="0.12"/>
+  <circle cx="600" cy="62" r="1" fill="#7D8B6A" opacity="0.1"/>
+  <circle cx="750" cy="100" r="1.2" fill="#7D8B6A" opacity="0.1"/>
 </svg>

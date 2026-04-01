@@ -1,28 +1,97 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600" viewBox="0 0 1200 600" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 200" width="1200" height="200">
   <defs>
-    <linearGradient id="speed-1" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="currentColor" stop-opacity="0"/>
-      <stop offset="30%" stop-color="currentColor" stop-opacity="0.12"/>
-      <stop offset="100%" stop-color="currentColor" stop-opacity="0"/>
+    <!-- Speed line gradients — dark green to gold -->
+    <linearGradient id="speed1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1B2E21" stop-opacity="0"/>
+      <stop offset="15%" stop-color="#1B2E21" stop-opacity="0.6"/>
+      <stop offset="40%" stop-color="#2D4A3E" stop-opacity="0.8"/>
+      <stop offset="65%" stop-color="#6B7D4A" stop-opacity="0.7"/>
+      <stop offset="85%" stop-color="#C4956A" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#C4956A" stop-opacity="0"/>
     </linearGradient>
-    <linearGradient id="speed-red" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#dc2626" stop-opacity="0"/>
-      <stop offset="40%" stop-color="#dc2626" stop-opacity="0.15"/>
-      <stop offset="100%" stop-color="#dc2626" stop-opacity="0"/>
+
+    <linearGradient id="speed2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1B2E21" stop-opacity="0"/>
+      <stop offset="10%" stop-color="#1B2E21" stop-opacity="0.4"/>
+      <stop offset="35%" stop-color="#2D4A3E" stop-opacity="0.6"/>
+      <stop offset="60%" stop-color="#4A6A3E" stop-opacity="0.5"/>
+      <stop offset="80%" stop-color="#C4956A" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#C4956A" stop-opacity="0"/>
+    </linearGradient>
+
+    <linearGradient id="speed3" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1B2E21" stop-opacity="0"/>
+      <stop offset="20%" stop-color="#1B2E21" stop-opacity="0.3"/>
+      <stop offset="45%" stop-color="#2D4A3E" stop-opacity="0.5"/>
+      <stop offset="70%" stop-color="#7D8B6A" stop-opacity="0.4"/>
+      <stop offset="90%" stop-color="#C4956A" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#C4956A" stop-opacity="0"/>
+    </linearGradient>
+
+    <linearGradient id="speed4" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#C4956A" stop-opacity="0"/>
+      <stop offset="15%" stop-color="#C4956A" stop-opacity="0.2"/>
+      <stop offset="40%" stop-color="#7D8B6A" stop-opacity="0.35"/>
+      <stop offset="65%" stop-color="#2D4A3E" stop-opacity="0.5"/>
+      <stop offset="85%" stop-color="#1B2E21" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#1B2E21" stop-opacity="0"/>
+    </linearGradient>
+
+    <linearGradient id="speed5" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1B2E21" stop-opacity="0"/>
+      <stop offset="25%" stop-color="#2D4A3E" stop-opacity="0.2"/>
+      <stop offset="50%" stop-color="#4A6A3E" stop-opacity="0.3"/>
+      <stop offset="75%" stop-color="#C4956A" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#C4956A" stop-opacity="0"/>
     </linearGradient>
   </defs>
-  <path d="M0 300 Q200 280 400 200 Q600 120 800 180 Q1000 240 1200 150" stroke="url(#speed-1)" stroke-width="3" fill="none"/>
-  <path d="M0 320 Q200 300 400 220 Q600 140 800 200 Q1000 260 1200 170" stroke="url(#speed-1)" stroke-width="2" fill="none"/>
-  <path d="M0 340 Q200 320 400 240 Q600 160 800 220 Q1000 280 1200 190" stroke="url(#speed-1)" stroke-width="1" fill="none"/>
-  <path d="M0 400 Q300 380 500 300 Q700 220 900 280 Q1100 340 1200 280" stroke="url(#speed-red)" stroke-width="2.5" fill="none"/>
-  <path d="M0 420 Q300 400 500 320 Q700 240 900 300 Q1100 360 1200 300" stroke="url(#speed-red)" stroke-width="1.5" fill="none"/>
-  <line x1="100" y1="150" x2="350" y2="130" stroke="currentColor" stroke-width="0.5" opacity="0.06"/>
-  <line x1="200" y1="450" x2="500" y2="420" stroke="currentColor" stroke-width="0.5" opacity="0.06"/>
-  <line x1="600" y1="100" x2="850" y2="90" stroke="currentColor" stroke-width="0.5" opacity="0.05"/>
-  <line x1="700" y1="500" x2="950" y2="470" stroke="currentColor" stroke-width="0.5" opacity="0.05"/>
-  <line x1="900" y1="120" x2="1150" y2="100" stroke="currentColor" stroke-width="0.5" opacity="0.04"/>
-  <circle cx="400" cy="200" r="4" fill="currentColor" opacity="0.08"/>
-  <circle cx="800" cy="180" r="3" fill="#dc2626" opacity="0.1"/>
-  <circle cx="500" cy="300" r="3.5" fill="#dc2626" opacity="0.08"/>
-  <path d="M100 500 Q200 480 350 500 Q500 520 600 490 Q700 460 850 480 Q1000 500 1100 480" stroke="currentColor" stroke-width="0.8" fill="none" opacity="0.05" stroke-dasharray="8 6"/>
+
+  <!-- Primary sweep — wide elegant curve like an F1 racing line -->
+  <path d="M-20,160 Q100,165 200,140 Q350,100 500,60 Q650,25 800,30 Q950,40 1050,80 Q1120,105 1220,100"
+    fill="none" stroke="url(#speed1)" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- Secondary line — follows primary with offset -->
+  <path d="M-20,170 Q80,175 180,155 Q330,118 480,80 Q630,45 780,48 Q930,55 1040,92 Q1110,115 1220,112"
+    fill="none" stroke="url(#speed2)" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- Third line — tighter, faster feel -->
+  <path d="M-20,145 Q120,148 220,125 Q370,85 520,50 Q670,18 820,22 Q970,30 1060,68 Q1130,92 1220,88"
+    fill="none" stroke="url(#speed3)" stroke-width="1.8" stroke-linecap="round"/>
+
+  <!-- Counter-curve — adds dynamic tension -->
+  <path d="M-20,90 Q100,85 220,100 Q380,125 520,135 Q660,140 800,120 Q940,95 1060,60 Q1140,40 1220,45"
+    fill="none" stroke="url(#speed4)" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Fine detail lines — suggestion of speed -->
+  <path d="M50,155 Q200,130 400,85 Q600,42 800,38 Q1000,50 1150,95"
+    fill="none" stroke="url(#speed5)" stroke-width="1" stroke-linecap="round"/>
+
+  <path d="M100,175 Q250,155 430,115 Q610,75 780,68 Q950,70 1100,105"
+    fill="none" stroke="url(#speed5)" stroke-width="0.8" stroke-linecap="round"/>
+
+  <!-- Ultra-fine accent lines -->
+  <path d="M80,135 Q250,108 450,65 Q650,28 850,30 Q1020,42 1120,78"
+    fill="none" stroke="#2D4A3E" stroke-width="0.5" opacity="0.15" stroke-linecap="round"/>
+
+  <path d="M150,180 Q300,165 480,130 Q660,95 830,85 Q980,82 1100,110"
+    fill="none" stroke="#C4956A" stroke-width="0.5" opacity="0.12" stroke-linecap="round"/>
+
+  <!-- Speed particles — small dots suggesting motion blur -->
+  <circle cx="350" cy="95" r="1.5" fill="#2D4A3E" opacity="0.15"/>
+  <circle cx="380" cy="88" r="1" fill="#2D4A3E" opacity="0.12"/>
+  <circle cx="500" cy="58" r="1.8" fill="#4A6A3E" opacity="0.12"/>
+  <circle cx="520" cy="52" r="1" fill="#4A6A3E" opacity="0.1"/>
+  <circle cx="680" cy="32" r="1.5" fill="#7D8B6A" opacity="0.1"/>
+  <circle cx="700" cy="28" r="0.8" fill="#7D8B6A" opacity="0.08"/>
+  <circle cx="850" cy="35" r="1.2" fill="#C4956A" opacity="0.12"/>
+  <circle cx="870" cy="40" r="0.8" fill="#C4956A" opacity="0.1"/>
+  <circle cx="1000" cy="65" r="1.5" fill="#C4956A" opacity="0.1"/>
+  <circle cx="1020" cy="72" r="1" fill="#C4956A" opacity="0.08"/>
+
+  <!-- Subtle speed streaks -->
+  <path d="M300,105 L330,98" fill="none" stroke="#2D4A3E" stroke-width="0.6" opacity="0.1" stroke-linecap="round"/>
+  <path d="M450,72 L485,64" fill="none" stroke="#4A6A3E" stroke-width="0.6" opacity="0.1" stroke-linecap="round"/>
+  <path d="M620,38 L660,33" fill="none" stroke="#7D8B6A" stroke-width="0.6" opacity="0.08" stroke-linecap="round"/>
+  <path d="M800,32 L840,35" fill="none" stroke="#C4956A" stroke-width="0.6" opacity="0.08" stroke-linecap="round"/>
+  <path d="M950,55 L990,62" fill="none" stroke="#C4956A" stroke-width="0.6" opacity="0.08" stroke-linecap="round"/>
 </svg>
