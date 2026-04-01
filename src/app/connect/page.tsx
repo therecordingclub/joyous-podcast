@@ -127,7 +127,7 @@ export default function ConnectPage() {
       <Navigation />
       <main>
         {/* Hero */}
-        <section className="bg-[#0B1120] pt-32 pb-20 relative overflow-hidden">
+        <section className="bg-[var(--hero-bg)] pt-32 pb-20 relative overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(201,169,110,0.08)_0%,transparent_60%)]" />
           <div className="relative z-10 max-w-4xl mx-auto px-6 lg:px-12 text-center">
             <motion.div
@@ -135,10 +135,10 @@ export default function ConnectPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
             >
-              <p className="text-xs tracking-[0.3em] text-[#C9A96E] uppercase font-medium mb-4">
+              <p className="text-xs tracking-[0.3em] text-[var(--accent)] uppercase font-medium mb-4">
                 Get in Touch
               </p>
-              <h1 className="text-5xl md:text-6xl font-extralight text-white tracking-tight mb-6">
+              <h1 className="text-5xl md:text-6xl font-extralight text-[var(--text-on-dark)] tracking-tight mb-6">
                 Let&apos;s Connect
               </h1>
               <p className="text-zinc-500 max-w-lg mx-auto leading-relaxed">
@@ -151,13 +151,13 @@ export default function ConnectPage() {
         </section>
 
         {/* Social Media Grid */}
-        <section className="bg-[#F7F3ED] py-24 md:py-32">
+        <section className="bg-[var(--bg-secondary)] py-24 md:py-32">
           <div className="max-w-4xl mx-auto px-6 lg:px-12">
             <AnimatedSection>
-              <p className="text-xs tracking-[0.3em] text-[#C9A96E] uppercase font-medium mb-3">
+              <p className="text-xs tracking-[0.3em] text-[var(--accent)] uppercase font-medium mb-3">
                 Find Me Online
               </p>
-              <h2 className="text-3xl md:text-4xl font-light text-[#0B1120] mb-12 tracking-tight">
+              <h2 className="text-3xl md:text-4xl font-light text-[var(--text-primary)] mb-12 tracking-tight">
                 Social
               </h2>
             </AnimatedSection>
@@ -169,29 +169,29 @@ export default function ConnectPage() {
                     href={link.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`group block bg-white rounded-2xl border border-[#0B1120]/5 p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg ${link.border}`}
+                    className={`group block bg-[var(--bg-card)] rounded-2xl border border-[var(--text-primary)]/5 p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg ${link.border}`}
                   >
                     <div className="flex items-start justify-between mb-4">
                       <div
-                        className={`w-12 h-12 rounded-xl bg-[#0B1120]/5 flex items-center justify-center transition-colors duration-300 ${link.bg}`}
+                        className={`w-12 h-12 rounded-xl bg-[var(--text-primary)]/5 flex items-center justify-center transition-colors duration-300 ${link.bg}`}
                       >
                         <link.icon
                           size={20}
-                          className={`text-[#0B1120]/40 transition-colors duration-300 ${link.color}`}
+                          className={`text-[var(--text-primary)]/40 transition-colors duration-300 ${link.color}`}
                         />
                       </div>
                       <ArrowUpRight
                         size={16}
-                        className="text-[#0B1120]/20 group-hover:text-[#0B1120]/60 transition-colors"
+                        className="text-[var(--text-primary)]/20 group-hover:text-[var(--text-primary)]/60 transition-colors"
                       />
                     </div>
-                    <h3 className="text-lg font-semibold text-[#0B1120] mb-1">
+                    <h3 className="text-lg font-semibold text-[var(--text-primary)] mb-1">
                       {link.name}
                     </h3>
-                    <p className="text-sm font-medium text-[#C9A96E] mb-2">
+                    <p className="text-sm font-medium text-[var(--accent)] mb-2">
                       {link.handle}
                     </p>
-                    <p className="text-sm text-[#0B1120]/50 leading-relaxed">
+                    <p className="text-sm text-[var(--text-muted)] leading-relaxed">
                       {link.description}
                     </p>
                   </a>
@@ -202,15 +202,15 @@ export default function ConnectPage() {
         </section>
 
         {/* Newsletter Signup */}
-        <section className="bg-[#0B1120] py-24 md:py-32">
+        <section className="bg-[var(--hero-bg)] py-24 md:py-32">
           <div className="max-w-3xl mx-auto px-6 lg:px-12">
             <AnimatedSection>
               <div className="text-center">
-                <MessageCircle size={28} className="text-[#C9A96E] mx-auto mb-4" />
-                <p className="text-xs tracking-[0.3em] text-[#C9A96E] uppercase font-medium mb-3">
+                <MessageCircle size={28} className="text-[var(--accent)] mx-auto mb-4" />
+                <p className="text-xs tracking-[0.3em] text-[var(--accent)] uppercase font-medium mb-3">
                   Newsletter
                 </p>
-                <h2 className="text-3xl md:text-4xl font-light text-white mb-4 tracking-tight">
+                <h2 className="text-3xl md:text-4xl font-light text-[var(--text-on-dark)] mb-4 tracking-tight">
                   Join the Joyous Community
                 </h2>
                 <p className="text-zinc-500 leading-relaxed mb-10 max-w-lg mx-auto">
@@ -226,11 +226,11 @@ export default function ConnectPage() {
                   <input
                     type="email"
                     placeholder="your@email.com"
-                    className="flex-1 bg-white/5 border border-white/10 rounded-full px-6 py-4 text-sm text-white placeholder:text-zinc-600 focus:outline-none focus:border-[#C9A96E]/50 transition-colors"
+                    className="flex-1 bg-[var(--border-on-dark)] border border-[var(--border-on-dark)] rounded-full px-6 py-4 text-sm text-[var(--text-on-dark)] placeholder:text-zinc-600 focus:outline-none focus:border-[var(--accent)]/50 transition-colors"
                   />
                   <button
                     type="submit"
-                    className="bg-[#C9A96E] text-[#0B1120] px-8 py-4 rounded-full text-sm font-semibold tracking-wide uppercase hover:bg-[#d4b87e] transition-colors flex-shrink-0"
+                    className="bg-[var(--accent)] text-[var(--hero-bg)] px-8 py-4 rounded-full text-sm font-semibold tracking-wide uppercase hover:bg-[var(--accent-light)] transition-colors flex-shrink-0"
                   >
                     Subscribe
                   </button>
@@ -244,22 +244,22 @@ export default function ConnectPage() {
         </section>
 
         {/* Business Inquiries */}
-        <section className="bg-[#F7F3ED] py-24 md:py-32">
+        <section className="bg-[var(--bg-secondary)] py-24 md:py-32">
           <div className="max-w-4xl mx-auto px-6 lg:px-12">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
               <AnimatedSection>
-                <div className="bg-white rounded-2xl border border-[#0B1120]/5 p-8">
-                  <Briefcase size={24} className="text-[#C9A96E] mb-4" />
-                  <h3 className="text-xl font-semibold text-[#0B1120] mb-3">
+                <div className="bg-[var(--bg-card)] rounded-2xl border border-[var(--text-primary)]/5 p-8">
+                  <Briefcase size={24} className="text-[var(--accent)] mb-4" />
+                  <h3 className="text-xl font-semibold text-[var(--text-primary)] mb-3">
                     Business Inquiries
                   </h3>
-                  <p className="text-[#0B1120]/60 leading-relaxed mb-6">
+                  <p className="text-[var(--text-muted)] leading-relaxed mb-6">
                     For sponsorship, partnership, speaking engagements, or
-                    collaboration opportunities with Joyous or Prime Lab.
+                    collaboration opportunities with Joyous or Prime Lap.
                   </p>
                   <a
                     href="mailto:hello@joyouspodcast.com"
-                    className="inline-flex items-center gap-2 text-sm font-semibold text-[#C9A96E] hover:gap-3 transition-all duration-300"
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--accent)] hover:gap-3 transition-all duration-300"
                   >
                     <Mail size={14} />
                     hello@joyouspodcast.com
@@ -268,19 +268,19 @@ export default function ConnectPage() {
               </AnimatedSection>
 
               <AnimatedSection delay={0.1}>
-                <div className="bg-white rounded-2xl border border-[#0B1120]/5 p-8">
-                  <Mic2Icon className="text-[#C9A96E] mb-4" />
-                  <h3 className="text-xl font-semibold text-[#0B1120] mb-3">
+                <div className="bg-[var(--bg-card)] rounded-2xl border border-[var(--text-primary)]/5 p-8">
+                  <Mic2Icon className="text-[var(--accent)] mb-4" />
+                  <h3 className="text-xl font-semibold text-[var(--text-primary)] mb-3">
                     Be a Guest
                   </h3>
-                  <p className="text-[#0B1120]/60 leading-relaxed mb-6">
+                  <p className="text-[var(--text-muted)] leading-relaxed mb-6">
                     Are you a founder, investor, creative, or artist working at
                     the intersection of health and wealth? We&apos;d love to
                     feature your story.
                   </p>
                   <a
                     href="mailto:guests@joyouspodcast.com"
-                    className="inline-flex items-center gap-2 text-sm font-semibold text-[#C9A96E] hover:gap-3 transition-all duration-300"
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--accent)] hover:gap-3 transition-all duration-300"
                   >
                     <Mail size={14} />
                     guests@joyouspodcast.com

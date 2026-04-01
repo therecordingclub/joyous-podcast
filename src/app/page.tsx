@@ -49,13 +49,29 @@ function AnimatedSection({
    ─────────────────────────────────────────────────── */
 function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#0B1120]">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[var(--hero-bg)]">
       {/* Animated gradient backdrop */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_20%,rgba(201,169,110,0.12)_0%,transparent_60%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_70%_80%,rgba(201,169,110,0.06)_0%,transparent_50%)]" />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(ellipse at 30% 20%, var(--hero-glow-1) 0%, transparent 60%)",
+          }}
+        />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(ellipse at 70% 80%, var(--hero-glow-2) 0%, transparent 50%)",
+          }}
+        />
         <motion.div
-          className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_50%,rgba(201,169,110,0.08)_0%,transparent_40%)]"
+          className="absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(ellipse at 50% 50%, var(--hero-glow-pulse) 0%, transparent 40%)",
+          }}
           animate={{
             scale: [1, 1.15, 1],
             opacity: [0.5, 0.8, 0.5],
@@ -78,7 +94,7 @@ function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2 }}
         >
-          <p className="text-xs tracking-[0.4em] text-[#C9A96E] uppercase mb-8 font-medium">
+          <p className="text-xs tracking-[0.4em] text-[var(--accent)] uppercase mb-8 font-medium">
             A Podcast by Jodi Yang
           </p>
         </motion.div>
@@ -87,7 +103,7 @@ function HeroSection() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.4 }}
-          className="text-7xl sm:text-8xl md:text-9xl font-extralight tracking-[0.15em] text-white uppercase mb-6"
+          className="text-7xl sm:text-8xl md:text-9xl font-extralight tracking-[0.15em] text-[var(--text-on-dark)] uppercase mb-6"
         >
           Joyous
         </motion.h1>
@@ -97,10 +113,10 @@ function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.7 }}
         >
-          <p className="text-xl md:text-2xl font-light text-zinc-400 tracking-wide mb-4">
+          <p className="text-xl md:text-2xl font-light text-[var(--text-muted)] tracking-wide mb-4">
             Where Health Meets Wealth
           </p>
-          <p className="max-w-2xl mx-auto text-base text-zinc-500 leading-relaxed mb-12">
+          <p className="max-w-2xl mx-auto text-base text-[var(--text-muted)] leading-relaxed mb-12">
             Intimate conversations with founders, investors, creatives, and
             artists who live at the intersection of wellbeing and prosperity.
             Hosted by Jodi Yang — Wharton grad, Harvard MBA, VC partner,
@@ -116,14 +132,14 @@ function HeroSection() {
         >
           <Link
             href="/episodes"
-            className="group flex items-center gap-3 bg-[#C9A96E] text-[#0B1120] px-8 py-4 rounded-full text-sm font-semibold tracking-wide uppercase hover:bg-[#d4b87e] transition-all duration-300 hover:shadow-[0_0_40px_rgba(201,169,110,0.3)]"
+            className="group flex items-center gap-3 bg-[var(--btn-primary-bg)] text-[var(--btn-primary-text)] px-8 py-4 rounded-full text-sm font-semibold tracking-wide uppercase hover:bg-[var(--accent-light)] transition-all duration-300 hover:shadow-[0_0_40px_var(--card-shadow)]"
           >
             <Play size={16} className="ml-0.5" />
             Listen Now
           </Link>
           <Link
             href="/episodes"
-            className="group flex items-center gap-2 border border-white/15 text-white px-8 py-4 rounded-full text-sm font-medium tracking-wide uppercase hover:border-[#C9A96E]/50 hover:text-[#C9A96E] transition-all duration-300"
+            className="group flex items-center gap-2 border border-[var(--border-on-dark-strong)] text-[var(--text-on-dark)] px-8 py-4 rounded-full text-sm font-medium tracking-wide uppercase hover:border-[var(--accent)] hover:text-[var(--accent)] transition-all duration-300"
           >
             Explore Episodes
             <ArrowRight
@@ -140,7 +156,7 @@ function HeroSection() {
         animate={{ y: [0, 8, 0] }}
         transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
       >
-        <ChevronDown size={24} className="text-zinc-600" />
+        <ChevronDown size={24} className="text-[var(--text-muted)]" />
       </motion.div>
     </section>
   );
@@ -153,13 +169,13 @@ function LatestEpisodeSection() {
   const latest = getLatestEpisode();
 
   return (
-    <section className="bg-[#F7F3ED] py-24 md:py-32">
+    <section className="bg-[var(--bg-secondary)] py-24 md:py-32">
       <div className="max-w-6xl mx-auto px-6 lg:px-12">
         <AnimatedSection>
-          <p className="text-xs tracking-[0.3em] text-[#C9A96E] uppercase font-medium mb-3">
+          <p className="text-xs tracking-[0.3em] text-[var(--accent)] uppercase font-medium mb-3">
             Latest Episode
           </p>
-          <h2 className="text-3xl md:text-4xl font-light text-[#0B1120] mb-16 tracking-tight">
+          <h2 className="text-3xl md:text-4xl font-light text-[var(--text-primary)] mb-16 tracking-tight">
             Now Playing
           </h2>
         </AnimatedSection>
@@ -167,17 +183,30 @@ function LatestEpisodeSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Guest photo placeholder */}
           <AnimatedSection delay={0.15}>
-            <div className="aspect-square rounded-3xl bg-gradient-to-br from-[#0B1120] to-[#1a2540] relative overflow-hidden">
+            <div
+              className="aspect-square rounded-3xl relative overflow-hidden"
+              style={{
+                background: `linear-gradient(to bottom right, var(--hero-bg), var(--surface-elevated))`,
+              }}
+            >
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-28 h-28 rounded-full bg-[#C9A96E]/10 border border-[#C9A96E]/20 flex items-center justify-center">
-                  <Mic size={40} className="text-[#C9A96E]/60" />
+                <div
+                  className="w-28 h-28 rounded-full flex items-center justify-center"
+                  style={{
+                    backgroundColor: "color-mix(in srgb, var(--accent) 10%, transparent)",
+                    border: "1px solid color-mix(in srgb, var(--accent) 20%, transparent)",
+                  }}
+                >
+                  <Mic size={40} className="text-[var(--accent)] opacity-60" />
                 </div>
               </div>
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-8">
-                <p className="text-white font-medium text-lg">
+                <p className="text-[var(--text-on-dark)] font-medium text-lg">
                   {latest.guest}
                 </p>
-                <p className="text-zinc-400 text-sm">{latest.guestTitle}</p>
+                <p className="text-[var(--text-muted)] text-sm">
+                  {latest.guestTitle}
+                </p>
               </div>
             </div>
           </AnimatedSection>
@@ -189,18 +218,25 @@ function LatestEpisodeSection() {
                 {latest.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="text-xs px-3 py-1.5 rounded-full bg-[#0B1120]/5 text-[#0B1120]/70 font-medium"
+                    className="text-xs px-3 py-1.5 rounded-full font-medium"
+                    style={{
+                      backgroundColor: "color-mix(in srgb, var(--text-primary) 5%, transparent)",
+                      color: "color-mix(in srgb, var(--text-primary) 70%, transparent)",
+                    }}
                   >
                     {tag}
                   </span>
                 ))}
               </div>
 
-              <h3 className="text-2xl md:text-3xl font-semibold text-[#0B1120] leading-snug">
+              <h3 className="text-2xl md:text-3xl font-semibold text-[var(--text-primary)] leading-snug">
                 {latest.title}
               </h3>
 
-              <p className="text-[#0B1120]/60 leading-relaxed">
+              <p
+                className="leading-relaxed"
+                style={{ color: "color-mix(in srgb, var(--text-primary) 60%, transparent)" }}
+              >
                 {latest.description}
               </p>
 
@@ -225,21 +261,21 @@ function EpisodeGridSection() {
   const recentEpisodes = episodes.slice(0, 6);
 
   return (
-    <section className="bg-[#0B1120] py-24 md:py-32">
+    <section className="bg-[var(--hero-bg)] py-24 md:py-32">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <AnimatedSection>
           <div className="flex items-end justify-between mb-16">
             <div>
-              <p className="text-xs tracking-[0.3em] text-[#C9A96E] uppercase font-medium mb-3">
+              <p className="text-xs tracking-[0.3em] text-[var(--accent)] uppercase font-medium mb-3">
                 Library
               </p>
-              <h2 className="text-3xl md:text-4xl font-light text-white tracking-tight">
+              <h2 className="text-3xl md:text-4xl font-light text-[var(--text-on-dark)] tracking-tight">
                 Recent Episodes
               </h2>
             </div>
             <Link
               href="/episodes"
-              className="hidden sm:flex items-center gap-2 text-sm text-[#C9A96E] font-medium hover:gap-3 transition-all duration-300"
+              className="hidden sm:flex items-center gap-2 text-sm text-[var(--accent)] font-medium hover:gap-3 transition-all duration-300"
             >
               View All
               <ArrowRight size={14} />
@@ -256,7 +292,7 @@ function EpisodeGridSection() {
         <div className="mt-10 flex justify-center sm:hidden">
           <Link
             href="/episodes"
-            className="flex items-center gap-2 text-sm text-[#C9A96E] font-medium"
+            className="flex items-center gap-2 text-sm text-[var(--accent)] font-medium"
           >
             View All Episodes
             <ArrowRight size={14} />
@@ -278,18 +314,21 @@ function AboutPreviewSection() {
   ];
 
   return (
-    <section className="bg-[#F7F3ED] py-24 md:py-32">
+    <section className="bg-[var(--bg-secondary)] py-24 md:py-32">
       <div className="max-w-6xl mx-auto px-6 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Story */}
           <AnimatedSection>
-            <p className="text-xs tracking-[0.3em] text-[#C9A96E] uppercase font-medium mb-3">
+            <p className="text-xs tracking-[0.3em] text-[var(--accent)] uppercase font-medium mb-3">
               The Host
             </p>
-            <h2 className="text-3xl md:text-4xl font-light text-[#0B1120] mb-6 tracking-tight">
+            <h2 className="text-3xl md:text-4xl font-light text-[var(--text-primary)] mb-6 tracking-tight">
               Meet Jodi Yang
             </h2>
-            <div className="space-y-4 text-[#0B1120]/70 leading-relaxed">
+            <div
+              className="space-y-4 leading-relaxed"
+              style={{ color: "color-mix(in srgb, var(--text-primary) 70%, transparent)" }}
+            >
               <p>
                 A bilingual Chinese-American who has lived across three
                 continents, Jodi brings a rare perspective to conversations about
@@ -306,7 +345,7 @@ function AboutPreviewSection() {
             </div>
             <Link
               href="/about"
-              className="inline-flex items-center gap-2 mt-8 text-sm font-semibold text-[#C9A96E] hover:gap-3 transition-all duration-300"
+              className="inline-flex items-center gap-2 mt-8 text-sm font-semibold text-[var(--accent)] hover:gap-3 transition-all duration-300"
             >
               Read Full Story
               <ArrowRight size={14} />
@@ -319,16 +358,19 @@ function AboutPreviewSection() {
               {stats.map((stat) => (
                 <div
                   key={stat.label}
-                  className="bg-white rounded-2xl p-8 border border-[#0B1120]/5 flex items-center gap-6"
+                  className="bg-[var(--bg-card)] rounded-2xl p-8 border border-[var(--input-border)] flex items-center gap-6"
                 >
-                  <div className="w-14 h-14 rounded-xl bg-[#0B1120] flex items-center justify-center flex-shrink-0">
-                    <stat.icon size={22} className="text-[#C9A96E]" />
+                  <div className="w-14 h-14 rounded-xl bg-[var(--hero-bg)] flex items-center justify-center flex-shrink-0">
+                    <stat.icon size={22} className="text-[var(--accent)]" />
                   </div>
                   <div>
-                    <p className="text-3xl font-light text-[#0B1120] mb-1">
+                    <p className="text-3xl font-light text-[var(--text-primary)] mb-1">
                       {stat.value}
                     </p>
-                    <p className="text-sm text-[#0B1120]/50 font-medium">
+                    <p
+                      className="text-sm font-medium"
+                      style={{ color: "color-mix(in srgb, var(--text-primary) 50%, transparent)" }}
+                    >
                       {stat.label}
                     </p>
                   </div>
@@ -343,21 +385,22 @@ function AboutPreviewSection() {
 }
 
 /* ───────────────────────────────────────────────────
-   5. PRIME LAB TEASER
+   5. PRIME LAP TEASER
    ─────────────────────────────────────────────────── */
 function PrimeLabSection() {
   return (
-    <section className="relative bg-[#0B1120] py-24 md:py-32 overflow-hidden">
+    <section className="relative bg-[var(--hero-bg)] py-24 md:py-32 overflow-hidden">
       {/* Speed lines */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {[...Array(5)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute h-[1px] bg-gradient-to-r from-transparent via-[#C9A96E]/20 to-transparent"
+            className="absolute h-[1px]"
             style={{
               top: `${20 + i * 15}%`,
               left: "-10%",
               width: "120%",
+              background: `linear-gradient(90deg, transparent, color-mix(in srgb, var(--accent) 20%, transparent), transparent)`,
             }}
             animate={{
               x: ["-100%", "100%"],
@@ -385,28 +428,36 @@ function PrimeLabSection() {
             </span>
           </div>
 
-          <h2 className="text-4xl md:text-5xl font-light text-white mb-4 tracking-tight">
-            Prime Lab
+          <h2 className="text-4xl md:text-5xl font-light text-[var(--text-on-dark)] mb-4 tracking-tight">
+            Prime Lap
           </h2>
-          <p className="text-lg text-zinc-400 mb-6">
+          <p className="text-lg text-[var(--text-muted)] mb-6">
             Where Innovation Meets the Fast Lane
           </p>
-          <p className="max-w-2xl mx-auto text-zinc-500 leading-relaxed mb-10">
+          <p className="max-w-2xl mx-auto text-[var(--text-muted)] leading-relaxed mb-10">
             An F1-inspired format where startup founders pitch their companies
             to top executives &mdash; during a live racing lap. High speed, high
             stakes, high impact. In partnership with Prime Movers Lab.
           </p>
 
           <div className="flex items-center justify-center gap-4">
-            <Zap size={20} className="text-[#C9A96E]" />
-            <div className="h-[1px] w-16 bg-gradient-to-r from-[#C9A96E] to-transparent" />
+            <Zap size={20} className="text-[var(--accent)]" />
+            <div
+              className="h-[1px] w-16"
+              style={{
+                background: "linear-gradient(to right, var(--accent), transparent)",
+              }}
+            />
           </div>
         </AnimatedSection>
 
         <AnimatedSection delay={0.2}>
           <Link
-            href="/prime-lab"
-            className="inline-flex items-center gap-2 mt-10 bg-white/5 border border-white/10 text-white px-8 py-4 rounded-full text-sm font-medium tracking-wide uppercase hover:border-[#C9A96E]/40 hover:text-[#C9A96E] transition-all duration-300"
+            href="/prime-lap"
+            className="inline-flex items-center gap-2 mt-10 border border-[var(--border-on-dark-strong)] text-[var(--text-on-dark)] px-8 py-4 rounded-full text-sm font-medium tracking-wide uppercase hover:border-[var(--accent)] hover:text-[var(--accent)] transition-all duration-300"
+            style={{
+              backgroundColor: "color-mix(in srgb, var(--text-on-dark) 5%, transparent)",
+            }}
           >
             Learn More
             <ArrowRight size={14} />
@@ -422,16 +473,19 @@ function PrimeLabSection() {
    ─────────────────────────────────────────────────── */
 function NewsletterSection() {
   return (
-    <section className="bg-[#F7F3ED] py-24 md:py-32">
+    <section className="bg-[var(--bg-secondary)] py-24 md:py-32">
       <div className="max-w-3xl mx-auto px-6 lg:px-12 text-center">
         <AnimatedSection>
-          <p className="text-xs tracking-[0.3em] text-[#C9A96E] uppercase font-medium mb-3">
+          <p className="text-xs tracking-[0.3em] text-[var(--accent)] uppercase font-medium mb-3">
             Stay Connected
           </p>
-          <h2 className="text-3xl md:text-4xl font-light text-[#0B1120] mb-4 tracking-tight">
+          <h2 className="text-3xl md:text-4xl font-light text-[var(--text-primary)] mb-4 tracking-tight">
             Join the Joyous Community
           </h2>
-          <p className="text-[#0B1120]/60 leading-relaxed mb-10 max-w-lg mx-auto">
+          <p
+            className="leading-relaxed mb-10 max-w-lg mx-auto"
+            style={{ color: "color-mix(in srgb, var(--text-primary) 60%, transparent)" }}
+          >
             Get exclusive behind-the-scenes content, early access to new
             episodes, and Jodi&apos;s curated insights on health and wealth
             &mdash; delivered to your inbox.
@@ -444,17 +498,20 @@ function NewsletterSection() {
             <input
               type="email"
               placeholder="your@email.com"
-              className="flex-1 bg-white border border-[#0B1120]/10 rounded-full px-6 py-4 text-sm text-[#0B1120] placeholder:text-[#0B1120]/30 focus:outline-none focus:border-[#C9A96E] transition-colors"
+              className="flex-1 bg-[var(--input-bg)] border border-[var(--input-border)] rounded-full px-6 py-4 text-sm text-[var(--text-primary)] placeholder:text-[var(--text-muted)] focus:outline-none focus:border-[var(--accent)] transition-colors"
             />
             <button
               type="submit"
-              className="bg-[#0B1120] text-white px-8 py-4 rounded-full text-sm font-semibold tracking-wide uppercase hover:bg-[#1a2540] transition-colors"
+              className="bg-[var(--btn-secondary-bg)] text-[var(--btn-secondary-text)] px-8 py-4 rounded-full text-sm font-semibold tracking-wide uppercase hover:bg-[var(--surface-elevated)] transition-colors"
             >
               Subscribe
             </button>
           </form>
 
-          <p className="text-xs text-[#0B1120]/40 mt-4">
+          <p
+            className="text-xs mt-4"
+            style={{ color: "color-mix(in srgb, var(--text-primary) 40%, transparent)" }}
+          >
             No spam, ever. Unsubscribe anytime.
           </p>
         </AnimatedSection>

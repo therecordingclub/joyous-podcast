@@ -57,8 +57,8 @@ const formatCards = [
     title: "The Exec",
     description:
       "A C-suite executive from a leading company rides shotgun, evaluating the pitch under the most high-pressure conditions imaginable.",
-    accent: "from-[#C9A96E]/20 to-[#C9A96E]/5",
-    border: "border-[#C9A96E]/20",
+    accentStyle: { background: `linear-gradient(to bottom right, color-mix(in srgb, var(--accent) 20%, transparent), color-mix(in srgb, var(--accent) 5%, transparent))` },
+    borderStyle: { borderColor: "color-mix(in srgb, var(--accent) 20%, transparent)" },
   },
   {
     icon: Mic2,
@@ -84,7 +84,10 @@ export default function PrimeLabPage() {
       <Navigation />
       <main>
         {/* Dramatic Hero */}
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#0B1120]">
+        <section
+          className="relative min-h-screen flex items-center justify-center overflow-hidden"
+          style={{ backgroundColor: "var(--hero-bg)" }}
+        >
           {/* Speed lines via CSS */}
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
             {[...Array(12)].map((_, i) => (
@@ -98,7 +101,7 @@ export default function PrimeLabPage() {
                   background: `linear-gradient(90deg, transparent, ${
                     i % 3 === 0
                       ? "rgba(220,38,38,0.15)"
-                      : "rgba(201,169,110,0.1)"
+                      : "color-mix(in srgb, var(--accent) 10%, transparent)"
                   }, transparent)`,
                 }}
                 animate={{
@@ -118,7 +121,12 @@ export default function PrimeLabPage() {
           {/* Red/gold radial glows */}
           <div className="absolute inset-0">
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_20%_50%,rgba(220,38,38,0.08)_0%,transparent_50%)]" />
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_30%,rgba(201,169,110,0.06)_0%,transparent_50%)]" />
+            <div
+              className="absolute inset-0"
+              style={{
+                background: "radial-gradient(ellipse at 80% 30%, var(--hero-glow-2) 0%, transparent 50%)",
+              }}
+            />
           </div>
 
           {/* Grain */}
@@ -149,9 +157,10 @@ export default function PrimeLabPage() {
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.3 }}
-              className="text-6xl sm:text-7xl md:text-8xl font-extralight tracking-[0.1em] text-white uppercase mb-6"
+              className="text-6xl sm:text-7xl md:text-8xl font-extralight tracking-[0.1em] uppercase mb-6"
+              style={{ color: "var(--text-on-dark)" }}
             >
-              Prime Lab
+              Prime Lap
             </motion.h1>
 
             <motion.div
@@ -159,10 +168,16 @@ export default function PrimeLabPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
-              <p className="text-xl md:text-2xl font-light text-zinc-400 tracking-wide mb-4">
+              <p
+                className="text-xl md:text-2xl font-light tracking-wide mb-4"
+                style={{ color: "var(--nav-text-muted)" }}
+              >
                 Where Innovation Meets the Fast Lane
               </p>
-              <p className="max-w-2xl mx-auto text-zinc-500 leading-relaxed">
+              <p
+                className="max-w-2xl mx-auto leading-relaxed"
+                style={{ color: "var(--text-muted)" }}
+              >
                 The world&apos;s most intense pitch format. One founder. One F1
                 car. One lap. Can you build conviction at 200 km/h?
               </p>
@@ -176,25 +191,37 @@ export default function PrimeLabPage() {
               className="flex items-center justify-center gap-3 mt-12"
             >
               <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-red-500/40" />
-              <Zap size={18} className="text-[#C9A96E]" />
+              <Zap size={18} style={{ color: "var(--accent)" }} />
               <div className="h-[1px] w-12 bg-gradient-to-l from-transparent to-red-500/40" />
             </motion.div>
           </div>
         </section>
 
         {/* Concept Explanation */}
-        <section className="bg-[#F7F3ED] py-24 md:py-32">
+        <section
+          className="py-24 md:py-32"
+          style={{ backgroundColor: "var(--bg-secondary)" }}
+        >
           <div className="max-w-4xl mx-auto px-6 lg:px-12">
             <AnimatedSection>
-              <p className="text-xs tracking-[0.3em] text-[#C9A96E] uppercase font-medium mb-3">
+              <p
+                className="text-xs tracking-[0.3em] uppercase font-medium mb-3"
+                style={{ color: "var(--accent)" }}
+              >
                 The Concept
               </p>
-              <h2 className="text-3xl md:text-4xl font-light text-[#0B1120] mb-8 tracking-tight">
+              <h2
+                className="text-3xl md:text-4xl font-light mb-8 tracking-tight"
+                style={{ color: "var(--text-primary)" }}
+              >
                 Innovation Under Pressure
               </h2>
-              <div className="space-y-5 text-[#0B1120]/70 leading-relaxed text-lg">
+              <div
+                className="space-y-5 leading-relaxed text-lg"
+                style={{ color: "color-mix(in srgb, var(--text-primary) 70%, transparent)" }}
+              >
                 <p>
-                  Prime Lab strips away the comfort of a conference room and
+                  Prime Lap strips away the comfort of a conference room and
                   puts founders exactly where they claim to thrive: under
                   extreme pressure. Paired with a professional racing driver and
                   a top company executive, each founder must deliver their
@@ -209,11 +236,11 @@ export default function PrimeLabPage() {
                 </p>
                 <p>
                   Developed in partnership with{" "}
-                  <span className="font-semibold text-[#0B1120]">
+                  <span style={{ color: "var(--text-primary)", fontWeight: 600 }}>
                     Prime Movers Lab
                   </span>
                   , the venture fund that backs breakthrough scientific startups,
-                  Prime Lab connects with Jodi&apos;s placement agency to match
+                  Prime Lap connects with Jodi&apos;s placement agency to match
                   exceptional talent with the companies that survive the lap.
                 </p>
               </div>
@@ -222,13 +249,22 @@ export default function PrimeLabPage() {
         </section>
 
         {/* Format Cards */}
-        <section className="bg-[#0B1120] py-24 md:py-32">
+        <section
+          className="py-24 md:py-32"
+          style={{ backgroundColor: "var(--hero-bg)" }}
+        >
           <div className="max-w-6xl mx-auto px-6 lg:px-12">
             <AnimatedSection>
-              <p className="text-xs tracking-[0.3em] text-[#C9A96E] uppercase font-medium mb-3">
+              <p
+                className="text-xs tracking-[0.3em] uppercase font-medium mb-3"
+                style={{ color: "var(--accent)" }}
+              >
                 The Format
               </p>
-              <h2 className="text-3xl md:text-4xl font-light text-white mb-16 tracking-tight">
+              <h2
+                className="text-3xl md:text-4xl font-light mb-16 tracking-tight"
+                style={{ color: "var(--text-on-dark)" }}
+              >
                 Four Elements, One Lap
               </h2>
             </AnimatedSection>
@@ -237,20 +273,37 @@ export default function PrimeLabPage() {
               {formatCards.map((card, index) => (
                 <AnimatedSection key={card.title} delay={index * 0.1}>
                   <div
-                    className={`relative rounded-2xl bg-[#141B2D] border ${card.border} p-8 h-full overflow-hidden`}
+                    className={`relative rounded-2xl p-8 h-full overflow-hidden ${card.border || ""}`}
+                    style={{
+                      backgroundColor: "var(--bg-card-dark)",
+                      border: card.borderStyle ? undefined : `1px solid`,
+                      ...(card.borderStyle || {}),
+                    }}
                   >
                     {/* Subtle gradient */}
-                    <div
-                      className={`absolute inset-0 bg-gradient-to-br ${card.accent} pointer-events-none`}
-                    />
+                    {card.accent && (
+                      <div className={`absolute inset-0 bg-gradient-to-br ${card.accent} pointer-events-none`} />
+                    )}
+                    {card.accentStyle && (
+                      <div className="absolute inset-0 pointer-events-none" style={card.accentStyle} />
+                    )}
                     <div className="relative z-10">
-                      <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center mb-5">
-                        <card.icon size={22} className="text-[#C9A96E]" />
+                      <div
+                        className="w-12 h-12 rounded-xl flex items-center justify-center mb-5"
+                        style={{ backgroundColor: "color-mix(in srgb, var(--text-on-dark) 5%, transparent)" }}
+                      >
+                        <card.icon size={22} style={{ color: "var(--accent)" }} />
                       </div>
-                      <h3 className="text-xl font-semibold text-white mb-3">
+                      <h3
+                        className="text-xl font-semibold mb-3"
+                        style={{ color: "var(--text-on-dark)" }}
+                      >
                         {card.title}
                       </h3>
-                      <p className="text-zinc-400 leading-relaxed">
+                      <p
+                        className="leading-relaxed"
+                        style={{ color: "var(--nav-text-muted)" }}
+                      >
                         {card.description}
                       </p>
                     </div>
@@ -262,45 +315,38 @@ export default function PrimeLabPage() {
         </section>
 
         {/* Partnership + Placement Agency */}
-        <section className="bg-[#F7F3ED] py-24 md:py-32">
+        <section
+          className="py-24 md:py-32"
+          style={{ backgroundColor: "var(--bg-secondary)" }}
+        >
           <div className="max-w-5xl mx-auto px-6 lg:px-12">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <AnimatedSection>
                 <div>
-                  <Rocket size={24} className="text-[#C9A96E] mb-4" />
-                  <h3 className="text-2xl font-semibold text-[#0B1120] mb-4">
+                  <Rocket size={24} className="mb-4" style={{ color: "var(--accent)" }} />
+                  <h3 className="text-2xl font-semibold mb-4" style={{ color: "var(--text-primary)" }}>
                     Partnership with Prime Movers Lab
                   </h3>
-                  <p className="text-[#0B1120]/70 leading-relaxed mb-6">
-                    Prime Movers Lab invests in breakthrough scientific startups
-                    building the future of energy, transportation, computing,
-                    and human health. Their portfolio of audacious founders is
-                    the perfect proving ground for the Prime Lab format.
+                  <p className="leading-relaxed mb-6" style={{ color: "color-mix(in srgb, var(--text-primary) 70%, transparent)" }}>
+                    Prime Movers Lab invests in breakthrough scientific startups building the future of energy, transportation, computing, and human health. Their portfolio of audacious founders is the perfect proving ground for the Prime Lap format.
                   </p>
-                  <p className="text-[#0B1120]/70 leading-relaxed">
-                    Together, we&apos;re creating a new way to evaluate
-                    founders: not by their slides, but by their composure,
-                    clarity, and conviction under genuine duress.
+                  <p className="leading-relaxed" style={{ color: "color-mix(in srgb, var(--text-primary) 70%, transparent)" }}>
+                    Together, we&apos;re creating a new way to evaluate founders: not by their slides, but by their composure, clarity, and conviction under genuine duress.
                   </p>
                 </div>
               </AnimatedSection>
 
               <AnimatedSection delay={0.15}>
                 <div>
-                  <Trophy size={24} className="text-[#C9A96E] mb-4" />
-                  <h3 className="text-2xl font-semibold text-[#0B1120] mb-4">
+                  <Trophy size={24} className="mb-4" style={{ color: "var(--accent)" }} />
+                  <h3 className="text-2xl font-semibold mb-4" style={{ color: "var(--text-primary)" }}>
                     The Placement Connection
                   </h3>
-                  <p className="text-[#0B1120]/70 leading-relaxed mb-6">
-                    Prime Lab isn&apos;t just entertainment. Companies that
-                    survive the lap gain access to Jodi&apos;s curated placement
-                    network &mdash; connecting them with exceptional executives,
-                    operators, and advisors who are drawn to the kind of
-                    founders bold enough to pitch at 200 km/h.
+                  <p className="leading-relaxed mb-6" style={{ color: "color-mix(in srgb, var(--text-primary) 70%, transparent)" }}>
+                    Prime Lap isn&apos;t just entertainment. Companies that survive the lap gain access to Jodi&apos;s curated placement network &mdash; connecting them with exceptional executives, operators, and advisors who are drawn to the kind of founders bold enough to pitch at 200 km/h.
                   </p>
-                  <p className="text-[#0B1120]/70 leading-relaxed">
-                    It&apos;s a filter. A signal. And for the right companies,
-                    it&apos;s the beginning of something extraordinary.
+                  <p className="leading-relaxed" style={{ color: "color-mix(in srgb, var(--text-primary) 70%, transparent)" }}>
+                    It&apos;s a filter. A signal. And for the right companies, it&apos;s the beginning of something extraordinary.
                   </p>
                 </div>
               </AnimatedSection>
@@ -309,7 +355,10 @@ export default function PrimeLabPage() {
         </section>
 
         {/* CTA */}
-        <section className="relative bg-[#0B1120] py-24 md:py-32 overflow-hidden">
+        <section
+          className="relative py-24 md:py-32 overflow-hidden"
+          style={{ backgroundColor: "var(--hero-bg)" }}
+        >
           {/* Speed lines */}
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
             {[...Array(6)].map((_, i) => (
@@ -337,25 +386,39 @@ export default function PrimeLabPage() {
 
           <div className="relative z-10 max-w-3xl mx-auto px-6 lg:px-12 text-center">
             <AnimatedSection>
-              <h2 className="text-3xl md:text-4xl font-light text-white mb-4 tracking-tight">
+              <h2
+                className="text-3xl md:text-4xl font-light mb-4 tracking-tight"
+                style={{ color: "var(--text-on-dark)" }}
+              >
                 Ready to Take the Lap?
               </h2>
-              <p className="text-zinc-500 leading-relaxed mb-10 max-w-lg mx-auto">
-                Prime Lab is launching soon. If your company has what it takes
+              <p
+                className="leading-relaxed mb-10 max-w-lg mx-auto"
+                style={{ color: "var(--text-muted)" }}
+              >
+                Prime Lap is launching soon. If your company has what it takes
                 to pitch at 200 km/h, we want to hear from you.
               </p>
 
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Link
                   href="/connect"
-                  className="group flex items-center gap-3 bg-[#C9A96E] text-[#0B1120] px-8 py-4 rounded-full text-sm font-semibold tracking-wide uppercase hover:bg-[#d4b87e] transition-all duration-300 hover:shadow-[0_0_40px_rgba(201,169,110,0.3)]"
+                  className="group flex items-center gap-3 px-8 py-4 rounded-full text-sm font-semibold tracking-wide uppercase transition-all duration-300"
+                  style={{
+                    backgroundColor: "var(--btn-primary-bg)",
+                    color: "var(--btn-primary-text)",
+                  }}
                 >
                   <Mail size={16} />
                   Get in Touch
                 </Link>
                 <Link
                   href="/episodes"
-                  className="group flex items-center gap-2 border border-white/15 text-white px-8 py-4 rounded-full text-sm font-medium tracking-wide uppercase hover:border-[#C9A96E]/50 hover:text-[#C9A96E] transition-all duration-300"
+                  className="group flex items-center gap-2 border px-8 py-4 rounded-full text-sm font-medium tracking-wide uppercase transition-all duration-300"
+                  style={{
+                    borderColor: "var(--border-on-dark-strong)",
+                    color: "var(--text-on-dark)",
+                  }}
                 >
                   Listen to Joyous
                   <ArrowRight

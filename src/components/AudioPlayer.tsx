@@ -148,11 +148,22 @@ export default function AudioPlayer({
         <audio ref={audioRef} src={src} preload="metadata" />
 
         {/* Glassmorphism backdrop */}
-        <div className="relative backdrop-blur-2xl bg-[#0B1120]/85 border-t border-white/[0.08] shadow-[0_-8px_32px_rgba(0,0,0,0.4)]">
+        <div
+          className="relative backdrop-blur-2xl border-t shadow-[0_-8px_32px_rgba(0,0,0,0.4)]"
+          style={{
+            backgroundColor: "color-mix(in srgb, var(--hero-bg) 85%, transparent)",
+            borderColor: "var(--border-on-dark)",
+          }}
+        >
           {/* Ambient glow when playing */}
           {isPlaying && (
             <div className="absolute inset-0 pointer-events-none">
-              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-96 h-24 bg-[#C9A96E]/[0.06] rounded-full blur-3xl" />
+              <div
+                className="absolute bottom-0 left-1/2 -translate-x-1/2 w-96 h-24 rounded-full blur-3xl"
+                style={{
+                  backgroundColor: "color-mix(in srgb, var(--accent) 6%, transparent)",
+                }}
+              />
             </div>
           )}
 
@@ -166,15 +177,25 @@ export default function AudioPlayer({
             onMouseLeave={() => setIsDragging(false)}
             onMouseMove={handleProgressDrag}
           >
-            <div className="absolute inset-0 bg-white/[0.06]" />
             <div
-              className="absolute left-0 top-0 bottom-0 bg-gradient-to-r from-[#C9A96E] to-[#E2C891] transition-[width] duration-75"
-              style={{ width: `${progress}%` }}
+              className="absolute inset-0"
+              style={{ backgroundColor: "var(--border-on-dark)" }}
+            />
+            <div
+              className="absolute left-0 top-0 bottom-0 transition-[width] duration-75"
+              style={{
+                width: `${progress}%`,
+                background: `linear-gradient(to right, var(--progress-gradient-start), var(--progress-gradient-end))`,
+              }}
             />
             {/* Scrubber dot */}
             <div
-              className="absolute top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-[#C9A96E] shadow-[0_0_8px_rgba(201,169,110,0.4)] opacity-0 group-hover/progress:opacity-100 transition-opacity duration-150"
-              style={{ left: `calc(${progress}% - 6px)` }}
+              className="absolute top-1/2 -translate-y-1/2 w-3 h-3 rounded-full opacity-0 group-hover/progress:opacity-100 transition-opacity duration-150"
+              style={{
+                left: `calc(${progress}% - 6px)`,
+                backgroundColor: "var(--accent)",
+                boxShadow: `0 0 8px color-mix(in srgb, var(--accent) 40%, transparent)`,
+              }}
             />
           </div>
 
@@ -184,15 +205,27 @@ export default function AudioPlayer({
               {/* Episode info */}
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2 mb-0.5">
-                  <span className="text-[#C9A96E] text-[10px] font-mono font-semibold tracking-widest uppercase shrink-0">
+                  <span
+                    className="text-[10px] font-mono font-semibold tracking-widest uppercase shrink-0"
+                    style={{ color: "var(--accent)" }}
+                  >
                     EP {String(episodeNumber).padStart(2, "0")}
                   </span>
-                  <span className="text-zinc-600 text-[10px]">|</span>
-                  <span className="text-zinc-500 text-[10px] font-medium truncate">
+                  <span
+                    className="text-[10px]"
+                    style={{ color: "var(--text-muted)" }}
+                  >|</span>
+                  <span
+                    className="text-[10px] font-medium truncate"
+                    style={{ color: "var(--text-muted)" }}
+                  >
                     {guest}
                   </span>
                 </div>
-                <h4 className="text-white text-sm font-medium truncate leading-tight">
+                <h4
+                  className="text-sm font-medium truncate leading-tight"
+                  style={{ color: "var(--text-on-dark)" }}
+                >
                   {title}
                 </h4>
               </div>
@@ -201,7 +234,8 @@ export default function AudioPlayer({
               <div className="flex items-center gap-1 sm:gap-2 shrink-0">
                 <button
                   onClick={() => skip(-15)}
-                  className="w-8 h-8 flex items-center justify-center text-zinc-400 hover:text-white transition-colors"
+                  className="w-8 h-8 flex items-center justify-center transition-colors"
+                  style={{ color: "var(--nav-text-muted)" }}
                   aria-label="Rewind 15 seconds"
                 >
                   <SkipBack className="w-4 h-4" />
@@ -210,7 +244,12 @@ export default function AudioPlayer({
                 <motion.button
                   whileTap={{ scale: 0.92 }}
                   onClick={togglePlay}
-                  className="w-11 h-11 rounded-full bg-[#C9A96E] flex items-center justify-center text-[#0B1120] shadow-[0_0_20px_rgba(201,169,110,0.25)] hover:bg-[#D4B67A] transition-colors"
+                  className="w-11 h-11 rounded-full flex items-center justify-center transition-colors"
+                  style={{
+                    backgroundColor: "var(--btn-primary-bg)",
+                    color: "var(--btn-primary-text)",
+                    boxShadow: `0 0 20px color-mix(in srgb, var(--accent) 25%, transparent)`,
+                  }}
                   aria-label={isPlaying ? "Pause" : "Play"}
                 >
                   <AnimatePresence mode="wait">
@@ -222,7 +261,7 @@ export default function AudioPlayer({
                         exit={{ scale: 0, rotate: 90 }}
                         transition={{ duration: 0.15 }}
                       >
-                        <Pause className="w-5 h-5 fill-[#0B1120]" />
+                        <Pause className="w-5 h-5" style={{ fill: "var(--btn-primary-text)" }} />
                       </motion.div>
                     ) : (
                       <motion.div
@@ -232,7 +271,7 @@ export default function AudioPlayer({
                         exit={{ scale: 0, rotate: -90 }}
                         transition={{ duration: 0.15 }}
                       >
-                        <Play className="w-5 h-5 fill-[#0B1120] ml-0.5" />
+                        <Play className="w-5 h-5 ml-0.5" style={{ fill: "var(--btn-primary-text)" }} />
                       </motion.div>
                     )}
                   </AnimatePresence>
@@ -240,7 +279,8 @@ export default function AudioPlayer({
 
                 <button
                   onClick={() => skip(30)}
-                  className="w-8 h-8 flex items-center justify-center text-zinc-400 hover:text-white transition-colors"
+                  className="w-8 h-8 flex items-center justify-center transition-colors"
+                  style={{ color: "var(--nav-text-muted)" }}
                   aria-label="Forward 30 seconds"
                 >
                   <SkipForward className="w-4 h-4" />
@@ -248,8 +288,11 @@ export default function AudioPlayer({
               </div>
 
               {/* Time display */}
-              <div className="hidden sm:flex items-center gap-1 text-[11px] font-mono text-zinc-500 shrink-0 tabular-nums">
-                <span className="text-zinc-300">{formatTime(currentTime)}</span>
+              <div
+                className="hidden sm:flex items-center gap-1 text-[11px] font-mono shrink-0 tabular-nums"
+                style={{ color: "var(--text-muted)" }}
+              >
+                <span style={{ color: "var(--text-on-dark)" }}>{formatTime(currentTime)}</span>
                 <span>/</span>
                 <span>{formatTime(duration)}</span>
               </div>
@@ -258,7 +301,8 @@ export default function AudioPlayer({
               <div className="hidden md:flex items-center gap-2 shrink-0">
                 <button
                   onClick={() => setIsMuted(!isMuted)}
-                  className="w-8 h-8 flex items-center justify-center text-zinc-400 hover:text-white transition-colors"
+                  className="w-8 h-8 flex items-center justify-center transition-colors"
+                  style={{ color: "var(--nav-text-muted)" }}
                   aria-label={isMuted ? "Unmute" : "Mute"}
                 >
                   {isMuted || volume === 0 ? (
@@ -269,17 +313,22 @@ export default function AudioPlayer({
                 </button>
                 <div
                   ref={volumeRef}
-                  className="w-20 h-1.5 bg-white/[0.08] rounded-full cursor-pointer relative group/vol"
+                  className="w-20 h-1.5 rounded-full cursor-pointer relative group/vol"
+                  style={{ backgroundColor: "var(--border-on-dark)" }}
                   onClick={handleVolumeClick}
                 >
                   <div
-                    className="absolute left-0 top-0 bottom-0 bg-[#C9A96E]/60 rounded-full transition-[width] duration-75"
-                    style={{ width: `${(isMuted ? 0 : volume) * 100}%` }}
+                    className="absolute left-0 top-0 bottom-0 rounded-full transition-[width] duration-75"
+                    style={{
+                      width: `${(isMuted ? 0 : volume) * 100}%`,
+                      backgroundColor: "color-mix(in srgb, var(--accent) 60%, transparent)",
+                    }}
                   />
                   <div
-                    className="absolute top-1/2 -translate-y-1/2 w-2.5 h-2.5 rounded-full bg-[#C9A96E] opacity-0 group-hover/vol:opacity-100 transition-opacity"
+                    className="absolute top-1/2 -translate-y-1/2 w-2.5 h-2.5 rounded-full opacity-0 group-hover/vol:opacity-100 transition-opacity"
                     style={{
                       left: `calc(${(isMuted ? 0 : volume) * 100}% - 5px)`,
+                      backgroundColor: "var(--accent)",
                     }}
                   />
                 </div>
@@ -289,7 +338,8 @@ export default function AudioPlayer({
               <div className="flex items-center gap-1 shrink-0">
                 <button
                   onClick={() => setIsExpanded(!isExpanded)}
-                  className="w-8 h-8 flex items-center justify-center text-zinc-500 hover:text-white transition-colors sm:hidden"
+                  className="w-8 h-8 flex items-center justify-center transition-colors sm:hidden"
+                  style={{ color: "var(--text-muted)" }}
                   aria-label="Expand"
                 >
                   <ChevronUp
@@ -299,7 +349,8 @@ export default function AudioPlayer({
                 {onClose && (
                   <button
                     onClick={onClose}
-                    className="w-8 h-8 flex items-center justify-center text-zinc-500 hover:text-white transition-colors"
+                    className="w-8 h-8 flex items-center justify-center transition-colors"
+                    style={{ color: "var(--text-muted)" }}
                     aria-label="Close player"
                   >
                     <X className="w-4 h-4" />
@@ -319,8 +370,11 @@ export default function AudioPlayer({
                   className="sm:hidden overflow-hidden"
                 >
                   <div className="pt-3 flex items-center justify-between">
-                    <div className="flex items-center gap-1 text-[11px] font-mono text-zinc-500 tabular-nums">
-                      <span className="text-zinc-300">
+                    <div
+                      className="flex items-center gap-1 text-[11px] font-mono tabular-nums"
+                      style={{ color: "var(--text-muted)" }}
+                    >
+                      <span style={{ color: "var(--text-on-dark)" }}>
                         {formatTime(currentTime)}
                       </span>
                       <span>/</span>
@@ -329,7 +383,8 @@ export default function AudioPlayer({
                     <div className="flex items-center gap-2">
                       <button
                         onClick={() => setIsMuted(!isMuted)}
-                        className="text-zinc-400 hover:text-white transition-colors"
+                        className="transition-colors"
+                        style={{ color: "var(--nav-text-muted)" }}
                       >
                         {isMuted || volume === 0 ? (
                           <VolumeX className="w-4 h-4" />

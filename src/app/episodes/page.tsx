@@ -60,21 +60,38 @@ export default function EpisodesPage() {
       <Navigation />
       <main>
         {/* Hero banner */}
-        <section className="bg-[#0B1120] pt-32 pb-20 relative overflow-hidden">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(201,169,110,0.08)_0%,transparent_60%)]" />
+        <section
+          className="pt-32 pb-20 relative overflow-hidden"
+          style={{ backgroundColor: "var(--hero-bg)" }}
+        >
+          <div
+            className="absolute inset-0"
+            style={{
+              background: "radial-gradient(ellipse at 50% 0%, var(--hero-glow-1) 0%, transparent 60%)",
+            }}
+          />
           <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
             >
-              <p className="text-xs tracking-[0.3em] text-[#C9A96E] uppercase font-medium mb-3">
+              <p
+                className="text-xs tracking-[0.3em] uppercase font-medium mb-3"
+                style={{ color: "var(--accent)" }}
+              >
                 Library
               </p>
-              <h1 className="text-5xl md:text-6xl font-extralight text-white tracking-tight mb-4">
+              <h1
+                className="text-5xl md:text-6xl font-extralight tracking-tight mb-4"
+                style={{ color: "var(--text-on-dark)" }}
+              >
                 Episodes
               </h1>
-              <p className="text-zinc-500 max-w-xl leading-relaxed">
+              <p
+                className="max-w-xl leading-relaxed"
+                style={{ color: "var(--text-muted)" }}
+              >
                 Every conversation is a journey through the intersection of
                 health and wealth. Browse the full archive below.
               </p>
@@ -83,26 +100,39 @@ export default function EpisodesPage() {
         </section>
 
         {/* Filter / Search */}
-        <section className="bg-[#0B1120] border-b border-white/5 sticky top-20 z-40 backdrop-blur-xl bg-[#0B1120]/90">
+        <section
+          className="border-b sticky top-20 z-40 backdrop-blur-xl"
+          style={{
+            backgroundColor: "color-mix(in srgb, var(--hero-bg) 90%, transparent)",
+            borderColor: "var(--border-on-dark)",
+          }}
+        >
           <div className="max-w-7xl mx-auto px-6 lg:px-12 py-5">
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
               {/* Search input */}
               <div className="relative flex-1 w-full sm:max-w-sm">
                 <Search
                   size={16}
-                  className="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-500"
+                  className="absolute left-4 top-1/2 -translate-y-1/2"
+                  style={{ color: "var(--text-muted)" }}
                 />
                 <input
                   type="text"
                   placeholder="Search episodes, guests..."
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
-                  className="w-full bg-white/5 border border-white/10 rounded-full pl-11 pr-10 py-3 text-sm text-white placeholder:text-zinc-600 focus:outline-none focus:border-[#C9A96E]/50 transition-colors"
+                  className="w-full rounded-full pl-11 pr-10 py-3 text-sm focus:outline-none transition-colors"
+                  style={{
+                    backgroundColor: "var(--input-bg-dark)",
+                    border: "1px solid var(--border-on-dark-strong)",
+                    color: "var(--text-on-dark)",
+                  }}
                 />
                 {search && (
                   <button
                     onClick={() => setSearch("")}
-                    className="absolute right-4 top-1/2 -translate-y-1/2 text-zinc-500 hover:text-white transition-colors"
+                    className="absolute right-4 top-1/2 -translate-y-1/2 transition-colors"
+                    style={{ color: "var(--text-muted)" }}
                   >
                     <X size={14} />
                   </button>
@@ -113,15 +143,23 @@ export default function EpisodesPage() {
               <div className="flex items-center gap-2 overflow-x-auto pb-1 w-full sm:w-auto scrollbar-hide">
                 <SlidersHorizontal
                   size={14}
-                  className="text-zinc-600 flex-shrink-0"
+                  className="flex-shrink-0"
+                  style={{ color: "var(--text-muted)" }}
                 />
                 <button
                   onClick={() => setActiveTag(null)}
-                  className={`flex-shrink-0 text-xs px-3 py-1.5 rounded-full font-medium tracking-wide transition-all duration-200 ${
+                  className="flex-shrink-0 text-xs px-3 py-1.5 rounded-full font-medium tracking-wide transition-all duration-200"
+                  style={
                     !activeTag
-                      ? "bg-[#C9A96E] text-[#0B1120]"
-                      : "bg-white/5 text-zinc-500 hover:text-white"
-                  }`}
+                      ? {
+                          backgroundColor: "var(--btn-primary-bg)",
+                          color: "var(--btn-primary-text)",
+                        }
+                      : {
+                          backgroundColor: "var(--input-bg-dark)",
+                          color: "var(--text-muted)",
+                        }
+                  }
                 >
                   All
                 </button>
@@ -131,11 +169,18 @@ export default function EpisodesPage() {
                     onClick={() =>
                       setActiveTag(activeTag === tag ? null : tag)
                     }
-                    className={`flex-shrink-0 text-xs px-3 py-1.5 rounded-full font-medium tracking-wide transition-all duration-200 ${
+                    className="flex-shrink-0 text-xs px-3 py-1.5 rounded-full font-medium tracking-wide transition-all duration-200"
+                    style={
                       activeTag === tag
-                        ? "bg-[#C9A96E] text-[#0B1120]"
-                        : "bg-white/5 text-zinc-500 hover:text-white"
-                    }`}
+                        ? {
+                            backgroundColor: "var(--btn-primary-bg)",
+                            color: "var(--btn-primary-text)",
+                          }
+                        : {
+                            backgroundColor: "var(--input-bg-dark)",
+                            color: "var(--text-muted)",
+                          }
+                    }
                   >
                     {tag}
                   </button>
@@ -146,11 +191,17 @@ export default function EpisodesPage() {
         </section>
 
         {/* Episodes grid */}
-        <section className="bg-[#0B1120] py-16 md:py-24 min-h-[60vh]">
+        <section
+          className="py-16 md:py-24 min-h-[60vh]"
+          style={{ backgroundColor: "var(--hero-bg)" }}
+        >
           <div className="max-w-7xl mx-auto px-6 lg:px-12">
             {filtered.length > 0 ? (
               <>
-                <p className="text-sm text-zinc-600 mb-8">
+                <p
+                  className="text-sm mb-8"
+                  style={{ color: "var(--text-muted)" }}
+                >
                   {filtered.length} episode{filtered.length !== 1 ? "s" : ""}
                   {search || activeTag ? " found" : ""}
                 </p>
@@ -167,10 +218,16 @@ export default function EpisodesPage() {
             ) : (
               <AnimatedSection>
                 <div className="text-center py-24">
-                  <p className="text-zinc-500 text-lg mb-2">
+                  <p
+                    className="text-lg mb-2"
+                    style={{ color: "var(--text-muted)" }}
+                  >
                     No episodes found
                   </p>
-                  <p className="text-zinc-600 text-sm">
+                  <p
+                    className="text-sm"
+                    style={{ color: "var(--text-muted)" }}
+                  >
                     Try adjusting your search or filters.
                   </p>
                   <button
@@ -178,7 +235,8 @@ export default function EpisodesPage() {
                       setSearch("");
                       setActiveTag(null);
                     }}
-                    className="mt-6 text-sm text-[#C9A96E] font-medium hover:underline"
+                    className="mt-6 text-sm font-medium hover:underline"
+                    style={{ color: "var(--accent)" }}
                   >
                     Clear all filters
                   </button>

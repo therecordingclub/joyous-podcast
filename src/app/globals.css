@@ -2,25 +2,53 @@
 
 /* ===================================================================
    Joyous Podcast — Global Styles
-   Premium editorial magazine aesthetic
+   Theme-aware: all colors use CSS custom properties
    =================================================================== */
 
 :root {
-  /* Core palette */
-  --joyous-charcoal: #0B1120;
-  --joyous-cream: #F7F3ED;
-  --joyous-gold: #C9A96E;
-  --joyous-gold-light: #D4BA85;
-  --joyous-gold-dark: #A8893F;
-  --joyous-rose: #B76E79;
-  --joyous-rose-light: #CB8B94;
-  --joyous-rose-dark: #9A5560;
-  --joyous-text-light: #F5F0E8;
-  --joyous-text-dark: #1A1A2E;
-  --joyous-surface: #111827;
-  --joyous-surface-elevated: #1C2536;
-  --joyous-border: rgba(201, 169, 110, 0.15);
-  --joyous-border-strong: rgba(201, 169, 110, 0.3);
+  /* ---- Theme colors (defaults = Apothecary) ---- */
+  --bg-primary: #F5EDE0;
+  --bg-secondary: #EDE4D3;
+  --bg-dark: #1B2E21;
+  --bg-card: #FAF6F0;
+  --bg-card-dark: #1B2E21;
+  --text-primary: #3D2B1F;
+  --text-secondary: #5A4636;
+  --text-muted: #8B7B6B;
+  --text-on-dark: #F5EDE0;
+  --accent: #7D8B6A;
+  --accent-light: #96A583;
+  --accent-dark: #5E6B4F;
+  --accent-secondary: #C4956A;
+  --border: rgba(125, 139, 106, 0.15);
+  --border-strong: rgba(125, 139, 106, 0.3);
+  --border-on-dark: rgba(245, 237, 224, 0.1);
+  --border-on-dark-strong: rgba(245, 237, 224, 0.2);
+  --btn-primary-bg: #7D8B6A;
+  --btn-primary-text: #FAF6F0;
+  --btn-primary-hover: #96A583;
+  --btn-secondary-bg: #1B2E21;
+  --btn-secondary-text: #F5EDE0;
+  --surface-elevated: #2A3F30;
+  --nav-bg: rgba(27, 46, 33, 0.92);
+  --nav-text: #F5EDE0;
+  --nav-text-muted: rgba(245, 237, 224, 0.6);
+  --footer-bg: #152219;
+  --hero-bg: #1B2E21;
+  --hero-glow-1: rgba(125, 139, 106, 0.12);
+  --hero-glow-2: rgba(196, 149, 106, 0.08);
+  --hero-glow-pulse: rgba(125, 139, 106, 0.08);
+  --selection-bg: rgba(125, 139, 106, 0.3);
+  --scrollbar-thumb: rgba(125, 139, 106, 0.2);
+  --scrollbar-thumb-hover: rgba(125, 139, 106, 0.35);
+  --progress-gradient-start: #7D8B6A;
+  --progress-gradient-end: #96A583;
+  --card-shadow: rgba(125, 139, 106, 0.12);
+  --card-shadow-strong: rgba(0, 0, 0, 0.15);
+  --input-bg: rgba(255, 255, 255, 0.7);
+  --input-bg-dark: rgba(255, 255, 255, 0.06);
+  --input-border: rgba(61, 43, 31, 0.12);
+  --input-border-dark: rgba(245, 237, 224, 0.1);
 
   /* Typography scale (modular, ratio ~1.25) */
   --text-xs: 0.75rem;
@@ -46,20 +74,18 @@
 }
 
 @theme inline {
-  --color-charcoal: #0B1120;
-  --color-cream: #F7F3ED;
-  --color-gold: #C9A96E;
-  --color-gold-light: #D4BA85;
-  --color-gold-dark: #A8893F;
-  --color-rose: #B76E79;
-  --color-rose-light: #CB8B94;
-  --color-rose-dark: #9A5560;
-  --color-text-light: #F5F0E8;
-  --color-text-dark: #1A1A2E;
-  --color-surface: #111827;
-  --color-surface-elevated: #1C2536;
-  --color-border: rgba(201, 169, 110, 0.15);
-  --color-border-strong: rgba(201, 169, 110, 0.3);
+  --color-charcoal: var(--hero-bg);
+  --color-cream: var(--bg-secondary);
+  --color-gold: var(--accent);
+  --color-gold-light: var(--accent-light);
+  --color-gold-dark: var(--accent-dark);
+  --color-rose: var(--accent-secondary);
+  --color-text-light: var(--text-on-dark);
+  --color-text-dark: var(--text-primary);
+  --color-surface: var(--surface-elevated);
+  --color-surface-elevated: var(--surface-elevated);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
 
   --font-display: var(--font-playfair), "Georgia", serif;
   --font-body: var(--font-dm-sans), "Helvetica Neue", sans-serif;
@@ -80,19 +106,20 @@ html {
 }
 
 body {
-  background-color: var(--joyous-charcoal);
-  color: var(--joyous-text-light);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   line-height: 1.6;
   overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 ::selection {
-  background-color: rgba(201, 169, 110, 0.3);
-  color: var(--joyous-text-light);
+  background-color: var(--selection-bg);
+  color: var(--text-on-dark);
 }
 
 /* ===================================================================
@@ -138,12 +165,11 @@ body {
 .hero-gradient {
   background: linear-gradient(
     135deg,
-    var(--joyous-charcoal) 0%,
-    #0F1729 20%,
-    #151E33 40%,
-    rgba(201, 169, 110, 0.08) 60%,
-    rgba(183, 110, 121, 0.06) 80%,
-    var(--joyous-charcoal) 100%
+    var(--hero-bg) 0%,
+    var(--surface-elevated) 40%,
+    var(--hero-glow-1) 60%,
+    var(--hero-glow-2) 80%,
+    var(--hero-bg) 100%
   );
   background-size: 200% 200%;
   animation: gradient-shift 8s ease infinite;
@@ -164,8 +190,8 @@ body {
   height: 50%;
   background: radial-gradient(
     ellipse at center,
-    rgba(201, 169, 110, 0.08) 0%,
-    rgba(183, 110, 121, 0.04) 40%,
+    var(--hero-glow-1) 0%,
+    var(--hero-glow-2) 40%,
     transparent 70%
   );
   pointer-events: none;
@@ -244,13 +270,13 @@ body {
    =================================================================== */
 
 .section-light {
-  background-color: var(--joyous-cream);
-  color: var(--joyous-text-dark);
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
 }
 
 .section-light ::selection {
-  background-color: rgba(183, 110, 121, 0.25);
-  color: var(--joyous-text-dark);
+  background-color: var(--selection-bg);
+  color: var(--text-primary);
 }
 
 /* ===================================================================
@@ -262,7 +288,7 @@ body {
   background: linear-gradient(
     90deg,
     transparent 0%,
-    var(--joyous-gold) 50%,
+    var(--accent) 50%,
     transparent 100%
   );
   opacity: 0.3;
@@ -273,7 +299,7 @@ body {
   background: linear-gradient(
     90deg,
     transparent 0%,
-    rgba(245, 240, 232, 0.15) 50%,
+    var(--border-on-dark) 50%,
     transparent 100%
   );
 }
@@ -283,8 +309,8 @@ body {
    =================================================================== */
 
 .audio-player {
-  background: var(--joyous-surface-elevated);
-  border: 1px solid var(--joyous-border);
+  background: var(--surface-elevated);
+  border: 1px solid var(--border);
   border-radius: 16px;
   padding: 1.25rem 1.5rem;
   backdrop-filter: blur(12px);
@@ -293,9 +319,9 @@ body {
 }
 
 .audio-player:hover {
-  border-color: var(--joyous-border-strong);
-  box-shadow: 0 0 0 1px rgba(201, 169, 110, 0.05),
-              0 8px 32px rgba(0, 0, 0, 0.3);
+  border-color: var(--border-strong);
+  box-shadow: 0 0 0 1px var(--border),
+              0 8px 32px var(--card-shadow-strong);
 }
 
 /* Progress bar track */
@@ -304,7 +330,7 @@ body {
   width: 100%;
   height: 4px;
   border-radius: 9999px;
-  background: rgba(245, 240, 232, 0.1);
+  background: var(--border-on-dark);
   outline: none;
   cursor: pointer;
   transition: height var(--duration-normal) var(--ease-out-expo);
@@ -319,26 +345,26 @@ body {
   width: 14px;
   height: 14px;
   border-radius: 50%;
-  background: var(--joyous-gold);
+  background: var(--accent);
   cursor: pointer;
-  box-shadow: 0 0 0 3px rgba(201, 169, 110, 0.2);
+  box-shadow: 0 0 0 3px var(--border);
   transition: transform var(--duration-normal) var(--ease-out-expo),
               box-shadow var(--duration-normal) var(--ease-out-expo);
 }
 
 .audio-progress::-webkit-slider-thumb:hover {
   transform: scale(1.2);
-  box-shadow: 0 0 0 5px rgba(201, 169, 110, 0.25);
+  box-shadow: 0 0 0 5px var(--border-strong);
 }
 
 .audio-progress::-moz-range-thumb {
   width: 14px;
   height: 14px;
   border-radius: 50%;
-  background: var(--joyous-gold);
+  background: var(--accent);
   cursor: pointer;
   border: none;
-  box-shadow: 0 0 0 3px rgba(201, 169, 110, 0.2);
+  box-shadow: 0 0 0 3px var(--border);
 }
 
 .audio-progress::-webkit-slider-runnable-track {
@@ -348,7 +374,7 @@ body {
 .audio-progress::-moz-range-track {
   height: 4px;
   border-radius: 9999px;
-  background: rgba(245, 240, 232, 0.1);
+  background: var(--border-on-dark);
 }
 
 /* Play button */
@@ -359,8 +385,8 @@ body {
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background: var(--joyous-gold);
-  color: var(--joyous-charcoal);
+  background: var(--accent);
+  color: var(--btn-primary-text);
   border: none;
   cursor: pointer;
   flex-shrink: 0;
@@ -371,8 +397,8 @@ body {
 
 .audio-play-btn:hover {
   transform: scale(1.08);
-  background: var(--joyous-gold-light);
-  box-shadow: 0 0 24px rgba(201, 169, 110, 0.3);
+  background: var(--accent-light);
+  box-shadow: 0 0 24px var(--card-shadow);
 }
 
 .audio-play-btn:active {
@@ -385,7 +411,7 @@ body {
   width: 80px;
   height: 3px;
   border-radius: 9999px;
-  background: rgba(245, 240, 232, 0.15);
+  background: var(--border-on-dark);
   outline: none;
   cursor: pointer;
 }
@@ -395,7 +421,7 @@ body {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: var(--joyous-text-light);
+  background: var(--text-on-dark);
   cursor: pointer;
 }
 
@@ -403,7 +429,7 @@ body {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: var(--joyous-text-light);
+  background: var(--text-on-dark);
   border: none;
 }
 
@@ -411,7 +437,7 @@ body {
 .audio-time {
   font-family: var(--font-body);
   font-size: var(--text-xs);
-  color: rgba(245, 240, 232, 0.5);
+  color: var(--text-muted);
   font-variant-numeric: tabular-nums;
   letter-spacing: 0.05em;
 }
@@ -421,8 +447,8 @@ body {
    =================================================================== */
 
 .card-elevated {
-  background: var(--joyous-surface-elevated);
-  border: 1px solid var(--joyous-border);
+  background: var(--surface-elevated);
+  border: 1px solid var(--border);
   border-radius: 16px;
   transition: transform var(--duration-normal) var(--ease-out-expo),
               border-color var(--duration-normal) var(--ease-out-expo),
@@ -431,8 +457,8 @@ body {
 
 .card-elevated:hover {
   transform: translateY(-2px);
-  border-color: var(--joyous-border-strong);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+  border-color: var(--border-strong);
+  box-shadow: 0 12px 40px var(--card-shadow-strong);
 }
 
 /* ===================================================================
@@ -445,8 +471,8 @@ body {
   justify-content: center;
   gap: 0.5rem;
   padding: 0.75rem 2rem;
-  background: var(--joyous-gold);
-  color: var(--joyous-charcoal);
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
   font-family: var(--font-body);
   font-size: var(--text-sm);
   font-weight: 600;
@@ -459,8 +485,8 @@ body {
 }
 
 .btn-gold:hover {
-  background: var(--joyous-gold-light);
-  box-shadow: 0 0 32px rgba(201, 169, 110, 0.3);
+  background: var(--btn-primary-hover);
+  box-shadow: 0 0 32px var(--card-shadow);
   transform: translateY(-1px);
 }
 
@@ -475,21 +501,21 @@ body {
   gap: 0.5rem;
   padding: 0.75rem 2rem;
   background: transparent;
-  color: var(--joyous-gold);
+  color: var(--accent);
   font-family: var(--font-body);
   font-size: var(--text-sm);
   font-weight: 500;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  border: 1px solid var(--joyous-border-strong);
+  border: 1px solid var(--border-strong);
   border-radius: 9999px;
   cursor: pointer;
   transition: all var(--duration-normal) var(--ease-out-expo);
 }
 
 .btn-outline:hover {
-  border-color: var(--joyous-gold);
-  background: rgba(201, 169, 110, 0.08);
+  border-color: var(--accent);
+  background: var(--border);
 }
 
 /* ===================================================================
@@ -501,7 +527,7 @@ a {
 }
 
 .link-gold {
-  color: var(--joyous-gold);
+  color: var(--accent);
   text-decoration: none;
   position: relative;
 }
@@ -513,7 +539,7 @@ a {
   left: 0;
   width: 0;
   height: 1px;
-  background: var(--joyous-gold);
+  background: var(--accent);
   transition: width var(--duration-normal) var(--ease-out-expo);
 }
 
@@ -530,16 +556,16 @@ a {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--joyous-charcoal);
+  background: var(--hero-bg);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(201, 169, 110, 0.2);
+  background: var(--scrollbar-thumb);
   border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(201, 169, 110, 0.35);
+  background: var(--scrollbar-thumb-hover);
 }
 
 /* ===================================================================
@@ -547,7 +573,7 @@ a {
    =================================================================== */
 
 :focus-visible {
-  outline: 2px solid var(--joyous-gold);
+  outline: 2px solid var(--accent);
   outline-offset: 2px;
   border-radius: 4px;
 }

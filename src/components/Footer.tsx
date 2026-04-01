@@ -38,7 +38,7 @@ function YouTubeIcon({ className }: { className?: string }) {
 const quickLinks = [
   { href: "/episodes", label: "Episodes" },
   { href: "/about", label: "About Jodi" },
-  { href: "/prime-lab", label: "Prime Lab" },
+  { href: "/prime-lap", label: "Prime Lap" },
   { href: "/connect", label: "Connect" },
 ];
 
@@ -62,18 +62,38 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative bg-[#080D19] border-t border-white/[0.04]">
+    <footer
+      className="relative border-t"
+      style={{
+        backgroundColor: "var(--footer-bg)",
+        borderColor: "var(--border-on-dark)",
+      }}
+    >
       {/* Subtle top gradient */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#C9A96E]/20 to-transparent" />
+      <div
+        className="absolute top-0 left-0 right-0 h-px"
+        style={{
+          background: `linear-gradient(to right, transparent, color-mix(in srgb, var(--accent) 20%, transparent), transparent)`,
+        }}
+      />
 
       <div className="max-w-7xl mx-auto px-5 sm:px-8">
         {/* Newsletter section */}
-        <div className="py-12 sm:py-16 border-b border-white/[0.04]">
+        <div
+          className="py-12 sm:py-16 border-b"
+          style={{ borderColor: "var(--border-on-dark)" }}
+        >
           <div className="max-w-xl">
-            <h3 className="font-serif text-2xl sm:text-3xl text-white mb-2">
+            <h3
+              className="font-serif text-2xl sm:text-3xl mb-2"
+              style={{ color: "var(--text-on-dark)" }}
+            >
               Stay in the loop
             </h3>
-            <p className="text-zinc-500 text-sm leading-relaxed mb-6">
+            <p
+              className="text-sm leading-relaxed mb-6"
+              style={{ color: "var(--text-muted)" }}
+            >
               Weekly insights on health, wealth, and the creative lives of extraordinary founders. No spam, unsubscribe anytime.
             </p>
 
@@ -85,12 +105,21 @@ export default function Footer() {
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="your@email.com"
                   required
-                  className="w-full h-11 px-4 rounded-lg bg-white/[0.04] border border-white/[0.08] text-white text-sm placeholder:text-zinc-600 focus:outline-none focus:border-[#C9A96E]/40 focus:ring-1 focus:ring-[#C9A96E]/20 transition-all duration-200"
+                  className="w-full h-11 px-4 rounded-lg text-sm focus:outline-none transition-all duration-200"
+                  style={{
+                    backgroundColor: "var(--input-bg-dark)",
+                    border: "1px solid var(--input-border-dark)",
+                    color: "var(--text-on-dark)",
+                  }}
                 />
               </div>
               <button
                 type="submit"
-                className="h-11 px-6 rounded-lg bg-[#C9A96E] text-[#080D19] text-sm font-semibold hover:bg-[#D4B67A] active:scale-[0.98] transition-all duration-200 shrink-0"
+                className="h-11 px-6 rounded-lg text-sm font-semibold active:scale-[0.98] transition-all duration-200 shrink-0"
+                style={{
+                  backgroundColor: "var(--btn-primary-bg)",
+                  color: "var(--btn-primary-text)",
+                }}
               >
                 {isSubmitted ? "Subscribed!" : "Subscribe"}
               </button>
@@ -103,21 +132,33 @@ export default function Footer() {
           {/* Brand column */}
           <div className="sm:col-span-2 lg:col-span-1">
             <Link href="/" className="inline-block mb-4">
-              <span className="font-serif text-2xl font-bold tracking-[0.15em] text-white">
+              <span
+                className="font-serif text-2xl font-bold tracking-[0.15em]"
+                style={{ color: "var(--text-on-dark)" }}
+              >
                 JOYOUS
               </span>
             </Link>
-            <p className="text-zinc-500 text-sm leading-relaxed mb-1">
+            <p
+              className="text-sm leading-relaxed mb-1"
+              style={{ color: "var(--text-muted)" }}
+            >
               Where health meets wealth.
             </p>
-            <p className="text-zinc-600 text-sm leading-relaxed">
+            <p
+              className="text-sm leading-relaxed"
+              style={{ color: "color-mix(in srgb, var(--text-muted) 70%, transparent)" }}
+            >
               健康与财富的交汇。
             </p>
           </div>
 
           {/* Quick links */}
           <div>
-            <h4 className="text-[11px] font-semibold tracking-[0.2em] uppercase text-zinc-500 mb-4">
+            <h4
+              className="text-[11px] font-semibold tracking-[0.2em] uppercase mb-4"
+              style={{ color: "var(--text-muted)" }}
+            >
               Navigate
             </h4>
             <ul className="space-y-2.5">
@@ -125,7 +166,8 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-zinc-400 hover:text-[#C9A96E] transition-colors duration-200"
+                    className="text-sm transition-colors duration-200"
+                    style={{ color: "var(--nav-text-muted)" }}
                   >
                     {link.label}
                   </Link>
@@ -136,36 +178,33 @@ export default function Footer() {
 
           {/* Listen on */}
           <div>
-            <h4 className="text-[11px] font-semibold tracking-[0.2em] uppercase text-zinc-500 mb-4">
+            <h4
+              className="text-[11px] font-semibold tracking-[0.2em] uppercase mb-4"
+              style={{ color: "var(--text-muted)" }}
+            >
               Listen On
             </h4>
             <ul className="space-y-2.5">
-              <li>
-                <a href="#" className="text-sm text-zinc-400 hover:text-[#C9A96E] transition-colors duration-200">
-                  Apple Podcasts
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-sm text-zinc-400 hover:text-[#C9A96E] transition-colors duration-200">
-                  Spotify
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-sm text-zinc-400 hover:text-[#C9A96E] transition-colors duration-200">
-                  YouTube
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-sm text-zinc-400 hover:text-[#C9A96E] transition-colors duration-200">
-                  RSS Feed
-                </a>
-              </li>
+              {["Apple Podcasts", "Spotify", "YouTube", "RSS Feed"].map((name) => (
+                <li key={name}>
+                  <a
+                    href="#"
+                    className="text-sm transition-colors duration-200"
+                    style={{ color: "var(--nav-text-muted)" }}
+                  >
+                    {name}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
           {/* Social */}
           <div>
-            <h4 className="text-[11px] font-semibold tracking-[0.2em] uppercase text-zinc-500 mb-4">
+            <h4
+              className="text-[11px] font-semibold tracking-[0.2em] uppercase mb-4"
+              style={{ color: "var(--text-muted)" }}
+            >
               Follow
             </h4>
             <div className="flex gap-3">
@@ -175,7 +214,12 @@ export default function Footer() {
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-9 h-9 rounded-lg bg-white/[0.04] border border-white/[0.06] flex items-center justify-center text-zinc-500 hover:text-[#C9A96E] hover:border-[#C9A96E]/20 transition-all duration-200"
+                  className="w-9 h-9 rounded-lg flex items-center justify-center transition-all duration-200"
+                  style={{
+                    backgroundColor: "var(--input-bg-dark)",
+                    border: "1px solid var(--border-on-dark)",
+                    color: "var(--text-muted)",
+                  }}
                   aria-label={label}
                 >
                   <Icon className="w-4 h-4" />
@@ -186,11 +230,20 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="py-6 border-t border-white/[0.04] flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-zinc-600 text-xs">
+        <div
+          className="py-6 border-t flex flex-col sm:flex-row items-center justify-between gap-3"
+          style={{ borderColor: "var(--border-on-dark)" }}
+        >
+          <p
+            className="text-xs"
+            style={{ color: "color-mix(in srgb, var(--text-muted) 70%, transparent)" }}
+          >
             &copy; {new Date().getFullYear()} Joyous Podcast. All rights reserved.
           </p>
-          <p className="text-zinc-700 text-xs italic">
+          <p
+            className="text-xs italic"
+            style={{ color: "color-mix(in srgb, var(--text-muted) 50%, transparent)" }}
+          >
             A podcast by Jodi Yang &mdash; 杨思琪播客
           </p>
         </div>
