@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 80" width="1200" height="80">
+  <defs>
+    <style>
+      .stem { fill: none; stroke: #2D4A3E; stroke-linecap: round; stroke-linejoin: round; }
+      .leaf-dark { fill: #2D4A3E; opacity: 0.15; stroke: #2D4A3E; stroke-width: 0.6; stroke-linecap: round; }
+      .leaf-sage { fill: #7D8B6A; opacity: 0.25; stroke: #2D4A3E; stroke-width: 0.5; stroke-linecap: round; }
+    </style>
+  </defs>
+
+  <!-- Main horizontal line -->
+  <line x1="80" y1="40" x2="1120" y2="40" class="stem" stroke-width="0.8" opacity="0.4"/>
+
+  <!-- Small end dots -->
+  <circle cx="78" cy="40" r="2" fill="#2D4A3E" opacity="0.3"/>
+  <circle cx="1122" cy="40" r="2" fill="#2D4A3E" opacity="0.3"/>
+
+  <!-- ROSEMARY SPRIG — left of center -->
+  <g transform="translate(250, 40)">
+    <path d="M0,0 Q-3,-15 -2,-35 Q0,-45 2,-55" class="stem" stroke-width="1"/>
+    <path d="M-2,-10 Q-10,-14 -14,-18 Q-12,-20 -6,-16 Q-2,-13 -2,-10Z" class="leaf-sage" stroke-width="0.4"/>
+    <path d="M-1,-10 Q5,-14 9,-18 Q11,-16 7,-13 Q3,-10 -1,-10Z" class="leaf-sage" stroke-width="0.4"/>
+    <path d="M-2,-18 Q-10,-22 -14,-26 Q-12,-28 -6,-24 Q-2,-21 -2,-18Z" class="leaf-sage" stroke-width="0.4"/>
+    <path d="M-1,-18 Q5,-22 9,-26 Q11,-24 7,-21 Q3,-18 -1,-18Z" class="leaf-sage" stroke-width="0.4"/>
+    <path d="M-2,-26 Q-8,-30 -12,-34 Q-10,-36 -5,-32 Q-2,-29 -2,-26Z" class="leaf-sage" stroke-width="0.4"/>
+    <path d="M0,-26 Q6,-30 10,-34 Q12,-32 7,-29 Q2,-26 0,-26Z" class="leaf-sage" stroke-width="0.4"/>
+    <path d="M0,-34 Q-6,-38 -10,-42 Q-8,-44 -3,-40 Q0,-37 0,-34Z" class="leaf-sage" stroke-width="0.4"/>
+    <path d="M1,-34 Q7,-38 11,-42 Q12,-40 8,-37 Q3,-34 1,-34Z" class="leaf-sage" stroke-width="0.4"/>
+    <path d="M1,-42 Q-4,-46 -7,-50 Q-5,-51 -1,-48 Q1,-45 1,-42Z" class="leaf-dark" stroke-width="0.3"/>
+    <path d="M2,-42 Q7,-46 10,-50 Q11,-48 7,-45 Q4,-42 2,-42Z" class="leaf-dark" stroke-width="0.3"/>
+    <path d="M2,-50 Q-1,-53 -3,-56 Q-1,-57 2,-54 Q3,-51 2,-50Z" class="leaf-dark" stroke-width="0.3"/>
+    <path d="M2,-50 Q5,-53 7,-56 Q8,-54 5,-51 Q3,-50 2,-50Z" class="leaf-dark" stroke-width="0.3"/>
+  </g>
+
+  <!-- THYME SPRIG — center-left -->
+  <g transform="translate(420, 40)">
+    <path d="M0,0 Q2,-8 5,-20 Q7,-30 6,-40" class="stem" stroke-width="0.8"/>
+    <path d="M4,-8 Q0,-10 -2,-14 Q0,-16 4,-12 Q6,-9 4,-8Z" class="leaf-sage" stroke-width="0.4"/>
+    <path d="M5,-8 Q9,-10 12,-14 Q10,-16 6,-12 Q4,-9 5,-8Z" class="leaf-sage" stroke-width="0.4"/>
+    <path d="M5,-15 Q1,-17 -1,-21 Q1,-23 5,-19 Q7,-16 5,-15Z" class="leaf-sage" stroke-width="0.4"/>
+    <path d="M6,-15 Q10,-17 13,-21 Q11,-23 7,-19 Q5,-16 6,-15Z" class="leaf-sage" stroke-width="0.4"/>
+    <path d="M6,-22 Q2,-24 0,-28 Q2,-30 6,-26 Q8,-23 6,-22Z" class="leaf-dark" stroke-width="0.3"/>
+    <path d="M6,-22 Q10,-24 13,-28 Q11,-30 7,-26 Q5,-23 6,-22Z" class="leaf-dark" stroke-width="0.3"/>
+    <path d="M6,-29 Q3,-31 2,-35 Q4,-36 6,-33 Q7,-30 6,-29Z" class="leaf-dark" stroke-width="0.3"/>
+    <path d="M6,-29 Q9,-31 11,-35 Q9,-36 7,-33 Q6,-30 6,-29Z" class="leaf-dark" stroke-width="0.3"/>
+    <!-- Side branch -->
+    <path d="M5,-18 Q10,-22 14,-28" class="stem" stroke-width="0.5"/>
+    <path d="M10,-22 Q7,-23 6,-26 Q8,-27 11,-24 Q12,-22 10,-22Z" class="leaf-sage" stroke-width="0.3"/>
+    <path d="M11,-22 Q14,-24 16,-27 Q15,-28 12,-25 Q10,-22 11,-22Z" class="leaf-sage" stroke-width="0.3"/>
+  </g>
+
+  <!-- LAVENDER SPRIG — center -->
+  <g transform="translate(600, 40)">
+    <path d="M0,0 Q-1,-12 0,-25 Q1,-38 0,-52" class="stem" stroke-width="1"/>
+    <ellipse cx="0" cy="-52" rx="3" ry="4.5" fill="#7D8B6A" opacity="0.3" stroke="#2D4A3E" stroke-width="0.5"/>
+    <ellipse cx="-2.5" cy="-48" rx="2.5" ry="3.5" fill="#7D8B6A" opacity="0.25" stroke="#2D4A3E" stroke-width="0.5"/>
+    <ellipse cx="2.5" cy="-48" rx="2.5" ry="3.5" fill="#7D8B6A" opacity="0.25" stroke="#2D4A3E" stroke-width="0.5"/>
+    <ellipse cx="-2" cy="-43" rx="2.2" ry="3" fill="#7D8B6A" opacity="0.2" stroke="#2D4A3E" stroke-width="0.4"/>
+    <ellipse cx="2" cy="-43" rx="2.2" ry="3" fill="#7D8B6A" opacity="0.2" stroke="#2D4A3E" stroke-width="0.4"/>
+    <ellipse cx="-1.5" cy="-38" rx="2" ry="2.8" fill="#7D8B6A" opacity="0.18" stroke="#2D4A3E" stroke-width="0.4"/>
+    <ellipse cx="1.5" cy="-38" rx="2" ry="2.8" fill="#7D8B6A" opacity="0.18" stroke="#2D4A3E" stroke-width="0.4"/>
+    <ellipse cx="0" cy="-34" rx="1.8" ry="2.5" fill="#7D8B6A" opacity="0.15" stroke="#2D4A3E" stroke-width="0.3"/>
+    <!-- Leaf pair at base -->
+    <path d="M-1,-12 Q-10,-16 -16,-14 Q-14,-10 -6,-10 Q-2,-11 -1,-12Z" class="leaf-sage"/>
+    <path d="M1,-12 Q10,-16 16,-14 Q14,-10 6,-10 Q2,-11 1,-12Z" class="leaf-sage"/>
+    <path d="M-1,-30 Q-4,-31 -5,-30" class="stem" stroke-width="0.3" opacity="0.4"/>
+    <path d="M1,-30 Q4,-31 5,-30" class="stem" stroke-width="0.3" opacity="0.4"/>
+  </g>
+
+  <!-- THYME SPRIG 2 — center-right (mirrored) -->
+  <g transform="translate(780, 40) scale(-1,1)">
+    <path d="M0,0 Q2,-8 5,-20 Q7,-30 6,-38" class="stem" stroke-width="0.8"/>
+    <path d="M4,-8 Q0,-10 -2,-14 Q0,-16 4,-12 Q6,-9 4,-8Z" class="leaf-sage" stroke-width="0.4"/>
+    <path d="M5,-8 Q9,-10 12,-14 Q10,-16 6,-12 Q4,-9 5,-8Z" class="leaf-sage" stroke-width="0.4"/>
+    <path d="M5,-15 Q1,-17 -1,-21 Q1,-23 5,-19 Q7,-16 5,-15Z" class="leaf-sage" stroke-width="0.4"/>
+    <path d="M6,-15 Q10,-17 13,-21 Q11,-23 7,-19 Q5,-16 6,-15Z" class="leaf-sage" stroke-width="0.4"/>
+    <path d="M6,-22 Q2,-24 0,-28 Q2,-30 6,-26 Q8,-23 6,-22Z" class="leaf-dark" stroke-width="0.3"/>
+    <path d="M6,-22 Q10,-24 13,-28 Q11,-30 7,-26 Q5,-23 6,-22Z" class="leaf-dark" stroke-width="0.3"/>
+    <path d="M6,-29 Q3,-31 2,-35 Q4,-36 6,-33 Q7,-30 6,-29Z" class="leaf-dark" stroke-width="0.3"/>
+    <path d="M6,-29 Q9,-31 11,-35 Q9,-36 7,-33 Q6,-30 6,-29Z" class="leaf-dark" stroke-width="0.3"/>
+  </g>
+
+  <!-- ROSEMARY SPRIG 2 — right side (mirrored) -->
+  <g transform="translate(950, 40) scale(-1,1)">
+    <path d="M0,0 Q-3,-15 -2,-35 Q0,-45 2,-50" class="stem" stroke-width="1"/>
+    <path d="M-2,-10 Q-10,-14 -14,-18 Q-12,-20 -6,-16 Q-2,-13 -2,-10Z" class="leaf-sage" stroke-width="0.4"/>
+    <path d="M-1,-10 Q5,-14 9,-18 Q11,-16 7,-13 Q3,-10 -1,-10Z" class="leaf-sage" stroke-width="0.4"/>
+    <path d="M-2,-18 Q-10,-22 -14,-26 Q-12,-28 -6,-24 Q-2,-21 -2,-18Z" class="leaf-sage" stroke-width="0.4"/>
+    <path d="M-1,-18 Q5,-22 9,-26 Q11,-24 7,-21 Q3,-18 -1,-18Z" class="leaf-sage" stroke-width="0.4"/>
+    <path d="M-2,-26 Q-8,-30 -12,-34 Q-10,-36 -5,-32 Q-2,-29 -2,-26Z" class="leaf-sage" stroke-width="0.4"/>
+    <path d="M0,-26 Q6,-30 10,-34 Q12,-32 7,-29 Q2,-26 0,-26Z" class="leaf-sage" stroke-width="0.4"/>
+    <path d="M0,-34 Q-6,-38 -10,-42 Q-8,-44 -3,-40 Q0,-37 0,-34Z" class="leaf-dark" stroke-width="0.3"/>
+    <path d="M1,-34 Q7,-38 11,-42 Q12,-40 8,-37 Q3,-34 1,-34Z" class="leaf-dark" stroke-width="0.3"/>
+    <path d="M2,-42 Q-1,-45 -2,-48 Q0,-49 2,-46 Q3,-44 2,-42Z" class="leaf-dark" stroke-width="0.3"/>
+    <path d="M2,-42 Q5,-45 7,-48 Q8,-46 5,-43 Q3,-42 2,-42Z" class="leaf-dark" stroke-width="0.3"/>
+  </g>
+
+  <!-- Small decorative dots along line -->
+  <circle cx="160" cy="40" r="1.2" fill="#2D4A3E" opacity="0.25"/>
+  <circle cx="340" cy="40" r="1.2" fill="#2D4A3E" opacity="0.25"/>
+  <circle cx="510" cy="40" r="1.2" fill="#2D4A3E" opacity="0.25"/>
+  <circle cx="690" cy="40" r="1.2" fill="#2D4A3E" opacity="0.25"/>
+  <circle cx="860" cy="40" r="1.2" fill="#2D4A3E" opacity="0.25"/>
+  <circle cx="1040" cy="40" r="1.2" fill="#2D4A3E" opacity="0.25"/>
+</svg>

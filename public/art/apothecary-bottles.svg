@@ -1,0 +1,185 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300" width="600" height="300">
+  <defs>
+    <style>
+      .bottle-stroke { fill: none; stroke: #3D2B1F; stroke-linecap: round; stroke-linejoin: round; }
+      .glass { fill: #FAF6F0; opacity: 0.6; }
+    </style>
+
+    <!-- Glass highlight gradient -->
+    <linearGradient id="glassShine1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FAF6F0" stop-opacity="0.3"/>
+      <stop offset="30%" stop-color="#FFFFFF" stop-opacity="0.5"/>
+      <stop offset="50%" stop-color="#FAF6F0" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#FAF6F0" stop-opacity="0.3"/>
+    </linearGradient>
+
+    <!-- Liquid gradients -->
+    <linearGradient id="liquidGrad1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#C4956A" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#C4956A" stop-opacity="0.5"/>
+    </linearGradient>
+
+    <linearGradient id="liquidGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#C4956A" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#C4956A" stop-opacity="0.45"/>
+    </linearGradient>
+
+    <linearGradient id="liquidGrad3" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#C4956A" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#C4956A" stop-opacity="0.55"/>
+    </linearGradient>
+
+    <!-- Cork texture -->
+    <pattern id="corkPattern" width="4" height="4" patternUnits="userSpaceOnUse">
+      <rect width="4" height="4" fill="#B8956A"/>
+      <circle cx="1" cy="1" r="0.5" fill="#A0805A" opacity="0.5"/>
+      <circle cx="3" cy="3" r="0.4" fill="#A0805A" opacity="0.4"/>
+      <circle cx="0.5" cy="3" r="0.3" fill="#C4A070" opacity="0.3"/>
+      <circle cx="3.5" cy="0.5" r="0.3" fill="#C4A070" opacity="0.3"/>
+    </pattern>
+  </defs>
+
+  <!-- BOTTLE 1: Tall and Thin -->
+  <g transform="translate(80, 20)">
+    <!-- Body -->
+    <path d="M30,80 L30,240 Q30,260 50,260 L70,260 Q90,260 90,240 L90,80
+             Q90,70 80,65 L80,40 Q80,35 75,35 L45,35 Q40,35 40,40 L40,65
+             Q30,70 30,80Z" class="glass"/>
+    <path d="M30,80 L30,240 Q30,260 50,260 L70,260 Q90,260 90,240 L90,80
+             Q90,70 80,65 L80,40 Q80,35 75,35 L45,35 Q40,35 40,40 L40,65
+             Q30,70 30,80Z" class="bottle-stroke" stroke-width="1.5"/>
+
+    <!-- Neck details -->
+    <path d="M38,38 L82,38" class="bottle-stroke" stroke-width="0.8"/>
+    <path d="M36,68 Q60,62 84,68" class="bottle-stroke" stroke-width="0.8"/>
+
+    <!-- Glass stopper -->
+    <path d="M42,35 L42,18 Q42,10 50,8 L60,5 Q68,3 70,8 L78,18 L78,35"
+          fill="#FAF6F0" opacity="0.7" stroke="#3D2B1F" stroke-width="1"/>
+    <ellipse cx="60" cy="5" rx="10" ry="3" fill="#FAF6F0" opacity="0.5" stroke="#3D2B1F" stroke-width="0.8"/>
+    <circle cx="60" cy="3" r="5" fill="#FAF6F0" opacity="0.6" stroke="#3D2B1F" stroke-width="0.8"/>
+
+    <!-- Liquid (60% full) -->
+    <path d="M31,140 L31,240 Q31,259 50,259 L70,259 Q89,259 89,240 L89,140
+             Q75,135 60,138 Q45,141 31,140Z" fill="url(#liquidGrad1)"/>
+    <path d="M31,140 Q45,135 60,138 Q75,135 89,140" fill="none" stroke="#C4956A" stroke-width="0.5" opacity="0.5"/>
+
+    <!-- Glass highlights -->
+    <path d="M38,80 L38,250" stroke="white" stroke-width="1.5" opacity="0.25" stroke-linecap="round"/>
+    <path d="M42,75 L42,255" stroke="white" stroke-width="0.5" opacity="0.15" stroke-linecap="round"/>
+
+    <!-- Label -->
+    <rect x="38" y="165" width="44" height="55" rx="2" fill="#FAF6F0" stroke="#3D2B1F" stroke-width="0.8"/>
+    <rect x="41" y="168" width="38" height="49" rx="1" fill="none" stroke="#3D2B1F" stroke-width="0.3"/>
+    <line x1="46" y1="178" x2="74" y2="178" stroke="#3D2B1F" stroke-width="0.4" opacity="0.5"/>
+    <line x1="48" y1="183" x2="72" y2="183" stroke="#3D2B1F" stroke-width="0.3" opacity="0.4"/>
+    <line x1="50" y1="188" x2="70" y2="188" stroke="#3D2B1F" stroke-width="0.3" opacity="0.3"/>
+    <!-- Decorative leaf on label -->
+    <path d="M56,195 Q53,200 55,206 Q57,203 60,200 Q62,197 60,194 Q58,193 56,195Z"
+          fill="none" stroke="#3D2B1F" stroke-width="0.5" opacity="0.5"/>
+    <path d="M57,198 Q58,201 56,204" fill="none" stroke="#3D2B1F" stroke-width="0.3" opacity="0.4"/>
+    <path d="M46,210 Q52,207 60,210 Q68,207 74,210" fill="none" stroke="#3D2B1F" stroke-width="0.3" opacity="0.4"/>
+  </g>
+
+  <!-- BOTTLE 2: Round and Squat -->
+  <g transform="translate(230, 20)">
+    <!-- Wide round body -->
+    <path d="M25,170 Q10,170 5,200 Q0,230 10,250 Q20,265 70,270
+             Q120,265 130,250 Q140,230 135,200 Q130,170 115,170Z" class="glass"/>
+    <path d="M25,170 Q10,170 5,200 Q0,230 10,250 Q20,265 70,270
+             Q120,265 130,250 Q140,230 135,200 Q130,170 115,170Z" class="bottle-stroke" stroke-width="1.5"/>
+
+    <!-- Short neck -->
+    <path d="M50,125 Q50,120 55,118 L85,118 Q90,120 90,125 L90,170
+             Q80,165 70,164 Q60,165 50,170 Z" class="glass"/>
+    <path d="M50,125 Q50,120 55,118 L85,118 Q90,120 90,125 L90,170
+             Q80,165 70,164 Q60,165 50,170 Z" class="bottle-stroke" stroke-width="1.2"/>
+
+    <!-- Neck lip -->
+    <path d="M48,118 L92,118" class="bottle-stroke" stroke-width="1"/>
+    <path d="M46,122 Q70,116 94,122" class="bottle-stroke" stroke-width="0.6"/>
+
+    <!-- Wide mouth stopper -->
+    <path d="M48,118 L48,105 Q48,98 55,96 L85,96 Q92,98 92,105 L92,118"
+          fill="#FAF6F0" opacity="0.5" stroke="#3D2B1F" stroke-width="1"/>
+    <ellipse cx="70" cy="96" rx="22" ry="5" fill="#FAF6F0" opacity="0.5" stroke="#3D2B1F" stroke-width="0.8"/>
+    <path d="M62,96 L62,85 Q62,80 66,78 L74,78 Q78,80 78,85 L78,96"
+          fill="#FAF6F0" opacity="0.5" stroke="#3D2B1F" stroke-width="0.8"/>
+    <ellipse cx="70" cy="78" rx="8" ry="3" fill="#FAF6F0" opacity="0.4" stroke="#3D2B1F" stroke-width="0.6"/>
+
+    <!-- Liquid (70% full) -->
+    <path d="M15,190 Q5,210 10,240 Q15,258 50,265 Q70,268 90,265
+             Q125,258 130,240 Q135,210 125,190
+             Q100,185 70,187 Q40,185 15,190Z" fill="url(#liquidGrad2)"/>
+    <path d="M15,190 Q40,183 70,185 Q100,183 125,190" fill="none" stroke="#C4956A" stroke-width="0.5" opacity="0.4"/>
+
+    <!-- Glass highlights -->
+    <path d="M22,180 Q15,210 18,245" stroke="white" stroke-width="2" opacity="0.2" stroke-linecap="round" fill="none"/>
+    <path d="M28,175 Q20,205 24,248" stroke="white" stroke-width="0.8" opacity="0.12" stroke-linecap="round" fill="none"/>
+
+    <!-- Oval label -->
+    <ellipse cx="70" cy="225" rx="38" ry="28" fill="#FAF6F0" stroke="#3D2B1F" stroke-width="0.8"/>
+    <ellipse cx="70" cy="225" rx="34" ry="24" fill="none" stroke="#3D2B1F" stroke-width="0.3"/>
+    <line x1="50" y1="218" x2="90" y2="218" stroke="#3D2B1F" stroke-width="0.4" opacity="0.5"/>
+    <line x1="54" y1="223" x2="86" y2="223" stroke="#3D2B1F" stroke-width="0.3" opacity="0.4"/>
+    <line x1="56" y1="228" x2="84" y2="228" stroke="#3D2B1F" stroke-width="0.3" opacity="0.3"/>
+    <!-- Star ornament -->
+    <g transform="translate(70, 238)" opacity="0.4">
+      <path d="M0,-4 L1,-1 L4,0 L1,1 L0,4 L-1,1 L-4,0 L-1,-1 Z" fill="none" stroke="#3D2B1F" stroke-width="0.4"/>
+    </g>
+  </g>
+
+  <!-- BOTTLE 3: Cork-Stoppered Flask -->
+  <g transform="translate(420, 20)">
+    <!-- Body -->
+    <path d="M30,120 L25,240 Q25,260 45,265 L95,265 Q115,260 115,240 L110,120
+             Q110,110 100,105 L100,65 Q100,60 95,58 L85,58
+             Q80,58 80,62 L80,68 L60,68 L60,62 Q60,58 55,58
+             L45,58 Q40,60 40,65 L40,105 Q30,110 30,120Z" class="glass"/>
+    <path d="M30,120 L25,240 Q25,260 45,265 L95,265 Q115,260 115,240 L110,120
+             Q110,110 100,105 L100,65 Q100,60 95,58 L85,58
+             Q80,58 80,62 L80,68 L60,68 L60,62 Q60,58 55,58
+             L45,58 Q40,60 40,65 L40,105 Q30,110 30,120Z" class="bottle-stroke" stroke-width="1.5"/>
+
+    <!-- Neck ring -->
+    <path d="M38,60 L102,60" class="bottle-stroke" stroke-width="0.8"/>
+    <path d="M36,106 Q70,100 104,106" class="bottle-stroke" stroke-width="0.6"/>
+
+    <!-- Cork stopper -->
+    <path d="M48,58 L48,38 Q48,30 55,28 L85,28 Q92,30 92,38 L92,58"
+          fill="url(#corkPattern)" stroke="#3D2B1F" stroke-width="1"/>
+    <line x1="52" y1="35" x2="88" y2="35" stroke="#8B7355" stroke-width="0.3" opacity="0.5"/>
+    <line x1="50" y1="42" x2="90" y2="42" stroke="#8B7355" stroke-width="0.3" opacity="0.5"/>
+    <line x1="51" y1="49" x2="89" y2="49" stroke="#8B7355" stroke-width="0.3" opacity="0.5"/>
+    <!-- Cork top -->
+    <ellipse cx="70" cy="28" rx="22" ry="5" fill="#B8956A" stroke="#3D2B1F" stroke-width="0.8"/>
+    <ellipse cx="70" cy="28" rx="18" ry="3" fill="#C4A070" opacity="0.4"/>
+
+    <!-- Liquid (50% full) -->
+    <path d="M28,175 L26,240 Q26,259 45,264 L95,264 Q114,259 114,240 L112,175
+             Q90,170 70,172 Q50,170 28,175Z" fill="url(#liquidGrad3)"/>
+    <path d="M28,175 Q50,168 70,170 Q90,168 112,175" fill="none" stroke="#C4956A" stroke-width="0.5" opacity="0.5"/>
+
+    <!-- Glass highlights -->
+    <path d="M38,125 L36,255" stroke="white" stroke-width="1.5" opacity="0.2" stroke-linecap="round"/>
+    <path d="M43,120 L40,258" stroke="white" stroke-width="0.6" opacity="0.12" stroke-linecap="round"/>
+
+    <!-- Label -->
+    <rect x="40" y="190" width="60" height="50" rx="2" fill="#FAF6F0" stroke="#3D2B1F" stroke-width="0.8"/>
+    <rect x="43" y="193" width="54" height="44" rx="1" fill="none" stroke="#3D2B1F" stroke-width="0.3"/>
+    <line x1="48" y1="203" x2="92" y2="203" stroke="#3D2B1F" stroke-width="0.4" opacity="0.5"/>
+    <line x1="50" y1="208" x2="90" y2="208" stroke="#3D2B1F" stroke-width="0.3" opacity="0.4"/>
+    <line x1="52" y1="213" x2="88" y2="213" stroke="#3D2B1F" stroke-width="0.3" opacity="0.3"/>
+    <!-- Pharmacy cross -->
+    <g transform="translate(70, 225)" opacity="0.4">
+      <line x1="-6" y1="0" x2="6" y2="0" stroke="#3D2B1F" stroke-width="0.8"/>
+      <line x1="0" y1="-6" x2="0" y2="6" stroke="#3D2B1F" stroke-width="0.8"/>
+      <rect x="-4" y="-2" width="8" height="4" rx="0.5" fill="none" stroke="#3D2B1F" stroke-width="0.3"/>
+      <rect x="-2" y="-4" width="4" height="8" rx="0.5" fill="none" stroke="#3D2B1F" stroke-width="0.3"/>
+    </g>
+  </g>
+
+  <!-- Shadow line at base -->
+  <path d="M60,272 Q300,280 540,272" fill="none" stroke="#3D2B1F" stroke-width="0.5" opacity="0.15"/>
+  <path d="M80,275 Q300,282 520,275" fill="none" stroke="#3D2B1F" stroke-width="0.3" opacity="0.1"/>
+</svg>

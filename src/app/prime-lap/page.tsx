@@ -3,18 +3,7 @@
 import { useRef } from "react";
 import Link from "next/link";
 import { motion, useInView } from "framer-motion";
-import {
-  Zap,
-  Flag,
-  Timer,
-  Users,
-  Mic2,
-  Gauge,
-  ArrowRight,
-  Mail,
-  Rocket,
-  Trophy,
-} from "lucide-react";
+import { Flag, ArrowRight, Mail } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 
@@ -43,97 +32,111 @@ function AnimatedSection({
   );
 }
 
-const formatCards = [
+const formatSteps = [
   {
-    icon: Gauge,
+    number: "01",
     title: "The Driver",
     description:
       "A professional F1 or racing driver behind the wheel, pushing the car to its limits while the pitch unfolds at 200+ km/h.",
-    accent: "from-red-500/20 to-red-600/5",
-    border: "border-red-500/20",
+    color: "#dc2626",
   },
   {
-    icon: Users,
+    number: "02",
     title: "The Exec",
     description:
       "A C-suite executive from a leading company rides shotgun, evaluating the pitch under the most high-pressure conditions imaginable.",
-    accentStyle: { background: `linear-gradient(to bottom right, color-mix(in srgb, var(--accent) 20%, transparent), color-mix(in srgb, var(--accent) 5%, transparent))` },
-    borderStyle: { borderColor: "color-mix(in srgb, var(--accent) 20%, transparent)" },
+    color: "var(--accent)",
   },
   {
-    icon: Mic2,
+    number: "03",
     title: "The Pitch",
     description:
       "A founder delivers their entire company pitch during one lap. No slides. No safety net. Just conviction, clarity, and raw nerves.",
-    accent: "from-blue-500/20 to-blue-600/5",
-    border: "border-blue-500/20",
+    color: "#dc2626",
   },
   {
-    icon: Timer,
+    number: "04",
     title: "The Lap",
     description:
       "One lap. One chance. The clock is ticking, the g-forces are real, and the pitch must land before the checkered flag.",
-    accent: "from-emerald-500/20 to-emerald-600/5",
-    border: "border-emerald-500/20",
+    color: "var(--accent)",
   },
 ];
 
-export default function PrimeLabPage() {
+export default function PrimeLapPage() {
   return (
     <>
       <Navigation />
       <main>
-        {/* Dramatic Hero */}
+        {/* ===== HERO: Full-bleed racing energy ===== */}
         <section
           className="relative min-h-screen flex items-center justify-center overflow-hidden"
           style={{ backgroundColor: "var(--hero-bg)" }}
         >
-          {/* Speed lines via CSS */}
+          {/* Racing lines SVG -- large, dominating */}
+          <div className="absolute inset-0 pointer-events-none">
+            <motion.div
+              initial={{ opacity: 0, x: -100 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
+              className="absolute inset-0"
+            >
+              <img
+                src="/art/racing-lines.svg"
+                alt=""
+                aria-hidden="true"
+                className="w-full h-full object-cover opacity-80"
+              />
+            </motion.div>
+          </div>
+
+          {/* Animated speed streaks via CSS */}
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            {[...Array(12)].map((_, i) => (
+            {[...Array(8)].map((_, i) => (
               <motion.div
                 key={i}
-                className="absolute h-[1px]"
+                className="absolute h-[2px]"
                 style={{
-                  top: `${8 + i * 7.5}%`,
+                  top: `${10 + i * 11}%`,
                   left: "-20%",
                   width: "140%",
-                  background: `linear-gradient(90deg, transparent, ${
-                    i % 3 === 0
-                      ? "rgba(220,38,38,0.15)"
-                      : "color-mix(in srgb, var(--accent) 10%, transparent)"
-                  }, transparent)`,
+                  background:
+                    i % 2 === 0
+                      ? "linear-gradient(90deg, transparent, rgba(220,38,38,0.2), transparent)"
+                      : `linear-gradient(90deg, transparent, color-mix(in srgb, var(--accent) 15%, transparent), transparent)`,
                 }}
                 animate={{
                   x: ["-100%", "100%"],
-                  opacity: [0, 0.8, 0],
+                  opacity: [0, 1, 0],
                 }}
                 transition={{
-                  duration: 2 + i * 0.3,
+                  duration: 1.5 + i * 0.4,
                   repeat: Infinity,
-                  delay: i * 0.4,
+                  delay: i * 0.3,
                   ease: "linear",
                 }}
               />
             ))}
           </div>
 
-          {/* Red/gold radial glows */}
-          <div className="absolute inset-0">
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_20%_50%,rgba(220,38,38,0.08)_0%,transparent_50%)]" />
-            <div
-              className="absolute inset-0"
-              style={{
-                background: "radial-gradient(ellipse at 80% 30%, var(--hero-glow-2) 0%, transparent 50%)",
-              }}
-            />
-          </div>
-
-          {/* Grain */}
+          {/* Red radial glow */}
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_20%_50%,rgba(220,38,38,0.1)_0%,transparent_50%)]" />
           <div
-            className="absolute inset-0 opacity-[0.03]"
+            className="absolute inset-0"
             style={{
-              backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
+              background:
+                "radial-gradient(ellipse at 80% 30%, var(--hero-glow-2) 0%, transparent 50%)",
+            }}
+          />
+
+          {/* Diagonal checkered pattern (top-right corner) */}
+          <div
+            className="absolute top-0 right-0 w-[400px] h-[400px] pointer-events-none opacity-[0.03]"
+            style={{
+              backgroundImage: `repeating-conic-gradient(currentColor 0% 25%, transparent 0% 50%)`,
+              backgroundSize: "40px 40px",
+              transform: "rotate(45deg) translate(30%, -30%)",
+              color: "var(--text-on-dark)",
             }}
           />
 
@@ -153,21 +156,58 @@ export default function PrimeLabPage() {
               </span>
             </motion.div>
 
-            <motion.h1
-              initial={{ opacity: 0, y: 40 }}
+            {/* Title -- dramatic, bold, stretched */}
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.3 }}
-              className="text-6xl sm:text-7xl md:text-8xl font-extralight tracking-[0.1em] uppercase mb-6"
-              style={{ color: "var(--text-on-dark)" }}
             >
-              Prime Lap
-            </motion.h1>
+              <h1
+                className="text-7xl sm:text-8xl md:text-9xl font-black tracking-[0.08em] uppercase mb-2 leading-none"
+                style={{ color: "var(--text-on-dark)" }}
+              >
+                PRIME
+              </h1>
+              <h1
+                className="text-7xl sm:text-8xl md:text-9xl font-extralight tracking-[0.25em] uppercase mb-6 leading-none"
+                style={{
+                  color: "transparent",
+                  WebkitTextStroke: "1px var(--text-on-dark)",
+                }}
+              >
+                LAP
+              </h1>
+            </motion.div>
 
+            {/* Subtitle with diagonal red stripe accent */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
+              className="relative"
             >
+              {/* Diagonal stripe accent */}
+              <div className="flex items-center justify-center gap-4 mb-6">
+                <div
+                  className="h-[2px] w-16"
+                  style={{
+                    background:
+                      "linear-gradient(90deg, transparent, #dc2626, transparent)",
+                  }}
+                />
+                <div
+                  className="w-3 h-3 rotate-45 border"
+                  style={{ borderColor: "rgba(220,38,38,0.4)" }}
+                />
+                <div
+                  className="h-[2px] w-16"
+                  style={{
+                    background:
+                      "linear-gradient(90deg, transparent, #dc2626, transparent)",
+                  }}
+                />
+              </div>
+
               <p
                 className="text-xl md:text-2xl font-light tracking-wide mb-4"
                 style={{ color: "var(--nav-text-muted)" }}
@@ -183,21 +223,78 @@ export default function PrimeLabPage() {
               </p>
             </motion.div>
 
-            {/* Decorative element */}
+            {/* Speed indicator */}
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1, delay: 0.9 }}
-              className="flex items-center justify-center gap-3 mt-12"
+              initial={{ opacity: 0, scaleX: 0 }}
+              animate={{ opacity: 1, scaleX: 1 }}
+              transition={{ duration: 1.2, delay: 1 }}
+              className="mt-16 max-w-md mx-auto"
             >
-              <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-red-500/40" />
-              <Zap size={18} style={{ color: "var(--accent)" }} />
-              <div className="h-[1px] w-12 bg-gradient-to-l from-transparent to-red-500/40" />
+              <div
+                className="h-[1px] w-full"
+                style={{
+                  background:
+                    "linear-gradient(90deg, transparent, #dc2626, var(--accent), transparent)",
+                }}
+              />
+              <div className="flex justify-between mt-2">
+                <span
+                  className="text-[10px] tracking-[0.2em] uppercase"
+                  style={{ color: "var(--text-muted)" }}
+                >
+                  0 km/h
+                </span>
+                <span className="text-[10px] tracking-[0.2em] uppercase text-red-400">
+                  200+ km/h
+                </span>
+              </div>
             </motion.div>
           </div>
         </section>
 
-        {/* Concept Explanation */}
+        {/* ===== YIN-YANG CONTRAST DIVIDER ===== */}
+        <div
+          className="relative h-24 overflow-hidden"
+          style={{ backgroundColor: "var(--bg-secondary)" }}
+        >
+          {/* The transition from speed to calm, then back */}
+          <div className="absolute inset-0 flex items-center">
+            <div
+              className="w-full h-[1px]"
+              style={{
+                background: `linear-gradient(90deg, #dc2626, var(--accent), var(--accent), #dc2626)`,
+                opacity: 0.2,
+              }}
+            />
+          </div>
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="flex items-center gap-6">
+              <span
+                className="text-[10px] tracking-[0.3em] uppercase font-medium"
+                style={{ color: "var(--text-muted)" }}
+              >
+                YANG
+              </span>
+              <div
+                className="w-6 h-6 rounded-full border flex items-center justify-center"
+                style={{ borderColor: "var(--accent)" }}
+              >
+                <div
+                  className="w-2 h-2 rounded-full"
+                  style={{ backgroundColor: "var(--accent)" }}
+                />
+              </div>
+              <span
+                className="text-[10px] tracking-[0.3em] uppercase font-medium"
+                style={{ color: "var(--text-muted)" }}
+              >
+                YIN
+              </span>
+            </div>
+          </div>
+        </div>
+
+        {/* ===== CONCEPT ===== */}
         <section
           className="py-24 md:py-32"
           style={{ backgroundColor: "var(--bg-secondary)" }}
@@ -218,14 +315,17 @@ export default function PrimeLabPage() {
               </h2>
               <div
                 className="space-y-5 leading-relaxed text-lg"
-                style={{ color: "color-mix(in srgb, var(--text-primary) 70%, transparent)" }}
+                style={{
+                  color:
+                    "color-mix(in srgb, var(--text-primary) 70%, transparent)",
+                }}
               >
                 <p>
-                  Prime Lap strips away the comfort of a conference room and
-                  puts founders exactly where they claim to thrive: under
-                  extreme pressure. Paired with a professional racing driver and
-                  a top company executive, each founder must deliver their
-                  entire pitch during a single high-speed lap.
+                  Prime Lap strips away the comfort of a conference room and puts
+                  founders exactly where they claim to thrive: under extreme
+                  pressure. Paired with a professional racing driver and a top
+                  company executive, each founder must deliver their entire pitch
+                  during a single high-speed lap.
                 </p>
                 <p>
                   No PowerPoint. No rehearsed pauses. No second chances. Just a
@@ -236,7 +336,12 @@ export default function PrimeLabPage() {
                 </p>
                 <p>
                   Developed in partnership with{" "}
-                  <span style={{ color: "var(--text-primary)", fontWeight: 600 }}>
+                  <span
+                    style={{
+                      color: "var(--text-primary)",
+                      fontWeight: 600,
+                    }}
+                  >
                     Prime Movers Lab
                   </span>
                   , the venture fund that backs breakthrough scientific startups,
@@ -248,12 +353,22 @@ export default function PrimeLabPage() {
           </div>
         </section>
 
-        {/* Format Cards */}
+        {/* ===== THE FORMAT: Racing-styled cards ===== */}
         <section
-          className="py-24 md:py-32"
+          className="py-24 md:py-32 relative overflow-hidden"
           style={{ backgroundColor: "var(--hero-bg)" }}
         >
-          <div className="max-w-6xl mx-auto px-6 lg:px-12">
+          {/* Background racing lines, subtle */}
+          <div className="absolute inset-0 pointer-events-none opacity-30">
+            <img
+              src="/art/racing-lines.svg"
+              alt=""
+              aria-hidden="true"
+              className="w-full h-full object-cover"
+            />
+          </div>
+
+          <div className="relative z-10 max-w-6xl mx-auto px-6 lg:px-12">
             <AnimatedSection>
               <p
                 className="text-xs tracking-[0.3em] uppercase font-medium mb-3"
@@ -270,41 +385,68 @@ export default function PrimeLabPage() {
             </AnimatedSection>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              {formatCards.map((card, index) => (
-                <AnimatedSection key={card.title} delay={index * 0.1}>
+              {formatSteps.map((step, index) => (
+                <AnimatedSection key={step.title} delay={index * 0.1}>
                   <div
-                    className={`relative rounded-2xl p-8 h-full overflow-hidden ${card.border || ""}`}
+                    className="relative rounded-lg p-8 h-full overflow-hidden group"
                     style={{
                       backgroundColor: "var(--bg-card-dark)",
-                      border: card.borderStyle ? undefined : `1px solid`,
-                      ...(card.borderStyle || {}),
+                      border: "1px solid var(--border-on-dark-strong)",
                     }}
                   >
-                    {/* Subtle gradient */}
-                    {card.accent && (
-                      <div className={`absolute inset-0 bg-gradient-to-br ${card.accent} pointer-events-none`} />
-                    )}
-                    {card.accentStyle && (
-                      <div className="absolute inset-0 pointer-events-none" style={card.accentStyle} />
-                    )}
+                    {/* Diagonal racing stripe */}
+                    <div
+                      className="absolute top-0 right-0 w-24 h-full pointer-events-none opacity-[0.06]"
+                      style={{
+                        background: `repeating-linear-gradient(-45deg, ${step.color}, ${step.color} 2px, transparent 2px, transparent 12px)`,
+                      }}
+                    />
+
+                    {/* Top accent bar */}
+                    <div
+                      className="absolute top-0 left-0 right-0 h-[2px]"
+                      style={{
+                        background: `linear-gradient(90deg, ${step.color}, transparent)`,
+                        opacity: 0.4,
+                      }}
+                    />
+
                     <div className="relative z-10">
-                      <div
-                        className="w-12 h-12 rounded-xl flex items-center justify-center mb-5"
-                        style={{ backgroundColor: "color-mix(in srgb, var(--text-on-dark) 5%, transparent)" }}
-                      >
-                        <card.icon size={22} style={{ color: "var(--accent)" }} />
+                      {/* Step number -- large, racing-style */}
+                      <div className="flex items-start justify-between mb-5">
+                        <span
+                          className="text-5xl font-black tracking-tighter leading-none"
+                          style={{
+                            color: step.color,
+                            opacity: 0.15,
+                          }}
+                        >
+                          {step.number}
+                        </span>
+
+                        {/* Checkered flag mini icon for last card */}
+                        {index === 3 && (
+                          <div
+                            className="w-8 h-8 opacity-[0.15]"
+                            style={{
+                              backgroundImage: `repeating-conic-gradient(var(--text-on-dark) 0% 25%, transparent 0% 50%)`,
+                              backgroundSize: "8px 8px",
+                            }}
+                          />
+                        )}
                       </div>
+
                       <h3
-                        className="text-xl font-semibold mb-3"
+                        className="text-xl font-bold mb-3 tracking-wide uppercase"
                         style={{ color: "var(--text-on-dark)" }}
                       >
-                        {card.title}
+                        {step.title}
                       </h3>
                       <p
                         className="leading-relaxed"
                         style={{ color: "var(--nav-text-muted)" }}
                       >
-                        {card.description}
+                        {step.description}
                       </p>
                     </div>
                   </div>
@@ -314,39 +456,249 @@ export default function PrimeLabPage() {
           </div>
         </section>
 
-        {/* Partnership + Placement Agency */}
+        {/* ===== THE DUALITY: Speed + Calm ===== */}
         <section
-          className="py-24 md:py-32"
+          className="py-24 md:py-32 relative overflow-hidden"
           style={{ backgroundColor: "var(--bg-secondary)" }}
         >
           <div className="max-w-5xl mx-auto px-6 lg:px-12">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <AnimatedSection>
+              <div className="text-center mb-16">
+                <p
+                  className="text-xs tracking-[0.3em] uppercase font-medium mb-3"
+                  style={{ color: "var(--accent)" }}
+                >
+                  The Duality
+                </p>
+                <h2
+                  className="text-3xl md:text-4xl font-light tracking-tight"
+                  style={{ color: "var(--text-primary)" }}
+                >
+                  Speed Meets Stillness
+                </h2>
+              </div>
+            </AnimatedSection>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-0">
+              {/* YANG side: Racing */}
+              <AnimatedSection delay={0.1}>
+                <div
+                  className="relative p-10 md:p-12 overflow-hidden"
+                  style={{
+                    borderRight: "none",
+                    borderBottom: "1px solid var(--input-border)",
+                  }}
+                >
+                  {/* Racing lines background */}
+                  <div className="absolute inset-0 pointer-events-none opacity-20">
+                    <img
+                      src="/art/racing-lines.svg"
+                      alt=""
+                      aria-hidden="true"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+
+                  <div className="relative z-10">
+                    <span className="text-red-400 text-[10px] tracking-[0.3em] uppercase font-bold">
+                      Yang
+                    </span>
+                    <h3
+                      className="text-2xl font-bold mt-2 mb-4"
+                      style={{ color: "var(--text-primary)" }}
+                    >
+                      Prime Lap
+                    </h3>
+                    <ul
+                      className="space-y-2 text-sm"
+                      style={{
+                        color:
+                          "color-mix(in srgb, var(--text-primary) 65%, transparent)",
+                      }}
+                    >
+                      <li className="flex items-center gap-2">
+                        <div className="w-1.5 h-1.5 bg-red-400 rotate-45 shrink-0" />
+                        Speed and adrenaline
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <div className="w-1.5 h-1.5 bg-red-400 rotate-45 shrink-0" />
+                        High-pressure conviction
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <div className="w-1.5 h-1.5 bg-red-400 rotate-45 shrink-0" />
+                        Wealth, ambition, velocity
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <div className="w-1.5 h-1.5 bg-red-400 rotate-45 shrink-0" />
+                        The race to build
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </AnimatedSection>
+
+              {/* YIN side: Botanical / Joyous */}
+              <AnimatedSection delay={0.2}>
+                <div
+                  className="relative p-10 md:p-12 overflow-hidden"
+                  style={{
+                    borderBottom: "1px solid var(--input-border)",
+                  }}
+                >
+                  {/* Botanical background */}
+                  <div className="absolute inset-0 pointer-events-none opacity-30">
+                    <img
+                      src="/art/chinese-clouds.svg"
+                      alt=""
+                      aria-hidden="true"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+
+                  <div className="relative z-10">
+                    <span
+                      className="text-[10px] tracking-[0.3em] uppercase font-bold"
+                      style={{ color: "var(--accent)" }}
+                    >
+                      Yin
+                    </span>
+                    <h3
+                      className="text-2xl font-light mt-2 mb-4"
+                      style={{ color: "var(--text-primary)" }}
+                    >
+                      Joyous
+                    </h3>
+                    <ul
+                      className="space-y-2 text-sm"
+                      style={{
+                        color:
+                          "color-mix(in srgb, var(--text-primary) 65%, transparent)",
+                      }}
+                    >
+                      <li className="flex items-center gap-2">
+                        <div
+                          className="w-1.5 h-1.5 rounded-full shrink-0"
+                          style={{ backgroundColor: "var(--accent)" }}
+                        />
+                        Calm and reflection
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <div
+                          className="w-1.5 h-1.5 rounded-full shrink-0"
+                          style={{ backgroundColor: "var(--accent)" }}
+                        />
+                        Deep listening and wisdom
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <div
+                          className="w-1.5 h-1.5 rounded-full shrink-0"
+                          style={{ backgroundColor: "var(--accent)" }}
+                        />
+                        Health, balance, harmony
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <div
+                          className="w-1.5 h-1.5 rounded-full shrink-0"
+                          style={{ backgroundColor: "var(--accent)" }}
+                        />
+                        The art of living well
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </AnimatedSection>
+            </div>
+
+            {/* Connecting statement */}
+            <AnimatedSection delay={0.3}>
+              <div className="text-center mt-12">
+                <p
+                  className="text-lg font-light italic leading-relaxed max-w-xl mx-auto"
+                  style={{
+                    color:
+                      "color-mix(in srgb, var(--text-primary) 70%, transparent)",
+                  }}
+                >
+                  This duality is the podcast&apos;s message. Wealth without
+                  health is hollow. Health without ambition is incomplete. Prime
+                  Lap is the proof that both can coexist &mdash; at 200 km/h.
+                </p>
+              </div>
+            </AnimatedSection>
+          </div>
+        </section>
+
+        {/* ===== PARTNERSHIP ===== */}
+        <section
+          className="py-24 md:py-32"
+          style={{ backgroundColor: "var(--hero-bg)" }}
+        >
+          <div className="max-w-5xl mx-auto px-6 lg:px-12">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
               <AnimatedSection>
                 <div>
-                  <Rocket size={24} className="mb-4" style={{ color: "var(--accent)" }} />
-                  <h3 className="text-2xl font-semibold mb-4" style={{ color: "var(--text-primary)" }}>
-                    Partnership with Prime Movers Lab
-                  </h3>
-                  <p className="leading-relaxed mb-6" style={{ color: "color-mix(in srgb, var(--text-primary) 70%, transparent)" }}>
-                    Prime Movers Lab invests in breakthrough scientific startups building the future of energy, transportation, computing, and human health. Their portfolio of audacious founders is the perfect proving ground for the Prime Lap format.
+                  <p
+                    className="text-xs tracking-[0.3em] uppercase font-medium mb-3"
+                    style={{ color: "var(--accent)" }}
+                  >
+                    Partnership
                   </p>
-                  <p className="leading-relaxed" style={{ color: "color-mix(in srgb, var(--text-primary) 70%, transparent)" }}>
-                    Together, we&apos;re creating a new way to evaluate founders: not by their slides, but by their composure, clarity, and conviction under genuine duress.
+                  <h3
+                    className="text-2xl font-semibold mb-4"
+                    style={{ color: "var(--text-on-dark)" }}
+                  >
+                    Prime Movers Lab
+                  </h3>
+                  <p
+                    className="leading-relaxed mb-6"
+                    style={{ color: "var(--nav-text-muted)" }}
+                  >
+                    Prime Movers Lab invests in breakthrough scientific startups
+                    building the future of energy, transportation, computing, and
+                    human health. Their portfolio of audacious founders is the
+                    perfect proving ground for the Prime Lap format.
+                  </p>
+                  <p
+                    className="leading-relaxed"
+                    style={{ color: "var(--nav-text-muted)" }}
+                  >
+                    Together, we&apos;re creating a new way to evaluate
+                    founders: not by their slides, but by their composure,
+                    clarity, and conviction under genuine duress.
                   </p>
                 </div>
               </AnimatedSection>
 
               <AnimatedSection delay={0.15}>
                 <div>
-                  <Trophy size={24} className="mb-4" style={{ color: "var(--accent)" }} />
-                  <h3 className="text-2xl font-semibold mb-4" style={{ color: "var(--text-primary)" }}>
-                    The Placement Connection
-                  </h3>
-                  <p className="leading-relaxed mb-6" style={{ color: "color-mix(in srgb, var(--text-primary) 70%, transparent)" }}>
-                    Prime Lap isn&apos;t just entertainment. Companies that survive the lap gain access to Jodi&apos;s curated placement network &mdash; connecting them with exceptional executives, operators, and advisors who are drawn to the kind of founders bold enough to pitch at 200 km/h.
+                  <p
+                    className="text-xs tracking-[0.3em] uppercase font-medium mb-3"
+                    style={{ color: "var(--accent)" }}
+                  >
+                    The Connection
                   </p>
-                  <p className="leading-relaxed" style={{ color: "color-mix(in srgb, var(--text-primary) 70%, transparent)" }}>
-                    It&apos;s a filter. A signal. And for the right companies, it&apos;s the beginning of something extraordinary.
+                  <h3
+                    className="text-2xl font-semibold mb-4"
+                    style={{ color: "var(--text-on-dark)" }}
+                  >
+                    Placement Network
+                  </h3>
+                  <p
+                    className="leading-relaxed mb-6"
+                    style={{ color: "var(--nav-text-muted)" }}
+                  >
+                    Prime Lap isn&apos;t just entertainment. Companies that
+                    survive the lap gain access to Jodi&apos;s curated placement
+                    network &mdash; connecting them with exceptional executives,
+                    operators, and advisors who are drawn to the kind of founders
+                    bold enough to pitch at 200 km/h.
+                  </p>
+                  <p
+                    className="leading-relaxed"
+                    style={{ color: "var(--nav-text-muted)" }}
+                  >
+                    It&apos;s a filter. A signal. And for the right companies,
+                    it&apos;s the beginning of something extraordinary.
                   </p>
                 </div>
               </AnimatedSection>
@@ -354,25 +706,27 @@ export default function PrimeLabPage() {
           </div>
         </section>
 
-        {/* CTA */}
+        {/* ===== CTA: Take the Lap ===== */}
         <section
           className="relative py-24 md:py-32 overflow-hidden"
-          style={{ backgroundColor: "var(--hero-bg)" }}
+          style={{ backgroundColor: "var(--bg-secondary)" }}
         >
-          {/* Speed lines */}
+          {/* Animated speed lines */}
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            {[...Array(6)].map((_, i) => (
+            {[...Array(5)].map((_, i) => (
               <motion.div
                 key={i}
-                className="absolute h-[1px] bg-gradient-to-r from-transparent via-red-500/10 to-transparent"
+                className="absolute h-[1px]"
                 style={{
-                  top: `${15 + i * 14}%`,
+                  top: `${20 + i * 15}%`,
                   left: "-10%",
                   width: "120%",
+                  background:
+                    "linear-gradient(90deg, transparent, rgba(220,38,38,0.12), transparent)",
                 }}
                 animate={{
                   x: ["-100%", "100%"],
-                  opacity: [0, 0.5, 0],
+                  opacity: [0, 0.6, 0],
                 }}
                 transition={{
                   duration: 4 + i * 0.6,
@@ -384,20 +738,34 @@ export default function PrimeLabPage() {
             ))}
           </div>
 
+          {/* Checkered flag stripe at bottom */}
+          <div className="absolute bottom-0 left-0 right-0 h-2 pointer-events-none opacity-[0.06]">
+            <div
+              className="w-full h-full"
+              style={{
+                backgroundImage: `repeating-conic-gradient(var(--text-primary) 0% 25%, transparent 0% 50%)`,
+                backgroundSize: "16px 16px",
+              }}
+            />
+          </div>
+
           <div className="relative z-10 max-w-3xl mx-auto px-6 lg:px-12 text-center">
             <AnimatedSection>
               <h2
                 className="text-3xl md:text-4xl font-light mb-4 tracking-tight"
-                style={{ color: "var(--text-on-dark)" }}
+                style={{ color: "var(--text-primary)" }}
               >
                 Ready to Take the Lap?
               </h2>
               <p
                 className="leading-relaxed mb-10 max-w-lg mx-auto"
-                style={{ color: "var(--text-muted)" }}
+                style={{
+                  color:
+                    "color-mix(in srgb, var(--text-primary) 60%, transparent)",
+                }}
               >
-                Prime Lap is launching soon. If your company has what it takes
-                to pitch at 200 km/h, we want to hear from you.
+                Prime Lap is launching soon. If your company has what it takes to
+                pitch at 200 km/h, we want to hear from you.
               </p>
 
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -416,8 +784,8 @@ export default function PrimeLabPage() {
                   href="/episodes"
                   className="group flex items-center gap-2 border px-8 py-4 rounded-full text-sm font-medium tracking-wide uppercase transition-all duration-300"
                   style={{
-                    borderColor: "var(--border-on-dark-strong)",
-                    color: "var(--text-on-dark)",
+                    borderColor: "var(--input-border)",
+                    color: "var(--text-primary)",
                   }}
                 >
                   Listen to Joyous

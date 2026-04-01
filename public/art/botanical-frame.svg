@@ -1,0 +1,185 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <style>
+      .frame-stroke { fill: none; stroke: #2D4A3E; stroke-linecap: round; stroke-linejoin: round; }
+      .leaf-fill { fill: #2D4A3E; opacity: 0.15; }
+      .berry-fill { fill: #2D4A3E; opacity: 0.3; }
+    </style>
+  </defs>
+
+  <!-- Outer decorative border -->
+  <rect x="40" y="30" width="720" height="540" rx="8" ry="8" class="frame-stroke" stroke-width="1.5"/>
+  <rect x="50" y="40" width="700" height="520" rx="6" ry="6" class="frame-stroke" stroke-width="0.5"/>
+
+  <!-- TOP LEFT CORNER — Sage cluster -->
+  <g transform="translate(35, 25)">
+    <path d="M10,30 Q25,15 45,8" class="frame-stroke" stroke-width="1.2"/>
+    <path d="M15,28 Q12,20 8,12 Q6,8 10,5 Q14,2 18,6 Q22,10 20,18 Q18,24 15,28Z" class="leaf-fill" stroke="#2D4A3E" stroke-width="0.8"/>
+    <path d="M15,28 Q13,20 10,13" class="frame-stroke" stroke-width="0.4"/>
+    <path d="M22,24 Q18,16 16,8 Q14,3 18,1 Q23,-1 26,4 Q29,9 27,17 Q25,22 22,24Z" class="leaf-fill" stroke="#2D4A3E" stroke-width="0.8"/>
+    <path d="M22,24 Q20,16 17,9" class="frame-stroke" stroke-width="0.4"/>
+    <path d="M30,18 Q27,12 26,5 Q25,1 29,-1 Q33,-2 35,2 Q37,6 36,13 Q34,17 30,18Z" class="leaf-fill" stroke="#2D4A3E" stroke-width="0.8"/>
+    <path d="M30,18 Q28,12 27,6" class="frame-stroke" stroke-width="0.4"/>
+    <path d="M38,12 Q36,7 37,3 Q39,0 42,3 Q44,7 41,11 Q39,12 38,12Z" class="leaf-fill" stroke="#2D4A3E" stroke-width="0.6"/>
+    <path d="M45,8 Q44,4 46,2 Q48,1 49,4 Q50,7 47,9Z" class="leaf-fill" stroke="#2D4A3E" stroke-width="0.5"/>
+  </g>
+
+  <!-- TOP LEFT — Lavender sprig -->
+  <g transform="translate(80, 15)">
+    <path d="M0,35 Q5,25 8,15 Q10,8 12,2" class="frame-stroke" stroke-width="1"/>
+    <ellipse cx="12" cy="2" rx="2" ry="3.5" fill="#2D4A3E" opacity="0.25" stroke="#2D4A3E" stroke-width="0.5"/>
+    <ellipse cx="10" cy="7" rx="1.8" ry="3" fill="#2D4A3E" opacity="0.2" stroke="#2D4A3E" stroke-width="0.5"/>
+    <ellipse cx="13" cy="6" rx="1.8" ry="3" fill="#2D4A3E" opacity="0.2" stroke="#2D4A3E" stroke-width="0.5"/>
+    <ellipse cx="9" cy="12" rx="1.5" ry="2.5" fill="#2D4A3E" opacity="0.18" stroke="#2D4A3E" stroke-width="0.4"/>
+    <ellipse cx="12" cy="11" rx="1.5" ry="2.5" fill="#2D4A3E" opacity="0.18" stroke="#2D4A3E" stroke-width="0.4"/>
+    <path d="M6,22 Q2,18 4,15 Q6,18 8,20Z" class="frame-stroke" stroke-width="0.5"/>
+    <path d="M10,22 Q14,18 12,15 Q10,18 8,20Z" class="frame-stroke" stroke-width="0.5"/>
+  </g>
+
+  <!-- TOP CENTER — Decorative herb garland -->
+  <g transform="translate(200, 18)">
+    <path d="M0,22 Q50,5 100,12 Q150,5 200,15 Q250,5 300,12 Q350,5 400,22" class="frame-stroke" stroke-width="1"/>
+    <path d="M40,10 Q35,3 38,-2 Q42,-4 45,0 Q47,5 43,10Z" class="leaf-fill" stroke="#2D4A3E" stroke-width="0.6"/>
+    <path d="M55,8 Q58,2 63,0 Q66,1 64,6 Q61,10 57,9Z" class="leaf-fill" stroke="#2D4A3E" stroke-width="0.6"/>
+    <path d="M100,12 Q96,5 99,0 Q103,-2 106,3 Q108,8 103,12Z" class="leaf-fill" stroke="#2D4A3E" stroke-width="0.6"/>
+    <path d="M120,10 Q123,4 128,2 Q131,3 129,8 Q126,12 122,11Z" class="leaf-fill" stroke="#2D4A3E" stroke-width="0.6"/>
+    <!-- Berries cluster -->
+    <circle cx="150" cy="8" r="2.5" class="berry-fill" stroke="#2D4A3E" stroke-width="0.5"/>
+    <circle cx="155" cy="5" r="2" class="berry-fill" stroke="#2D4A3E" stroke-width="0.5"/>
+    <circle cx="147" cy="5" r="2" class="berry-fill" stroke="#2D4A3E" stroke-width="0.5"/>
+    <circle cx="151" cy="3" r="1.8" class="berry-fill" stroke="#2D4A3E" stroke-width="0.5"/>
+    <path d="M200,14 Q196,7 199,2 Q203,0 206,5 Q208,10 203,14Z" class="leaf-fill" stroke="#2D4A3E" stroke-width="0.6"/>
+    <path d="M220,12 Q223,6 228,4 Q231,5 229,10 Q226,14 222,13Z" class="leaf-fill" stroke="#2D4A3E" stroke-width="0.6"/>
+    <!-- Tiny thyme sprigs -->
+    <path d="M270,10 Q268,6 270,3" class="frame-stroke" stroke-width="0.5"/>
+    <ellipse cx="270" cy="2" rx="2" ry="1.2" class="leaf-fill" stroke="#2D4A3E" stroke-width="0.4"/>
+    <path d="M268,6 Q265,4 266,2" class="frame-stroke" stroke-width="0.4"/>
+    <ellipse cx="266" cy="1.5" rx="1.5" ry="1" class="leaf-fill" stroke="#2D4A3E" stroke-width="0.3"/>
+    <path d="M272,7 Q275,5 274,2" class="frame-stroke" stroke-width="0.4"/>
+    <ellipse cx="274" cy="1.5" rx="1.5" ry="1" class="leaf-fill" stroke="#2D4A3E" stroke-width="0.3"/>
+    <!-- More berries -->
+    <circle cx="320" cy="9" r="2.2" class="berry-fill" stroke="#2D4A3E" stroke-width="0.5"/>
+    <circle cx="325" cy="6" r="1.8" class="berry-fill" stroke="#2D4A3E" stroke-width="0.5"/>
+    <circle cx="317" cy="7" r="1.8" class="berry-fill" stroke="#2D4A3E" stroke-width="0.5"/>
+    <path d="M360,14 Q356,7 359,2 Q363,0 366,5 Q368,10 363,14Z" class="leaf-fill" stroke="#2D4A3E" stroke-width="0.6"/>
+    <path d="M380,18 Q383,12 388,10 Q391,11 389,16 Q386,20 382,19Z" class="leaf-fill" stroke="#2D4A3E" stroke-width="0.6"/>
+  </g>
+
+  <!-- TOP RIGHT CORNER — Rosemary -->
+  <g transform="translate(700, 20)">
+    <path d="M60,30 Q45,20 30,10 Q20,5 10,2" class="frame-stroke" stroke-width="1.1"/>
+    <path d="M50,24 Q46,20 44,16 Q46,14 50,18 Q52,22 50,24Z" fill="#2D4A3E" opacity="0.12" stroke="#2D4A3E" stroke-width="0.5"/>
+    <path d="M52,26 Q56,22 58,18 Q56,16 52,20 Q50,24 52,26Z" fill="#2D4A3E" opacity="0.12" stroke="#2D4A3E" stroke-width="0.5"/>
+    <path d="M40,18 Q36,14 34,10 Q36,8 40,12 Q42,16 40,18Z" fill="#2D4A3E" opacity="0.12" stroke="#2D4A3E" stroke-width="0.5"/>
+    <path d="M42,20 Q46,16 48,12 Q46,10 42,14 Q40,18 42,20Z" fill="#2D4A3E" opacity="0.12" stroke="#2D4A3E" stroke-width="0.5"/>
+    <path d="M30,12 Q26,8 24,4 Q26,2 30,6 Q32,10 30,12Z" fill="#2D4A3E" opacity="0.12" stroke="#2D4A3E" stroke-width="0.5"/>
+    <path d="M32,14 Q36,10 38,6 Q36,4 32,8 Q30,12 32,14Z" fill="#2D4A3E" opacity="0.12" stroke="#2D4A3E" stroke-width="0.5"/>
+    <path d="M20,7 Q16,3 15,0 Q17,-1 20,3 Q22,6 20,7Z" fill="#2D4A3E" opacity="0.12" stroke="#2D4A3E" stroke-width="0.4"/>
+    <path d="M22,9 Q26,5 27,2 Q25,0 22,4 Q20,7 22,9Z" fill="#2D4A3E" opacity="0.12" stroke="#2D4A3E" stroke-width="0.4"/>
+  </g>
+
+  <!-- LEFT SIDE — Vertical herb vine -->
+  <g transform="translate(25, 100)">
+    <path d="M22,0 Q18,50 20,100 Q22,150 18,200 Q15,250 20,300 Q24,350 18,400" class="frame-stroke" stroke-width="1"/>
+    <!-- Alternating leaf pairs with veins -->
+    <path d="M18,30 Q8,22 5,12 Q4,8 8,8 Q12,9 16,16 Q18,22 18,30Z" class="leaf-fill" stroke="#2D4A3E" stroke-width="0.7"/>
+    <path d="M18,30 Q10,24 7,16" class="frame-stroke" stroke-width="0.3"/>
+    <path d="M20,60 Q30,52 34,42 Q35,38 31,38 Q27,39 23,46 Q21,52 20,60Z" class="leaf-fill" stroke="#2D4A3E" stroke-width="0.7"/>
+    <path d="M20,60 Q28,54 32,45" class="frame-stroke" stroke-width="0.3"/>
+    <path d="M19,100 Q9,92 5,82 Q4,78 8,78 Q12,79 16,86 Q18,92 19,100Z" class="leaf-fill" stroke="#2D4A3E" stroke-width="0.7"/>
+    <!-- Small flower -->
+    <g transform="translate(22, 140)">
+      <circle cx="0" cy="0" r="4" fill="none" stroke="#2D4A3E" stroke-width="0.5"/>
+      <path d="M0,-4 Q2,-7 0,-9 Q-2,-7 0,-4Z" fill="#2D4A3E" opacity="0.15" stroke="#2D4A3E" stroke-width="0.4"/>
+      <path d="M4,0 Q7,2 9,0 Q7,-2 4,0Z" fill="#2D4A3E" opacity="0.15" stroke="#2D4A3E" stroke-width="0.4"/>
+      <path d="M0,4 Q2,7 0,9 Q-2,7 0,4Z" fill="#2D4A3E" opacity="0.15" stroke="#2D4A3E" stroke-width="0.4"/>
+      <path d="M-4,0 Q-7,2 -9,0 Q-7,-2 -4,0Z" fill="#2D4A3E" opacity="0.15" stroke="#2D4A3E" stroke-width="0.4"/>
+      <path d="M-3,-3 Q-5,-5 -4,-7 Q-2,-6 -3,-3Z" fill="#2D4A3E" opacity="0.12" stroke="#2D4A3E" stroke-width="0.3"/>
+      <circle cx="0" cy="0" r="1.5" fill="#2D4A3E" opacity="0.3"/>
+    </g>
+    <path d="M17,180 Q7,172 3,162 Q2,158 6,158 Q10,159 14,166 Q16,172 17,180Z" class="leaf-fill" stroke="#2D4A3E" stroke-width="0.7"/>
+    <path d="M20,220 Q30,212 34,202 Q35,198 31,198 Q27,199 23,206 Q21,212 20,220Z" class="leaf-fill" stroke="#2D4A3E" stroke-width="0.7"/>
+    <!-- Berries -->
+    <circle cx="12" cy="260" r="2.5" class="berry-fill" stroke="#2D4A3E" stroke-width="0.5"/>
+    <circle cx="8" cy="256" r="2" class="berry-fill" stroke="#2D4A3E" stroke-width="0.5"/>
+    <circle cx="14" cy="254" r="2" class="berry-fill" stroke="#2D4A3E" stroke-width="0.5"/>
+    <path d="M12,260 Q10,265 12,270" class="frame-stroke" stroke-width="0.4"/>
+    <path d="M18,310 Q8,302 5,292 Q4,288 8,288 Q12,289 16,296 Q18,302 18,310Z" class="leaf-fill" stroke="#2D4A3E" stroke-width="0.7"/>
+    <path d="M20,350 Q30,342 34,332 Q35,328 31,328 Q27,329 23,336 Q21,342 20,350Z" class="leaf-fill" stroke="#2D4A3E" stroke-width="0.7"/>
+    <path d="M18,390 Q8,382 5,372 Q4,368 8,368 Q12,369 16,376 Q18,382 18,390Z" class="leaf-fill" stroke="#2D4A3E" stroke-width="0.7"/>
+  </g>
+
+  <!-- RIGHT SIDE — Vertical herb vine (mirrored) -->
+  <g transform="translate(775, 100) scale(-1,1)">
+    <path d="M22,0 Q18,50 20,100 Q22,150 18,200 Q15,250 20,300 Q24,350 18,400" class="frame-stroke" stroke-width="1"/>
+    <path d="M18,40 Q8,32 5,22 Q4,18 8,18 Q12,19 16,26 Q18,32 18,40Z" class="leaf-fill" stroke="#2D4A3E" stroke-width="0.7"/>
+    <path d="M20,80 Q30,72 34,62 Q35,58 31,58 Q27,59 23,66 Q21,72 20,80Z" class="leaf-fill" stroke="#2D4A3E" stroke-width="0.7"/>
+    <path d="M19,120 Q9,112 5,102 Q4,98 8,98 Q12,99 16,106 Q18,112 19,120Z" class="leaf-fill" stroke="#2D4A3E" stroke-width="0.7"/>
+    <!-- Lavender sprig -->
+    <g transform="translate(15, 160)">
+      <path d="M5,20 Q6,12 7,4" class="frame-stroke" stroke-width="0.7"/>
+      <ellipse cx="7" cy="3" rx="2" ry="3" fill="#2D4A3E" opacity="0.2" stroke="#2D4A3E" stroke-width="0.4"/>
+      <ellipse cx="5" cy="7" rx="1.5" ry="2.5" fill="#2D4A3E" opacity="0.18" stroke="#2D4A3E" stroke-width="0.4"/>
+      <ellipse cx="9" cy="7" rx="1.5" ry="2.5" fill="#2D4A3E" opacity="0.18" stroke="#2D4A3E" stroke-width="0.4"/>
+      <ellipse cx="6" cy="11" rx="1.3" ry="2" fill="#2D4A3E" opacity="0.15" stroke="#2D4A3E" stroke-width="0.3"/>
+      <ellipse cx="8" cy="11" rx="1.3" ry="2" fill="#2D4A3E" opacity="0.15" stroke="#2D4A3E" stroke-width="0.3"/>
+    </g>
+    <path d="M20,220 Q30,212 34,202 Q35,198 31,198 Q27,199 23,206 Q21,212 20,220Z" class="leaf-fill" stroke="#2D4A3E" stroke-width="0.7"/>
+    <path d="M17,270 Q7,262 3,252 Q2,248 6,248 Q10,249 14,256 Q16,262 17,270Z" class="leaf-fill" stroke="#2D4A3E" stroke-width="0.7"/>
+    <circle cx="26" cy="310" r="2.2" class="berry-fill" stroke="#2D4A3E" stroke-width="0.5"/>
+    <circle cx="22" cy="306" r="1.8" class="berry-fill" stroke="#2D4A3E" stroke-width="0.5"/>
+    <circle cx="28" cy="305" r="1.8" class="berry-fill" stroke="#2D4A3E" stroke-width="0.5"/>
+    <path d="M18,350 Q8,342 5,332 Q4,328 8,328 Q12,329 16,336 Q18,342 18,350Z" class="leaf-fill" stroke="#2D4A3E" stroke-width="0.7"/>
+    <path d="M20,390 Q30,382 34,372 Q35,368 31,368 Q27,369 23,376 Q21,382 20,390Z" class="leaf-fill" stroke="#2D4A3E" stroke-width="0.7"/>
+  </g>
+
+  <!-- BOTTOM LEFT CORNER — Thyme and berries -->
+  <g transform="translate(35, 555)">
+    <path d="M10,15 Q25,20 50,18" class="frame-stroke" stroke-width="1"/>
+    <path d="M15,15 Q12,20 8,24 Q6,26 9,27 Q12,27 14,23 Q16,19 15,15Z" class="leaf-fill" stroke="#2D4A3E" stroke-width="0.5"/>
+    <path d="M25,17 Q22,22 18,26 Q16,28 19,29 Q22,29 24,25 Q26,21 25,17Z" class="leaf-fill" stroke="#2D4A3E" stroke-width="0.5"/>
+    <path d="M35,18 Q32,23 28,27 Q26,29 29,30 Q32,30 34,26 Q36,22 35,18Z" class="leaf-fill" stroke="#2D4A3E" stroke-width="0.5"/>
+    <circle cx="45" cy="19" r="2.5" class="berry-fill" stroke="#2D4A3E" stroke-width="0.5"/>
+    <circle cx="50" cy="17" r="2" class="berry-fill" stroke="#2D4A3E" stroke-width="0.5"/>
+    <circle cx="48" cy="22" r="2" class="berry-fill" stroke="#2D4A3E" stroke-width="0.5"/>
+  </g>
+
+  <!-- BOTTOM CENTER — Garland -->
+  <g transform="translate(200, 558)">
+    <path d="M0,2 Q50,18 100,10 Q150,18 200,8 Q250,18 300,10 Q350,18 400,2" class="frame-stroke" stroke-width="1"/>
+    <path d="M40,12 Q35,18 38,23 Q42,25 45,20 Q47,15 43,12Z" class="leaf-fill" stroke="#2D4A3E" stroke-width="0.6"/>
+    <path d="M80,8 Q83,14 88,16 Q91,15 89,10 Q86,6 82,7Z" class="leaf-fill" stroke="#2D4A3E" stroke-width="0.6"/>
+    <circle cx="130" cy="14" r="2.2" class="berry-fill" stroke="#2D4A3E" stroke-width="0.5"/>
+    <circle cx="135" cy="17" r="1.8" class="berry-fill" stroke="#2D4A3E" stroke-width="0.5"/>
+    <circle cx="127" cy="17" r="1.8" class="berry-fill" stroke="#2D4A3E" stroke-width="0.5"/>
+    <path d="M180,10 Q176,16 179,21 Q183,23 186,18 Q188,13 183,10Z" class="leaf-fill" stroke="#2D4A3E" stroke-width="0.6"/>
+    <path d="M230,14 Q233,20 238,22 Q241,21 239,16 Q236,12 232,13Z" class="leaf-fill" stroke="#2D4A3E" stroke-width="0.6"/>
+    <!-- Small flower -->
+    <g transform="translate(280, 14)">
+      <circle cx="0" cy="0" r="3" fill="none" stroke="#2D4A3E" stroke-width="0.4"/>
+      <path d="M0,-3 Q1.5,-5 0,-6.5 Q-1.5,-5 0,-3Z" fill="#2D4A3E" opacity="0.12" stroke="#2D4A3E" stroke-width="0.3"/>
+      <path d="M3,0 Q5,1.5 6.5,0 Q5,-1.5 3,0Z" fill="#2D4A3E" opacity="0.12" stroke="#2D4A3E" stroke-width="0.3"/>
+      <path d="M0,3 Q1.5,5 0,6.5 Q-1.5,5 0,3Z" fill="#2D4A3E" opacity="0.12" stroke="#2D4A3E" stroke-width="0.3"/>
+      <path d="M-3,0 Q-5,1.5 -6.5,0 Q-5,-1.5 -3,0Z" fill="#2D4A3E" opacity="0.12" stroke="#2D4A3E" stroke-width="0.3"/>
+      <circle cx="0" cy="0" r="1.2" fill="#2D4A3E" opacity="0.25"/>
+    </g>
+    <path d="M340,12 Q336,18 339,23 Q343,25 346,20 Q348,15 343,12Z" class="leaf-fill" stroke="#2D4A3E" stroke-width="0.6"/>
+    <path d="M380,6 Q383,12 388,14 Q391,13 389,8 Q386,4 382,5Z" class="leaf-fill" stroke="#2D4A3E" stroke-width="0.6"/>
+  </g>
+
+  <!-- BOTTOM RIGHT CORNER — Sage -->
+  <g transform="translate(710, 555)">
+    <path d="M55,15 Q40,20 15,18" class="frame-stroke" stroke-width="1"/>
+    <path d="M45,17 Q48,22 52,26 Q54,28 51,29 Q48,29 46,25 Q44,21 45,17Z" class="leaf-fill" stroke="#2D4A3E" stroke-width="0.5"/>
+    <path d="M35,18 Q38,23 42,27 Q44,29 41,30 Q38,30 36,26 Q34,22 35,18Z" class="leaf-fill" stroke="#2D4A3E" stroke-width="0.5"/>
+    <path d="M25,18 Q28,23 32,27 Q34,29 31,30 Q28,30 26,26 Q24,22 25,18Z" class="leaf-fill" stroke="#2D4A3E" stroke-width="0.5"/>
+    <circle cx="18" cy="19" r="2.2" class="berry-fill" stroke="#2D4A3E" stroke-width="0.5"/>
+    <circle cx="14" cy="17" r="1.8" class="berry-fill" stroke="#2D4A3E" stroke-width="0.5"/>
+  </g>
+
+  <!-- Corner ornament dots -->
+  <circle cx="44" cy="34" r="1.5" fill="#2D4A3E" opacity="0.4"/>
+  <circle cx="756" cy="34" r="1.5" fill="#2D4A3E" opacity="0.4"/>
+  <circle cx="44" cy="566" r="1.5" fill="#2D4A3E" opacity="0.4"/>
+  <circle cx="756" cy="566" r="1.5" fill="#2D4A3E" opacity="0.4"/>
+</svg>
